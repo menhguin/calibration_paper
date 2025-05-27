@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -24,6 +24,11 @@ Prateek Chhikara.
 \newblock Mind the confidence gap: Overconfidence, calibration, and distractor
   effects in large language models, 2025.
 \newblock URL \url{https://arxiv.org/abs/2502.11028}.
+
+\bibitem[Chua and Evans(2025)]{chua2025deepseekr1reasoningmodels}
+James Chua and Owain Evans.
+\newblock Are deepseek r1 and other reasoning models more faithful?, 2025.
+\newblock URL \url{https://arxiv.org/abs/2501.08156}.
 
 \bibitem[Chung et~al.(2025)Chung, Du, and
   Fu]{chung2025learningfailuresmultiattemptreinforcement}
@@ -107,6 +112,21 @@ Cognition Labs.
 \newblock URL \url{https://x.com/cognition_labs/status/1923110270660116965}.
 \newblock Tweet.
 
+\bibitem[Lanham et~al.(2023)Lanham, Chen, Radhakrishnan, Steiner, Denison,
+  Hernandez, Li, Durmus, Hubinger, Kernion, Lukošiūtė, Nguyen, Cheng,
+  Joseph, Schiefer, Rausch, Larson, McCandlish, Kundu, Kadavath, Yang,
+  Henighan, Maxwell, Telleen-Lawton, Hume, Hatfield-Dodds, Kaplan, Brauner,
+  Bowman, and Perez]{lanham2023measuringfaithfulnesschainofthoughtreasoning}
+Tamera Lanham, Anna Chen, Ansh Radhakrishnan, Benoit Steiner, Carson Denison,
+  Danny Hernandez, Dustin Li, Esin Durmus, Evan Hubinger, Jackson Kernion,
+  Kamilė Lukošiūtė, Karina Nguyen, Newton Cheng, Nicholas Joseph, Nicholas
+  Schiefer, Oliver Rausch, Robin Larson, Sam McCandlish, Sandipan Kundu, Saurav
+  Kadavath, Shannon Yang, Thomas Henighan, Timothy Maxwell, Timothy
+  Telleen-Lawton, Tristan Hume, Zac Hatfield-Dodds, Jared Kaplan, Jan Brauner,
+  Samuel~R. Bowman, and Ethan Perez.
+\newblock Measuring faithfulness in chain-of-thought reasoning, 2023.
+\newblock URL \url{https://arxiv.org/abs/2307.13702}.
+
 \bibitem[Leng et~al.(2025)Leng, Huang, Zhu, and
   Huang]{leng2025tamingoverconfidencellmsreward}
 Jixuan Leng, Chengsong Huang, Banghua Zhu, and Jiaxin Huang.
@@ -129,6 +149,13 @@ Kaiqu Liang, Zixu Zhang, and Jaime~Fernández Fisac.
   task ambiguity, 2025.
 \newblock URL \url{https://arxiv.org/abs/2402.06529}.
 
+\bibitem[Liu et~al.(2025)Liu, Chen, Li, Qi, Pang, Du, Lee, and
+  Lin]{liu2025understandingr1zeroliketrainingcritical}
+Zichen Liu, Changyu Chen, Wenjun Li, Penghui Qi, Tianyu Pang, Chao Du, Wee~Sun
+  Lee, and Min Lin.
+\newblock Understanding r1-zero-like training: A critical perspective, 2025.
+\newblock URL \url{https://arxiv.org/abs/2503.20783}.
+
 \bibitem[Mandel(2019)]{Mandel2019}
 David~R. Mandel.
 \newblock Systematic monitoring of forecasting skill in strategic intelligence.
@@ -147,6 +174,16 @@ Jonathan Meer and Edward~Van Wesep.
 \newblock Discussion Papers 06-042, Stanford Institute for Economic Policy
   Research, August 2007.
 \newblock URL \url{https://ideas.repec.org/p/sip/dpaper/06-042.html}.
+
+\bibitem[Monés(2025)]{roldan2025genai}
+Antonio~Roldán Monés.
+\newblock When genai increases inequality: Evidence from a university
+  experiment.
+\newblock POID Working Paper 10951, Programme on Innovation and Diffusion
+  (POID), London School of Economics and Political Science, 2025.
+\newblock URL
+  \url{https://poid.lse.ac.uk/PUBLICATIONS/abstract.asp?index=10951}.
+\newblock Accessed: 2025-05-27.
 
 \bibitem[Moore and Healy(2008)]{Moore2008}
 Don~A. Moore and Paul~J. Healy.
@@ -263,11 +300,30 @@ Colin Rivera, Xinyi Ye, Yonsei Kim, and Wenpeng Li.
   (ACL)}, 2023.
 \newblock URL \url{https://arxiv.org/abs/2305.04745}.
 
+\bibitem[Rivera et~al.(2024)Rivera, Mukobi, Reuel, Lamparth, Smith, and
+  Schneider]{Rivera_2024}
+Juan-Pablo Rivera, Gabriel Mukobi, Anka Reuel, Max Lamparth, Chandler Smith,
+  and Jacquelyn Schneider.
+\newblock Escalation risks from language models in military and diplomatic
+  decision-making.
+\newblock In \emph{The 2024 ACM Conference on Fairness, Accountability, and
+  Transparency}, FAccT ’24, page 836–898. ACM, June 2024.
+\newblock \doi{10.1145/3630106.3658942}.
+\newblock URL \url{http://dx.doi.org/10.1145/3630106.3658942}.
+
 \bibitem[Song et~al.(2025)Song, Hu, and Mahowald]{song2025introspect}
 Siyuan Song, Jennifer Hu, and Kyle Mahowald.
 \newblock Language models fail to introspect about their knowledge of language.
 \newblock \emph{arXiv preprint arXiv:2503.07513}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2503.07513}.
+
+\bibitem[Stechly et~al.(2025)Stechly, Valmeekam, Gundawar, Palod, and
+  Kambhampati]{stechly2025semanticsunreasonableeffectivenessreasonless}
+Kaya Stechly, Karthik Valmeekam, Atharva Gundawar, Vardhan Palod, and Subbarao
+  Kambhampati.
+\newblock Beyond semantics: The unreasonable effectiveness of reasonless
+  intermediate tokens, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.13775}.
 
 \bibitem[Tian et~al.(2023)Tian, Mitchell, Zhou, Sharma, Rafailov, Yao, Finn,
   and Manning]{tian2023justask}
@@ -278,6 +334,14 @@ Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov,
 \newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
   Natural Language Processing (EMNLP)}, 2023.
 \newblock URL \url{https://arxiv.org/abs/2305.14975}.
+
+\bibitem[Tjuatja et~al.(2024)Tjuatja, Chen, Wu, Talwalkar, and
+  Neubig]{tjuatja2024llmsexhibithumanlikeresponse}
+Lindia Tjuatja, Valerie Chen, Sherry~Tongshuang Wu, Ameet Talwalkar, and Graham
+  Neubig.
+\newblock Do llms exhibit human-like response biases? a case study in survey
+  design, 2024.
+\newblock URL \url{https://arxiv.org/abs/2311.04076}.
 
 \bibitem[Wen et~al.(2024)Wen, Xu, HAN, Wolfe, Wang, and Howe]{wen2024from}
 Bingbing Wen, Chenjun Xu, Bin HAN, Robert Wolfe, Lucy~Lu Wang, and Bill Howe.
