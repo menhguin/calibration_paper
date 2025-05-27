@@ -67,7 +67,7 @@
 
 % --- Title ---
 % Replace with your paper title
-\title{Two LLMs Debate, Both Are Certain They've Won}
+\title{When Two LLMs Debate, Both Think They'll Win}
 
 % --- Author ---
 % Replace with your author information.
@@ -105,9 +105,9 @@ Pradyumna Shyama Prasad \\ % Replace with your name
 
 Large language models (LLMs) are increasingly deployed in complex domains requiring critical thinking and reasoning under uncertainty, such as coding and research \citep{handa2025economictasksperformedai, zheng2025deepresearcherscalingdeepresearch}. A foundational requirement is calibration—aligning confidence with correctness. Poorly calibrated LLMs create risks: In \textbf{assistant roles}, users may accept incorrect but confidently-stated legal analysis without verification, especially in domains where they lack expertise, while in \textbf{agentic settings}, autonomous coding and research agents may persist with flawed reasoning paths with increasing confidence despite contradictory evidence. Indeed, hours before our submission, Cognition Labs released Devin~2.1, a coding agent that relies on a 0-100 \emph{Confidence Score} \citep{cognitionlabs_devin21_2025}
 
-In this work, we study how well LLMs revise their confidence when facing opposition in adversarial settings. While recent work has explored calibration in static fact-based QA \citep{tian2023justask, xiong2024uncertainty, kadavath2022know,groot-valdenegro-toro-2024-overconfidence}, we introduce two critical innovations:
-(1) a \textbf{dynamic, multi-turn debate format} requiring models to update beliefs as new, conflicting information emerges, and
-(2) a \textbf{zero-sum evaluation structure} that controls for task-related uncertainty, since mutual high-confidence claims with combined probabilities summing over 100\% indicate systematic overconfidence.
+In this work, we study how well LLMs revise their confidence when facing opposition in adversarial settings. While recent work explores calibration in static fact-based QA \citep{tian2023justask, xiong2024uncertainty, kadavath2022know,groot-valdenegro-toro-2024-overconfidence}, we introduce two critical innovations:
+(1) \textbf{dynamic, multi-turn debate format} requiring models to update beliefs as new, conflicting information emerges, and
+(2) \textbf{zero-sum evaluation structure} to control for task-related uncertainty, as mutual high-confidence claims with combined probabilities summing >100\% indicate systematic overconfidence. Our debate setups prioritise informativeness and real-world relevance.
 
 These innovations test metacognitive abilities crucial for high-stakes applications. Models must respond to opposition, revise beliefs according to new information, and recognize weakening positions—skills essential in complex, multi-turn deliberative settings.
 
@@ -262,11 +262,9 @@ For debaters, we used \textbf{Structured Prompts} (see Appendix~\ref{appendix:de
 \subsection{Dynamic Confidence Elicitation}
 \label{subsec:confidence_elicitation}
 
-After generating the content for \textit{each} of their three speeches (including the concurrent opening), models were required to provide a private ``confidence bet''.
+After generating text for \textit{each} of their three speeches (incl. the concurrent opening), models provided a private ``confidence bet'' (0-100) in \texttt{\textless bet\_amount\textgreater} tags representing their perceived win probability. To promote careful moderation, we prompted LLMs to think of bets as dollar amounts.
 
-\textbf{Mechanism:} Models give a number (0-100) in \texttt{\textless bet\_amount\textgreater} tags representing their perceived win probability, and output text explaining their reasoning in separate \texttt{\textless bet\_logic\_private\textgreater} tags.
-
-\textbf{Purpose:} By tracking LLMs'self-assessed performance after each round, we can analyse their confidence calibration and responsiveness (or lack thereof) to opposing points over time.
+Models also output text explaining their reasoning in separate \texttt{\textless bet\_logic\_private\textgreater} tags (initially private to promote honesty and remove strategic bluffing). By tracking LLMs'self-assessed performance after each round, we can analyse their confidence calibration and responsiveness (or lack thereof) to opposing points over time.
 
 \subsection{Data Collection}
 \label{subsec:data_collection}
@@ -320,7 +318,7 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
 
 \textbf{Statistical evidence}: One-sample t-tests confirm initial confidence significantly exceeds the rational 50\% baseline in Cross-model (t=31.67, p<0.001), Standard Self (t=10.07, p<0.001), and Public Bets (t=9.03, p<0.001) configurations. Wilcoxon tests yielded identical conclusions (all p<0.001).
 
-\textbf{Individual model analysis}: Overconfidence was widespread but varied, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). Some models displayed high variability (e.g., Gemini 2.0 Flash: $\pm$ 27.03 SD in Standard Self), while others (e.g. o3-Mini, QWQ-32b) achieved perfect calibration (50.00\% $\pm$ 0.00) when explicitly informed.
+\textbf{Individual model analysis}: Overconfidence was widespread but varied, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). While all began overconfident, Gemini 2.0 Flash almost always had the lowest confidence and highest variability. While \citet{yoon2025reasoningmodelsbetterexpress} suggests reasoning models better calibrate their confidence in fact-based QA, we did not observe this, possibly due to our adversarial debate setup which may be less aligned with reasoning models' STEM-focused problem-solving datasets.
 
 \textbf{Human comparison}: We compare these results to human college debaters in \citet{RePEc:sip:dpaper:06-042}, who report a comparable mean of 65.00\%, but much higher variability (SD=35.10\%). This suggests that \textbf{while humans and LLMs are comparably overconfident on average, LLMs are much more consistently overconfident, while humans seem to adjust their odds more based on context.}
 
@@ -410,7 +408,7 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
 \begin{itemize}
     \item \textbf{Public Bets}: Highest misalignment between private reasoning and expressed confidence when numerical estimates were present (20.4\% misaligned, with 15.7\% overbetting)
     \item \textbf{Cross-model}: Lowest misalignment (9.4\% misaligned when numerical estimates present)
-    \item \textbf{Private Self-Bets}: Moderate misalignment (17.6\% misaligned with 14.8\% overbetting when numerical estimates present)
+    \item \textbf{Private Self-Bets}: Moderate misalignment (17.6\% w/ numerical estimates, 14.8\% overbet)
     \item \textbf{Informed Self}: Moderate misalignment (15.9\% misaligned w/ numerical estimates)
 \end{itemize}
 
@@ -435,15 +433,16 @@ Our findings reveal significant limitations in LLMs' metacognitive abilities to 
     \item \textbf{Evidence weighting bias:} \citet{GriffinTversky1992} found humans overweight evidence favoring their beliefs while underweighting its credibility, leading to overconfidence when strength is high but weight is low. \citet{Moore2008} and \citet{RePEc:sip:dpaper:06-042} found limited accuracy improvement over repeated human trials, mirroring our LLM results.
 
     \item \textbf{Numerical attractor state:} The average LLM confidence ($\sim$73\%) resembles the human $\sim$70\% "attractor state" for probability terms like "probably/likely" \citep{Hashim2024,Mandel2019}, though \citep{west2025basemodelsbeataligned,openai2024gpt4technicalreport} note base models are less prone.
+    \item \textbf{Strategic overconfidence:} \citet{Johnson_2011} and \citet{priscilla2022overconfidence} found that overconfidence is an adaptive trait that can improve competitiveperformance.
 \end{itemize}
 
 \paragraph{LLM-specific factors}
 \begin{itemize}
     \item \textbf{General overconfidence:} Research shows systematic overconfidence across models and tasks \citep{chhikara2025mindconfidencegapoverconfidence,xiong2024uncertainty}, with larger LLMs more overconfident on difficult tasks and smaller ones consistently overconfident across task types \citep{wen2024from}.
 
-    \item \textbf{RLHF amplification:} Post-training for human preferences exacerbates overconfidence, biasing models to indicate high certainty even when incorrect \citep{leng2025tamingoverconfidencellmsreward} and provide more 7/10 ratings \citep{west2025basemodelsbeataligned,openai2024gpt4technicalreport} relative to base models. \citet{tjuatja2024llmsexhibithumanlikeresponse} found some weak positive correlation between uncertainty and LLMs exhibiting certain human-like response bias (r=0.259 for RLHF and r=0.267 for non-RLHF models), but less so compared to humans (r=0.4-0.6). This suggests that the primary effect indeed comes directly from increasing overconfidence, not a reflection of human-like response bias. 
+    \item \textbf{RLHF amplification:} Post-training for human preferences exacerbates overconfidence, biasing models to indicate high certainty even when incorrect \citep{leng2025tamingoverconfidencellmsreward} and provide more 7/10 ratings \citep{west2025basemodelsbeataligned,openai2024gpt4technicalreport} relative to base models. \citet{tjuatja2024llmsexhibithumanlikeresponse} found mild correlation between uncertainty and LLMs exhibiting certain human-like response bias (r=0.259 for RLHF and r=0.267 for base models), but less so compared to humans (r=0.4-0.6). This suggests that the primary effect indeed comes directly from increasing overconfidence, not a reflection of human-like response bias.
     
-    \item \textbf{Task length and sequential inference:} LLMs have displayed biases based on output length \citep{liu2025understandingr1zeroliketrainingcritical}. We experimented with a 4-round debate setup, however could not draw definitive conclusions as most models faced long-context coherence issues (see Appendix~\ref{appendix:four_round}).
+    \item \textbf{Task length and sequential inference:} LLMs have displayed biases based on output length \citep{liu2025understandingr1zeroliketrainingcritical}. We tested a 4-round debate setup, but could not draw definitive conclusions as most models faced long-context coherence issues (see Appendix~\ref{appendix:four_round}).
 
     \item \textbf{Poor updating on evidence:} \citet{wilie2024beliefrevisionadaptabilitylarge} found that most models fail to revise initial conclusions after receiving contradicting information. \citet{agarwal2025persuasionoverridestruthmultiagent} found LLMs can be persuaded to accept falsehoods with high-confidence, verbose reasoning.
 
@@ -461,7 +460,7 @@ Self Red-Teaming prompts that explicitly instruct models to consider both winnin
 
 \begin{table*}[htbp]
   \centering
-  \caption{Self Redteam Debate Ablation: Confidence Escalation Across Rounds}
+  \caption{Self Redteam Debate: Result Across Rounds (Private Self-Debate, No Explicit 50\%)}
   \label{tab:self_redteam_ablation}
   \resizebox{\textwidth}{!}{
   \begin{tabular}{lrrrrrr}
@@ -490,7 +489,9 @@ Self Red-Teaming prompts that explicitly instruct models to consider both winnin
 
 \paragraph{Exploring Agentic Workflows.} We document overconfidence and propose mitigations for debate. We encourage further testing for generalising to multi-turn, long-horizon agentic tasks such as code generation and web search. \citet{cognitionlabs_devin21_2025} which uses 0-100 confidence scores for their newest coding agent, underscores a real-world applications of our findings. Research on LLM task disambiguation \citep{hu2024uncertaintythoughtsuncertaintyawareplanning,kobalczyk2025activetaskdisambiguationllms} and in robotics \citep{liang2025introspectiveplanningaligningrobots,ren2023robotsaskhelpuncertainty} suggests human-LLM teams could outperform calibration by humans or agents alone \citep{roldan2025genai}.
 
-\paragraph{Judging Limitations and Win-Rate Imbalance.} Two related challenges affected our debate evaluation: (1) Opposition positions consistently won approximately 70\% of the time despite balanced topic design, and (2) establishing reliable ground truth for debate outcomes proved difficult. Our AI jury system faced both inter-judge reliability issues (different LLMs reaching different conclusions) and intra-judge consistency problems (identical debates receiving different verdicts). Without extensive human expert judging, we cannot definitively determine which model "won" any given debate. However, our core findings about systematic overconfidence remain valid because (a) the zero-sum nature of debates makes simultaneous high confidence logically impossible, and (b) we observed persistently high overconfidence patterns in self-debates where models faced exact copies of themselves—scenarios where win probability must mathematically be exactly 50\%. These judging challenges underscore the need for improved debate evaluation methods in future work. Details about our AI jury implementation can be found in Appendix \ref{appendix:ai_jury}
+\paragraph{Judging Limitations and Win-Rate Imbalance.} Two related challenges affected our debate evaluation: (1) Opposition positions consistently won approximately 70\% of the time despite balanced topic design, and (2) establishing reliable ground truth for debate outcomes proved difficult. Our AI jury setup faced issues with inter-judge reliability (different LLMs reaching different conclusions) and intra-judge consistency (identical debates receiving different verdicts). Without extensive human expert judging, we cannot definitively determine which model "won" a given debate.
+
+However, our core findings about systematic overconfidence remain valid because (a) the zero-sum nature of debates makes simultaneous high confidence logically impossible, and (b) we observed persistently high overconfidence patterns in self-debates where models faced exact copies of themselves—scenarios where win probability must mathematically be exactly 50\%. These judging challenges underscore the need for improved debate evaluation methods in future work. Details about our AI jury implementation can be found in Appendix \ref{appendix:ai_jury}.
 
 \section{Conclusion}
 

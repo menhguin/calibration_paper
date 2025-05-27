@@ -7,45 +7,45 @@ Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--entry type for "cognitionlabs_devin21_2025" isn't style-file defined
 --line 707 of file references.bib
-You've used 39 entries,
+You've used 42 entries,
             2773 wiz_defined-function locations,
-            807 strings with 20192 characters,
-and the built_in function-call counts, 35626 in all, are:
-= -- 2593
-> -- 4458
-< -- 17
-+ -- 1490
-- -- 1450
-* -- 3585
-:= -- 5993
-add.period$ -- 144
-call.type$ -- 39
-change.case$ -- 595
-chr.to.int$ -- 38
-cite$ -- 78
-duplicate$ -- 751
-empty$ -- 1358
-format.name$ -- 1503
-if$ -- 6925
+            832 strings with 20971 characters,
+and the built_in function-call counts, 37387 in all, are:
+= -- 2743
+> -- 4602
+< -- 18
++ -- 1538
+- -- 1495
+* -- 3753
+:= -- 6275
+add.period$ -- 157
+call.type$ -- 42
+change.case$ -- 619
+chr.to.int$ -- 41
+cite$ -- 84
+duplicate$ -- 808
+empty$ -- 1472
+format.name$ -- 1553
+if$ -- 7283
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 17
-newline$ -- 227
-num.names$ -- 160
-pop$ -- 1244
+missing$ -- 19
+newline$ -- 246
+num.names$ -- 172
+pop$ -- 1287
 preamble$ -- 1
-purify$ -- 556
+purify$ -- 577
 quote$ -- 0
-skip$ -- 1012
+skip$ -- 1064
 stack$ -- 0
-substring$ -- 201
-swap$ -- 86
+substring$ -- 252
+swap$ -- 91
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 429
+type$ -- 462
 warning$ -- 0
-while$ -- 130
+while$ -- 141
 width$ -- 0
-write$ -- 538
+write$ -- 584
 (There was 1 warning)

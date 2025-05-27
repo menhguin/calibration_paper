@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -87,6 +87,15 @@ Geoffrey Irving, Paul Christiano, and Dario Amodei.
 \newblock Ai safety via debate.
 \newblock \emph{arXiv preprint arXiv:1805.00899}, 2018.
 \newblock URL \url{https://arxiv.org/abs/1805.00899}.
+
+\bibitem[Johnson and Fowler(2011)]{Johnson_2011}
+Dominic D.~P. Johnson and James~H. Fowler.
+\newblock The evolution of overconfidence.
+\newblock \emph{Nature}, 477\penalty0 (7364):\penalty0 317–320, September
+  2011.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature10384}.
+\newblock URL \url{http://dx.doi.org/10.1038/nature10384}.
 
 \bibitem[Kadavath et~al.(2022)Kadavath, Conerly, Askell, Henighan, Drain,
   Perez, Schiefer, Hatfield-Dodds, DasSarma, Tran-Johnson,
@@ -283,6 +292,14 @@ OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya,
 \newblock Gpt-4 technical report, 2024.
 \newblock URL \url{https://arxiv.org/abs/2303.08774}.
 
+\bibitem[Priscilla et~al.(2022)Priscilla, Günther, Kammerlander, and
+  Lampe]{priscilla2022overconfidence}
+Kraft Priscilla, Christina Günther, Nadine Kammerlander, and Jan Lampe.
+\newblock Overconfidence and entrepreneurship: A meta-analysis of different
+  types of overconfidence in the entrepreneurial process.
+\newblock \emph{Journal of Business Venturing}, 37:\penalty0 106207, 07 2022.
+\newblock \doi{10.1016/j.jbusvent.2022.106207}.
+
 \bibitem[Ren et~al.(2023)Ren, Dixit, Bodrova, Singh, Tu, Brown, Xu, Takayama,
   Xia, Varley, Xu, Sadigh, Zeng, and Majumdar]{ren2023robotsaskhelpuncertainty}
 Allen~Z. Ren, Anushri Dixit, Alexandra Bodrova, Sumeet Singh, Stephen Tu, Noah
@@ -378,6 +395,13 @@ Rongwu Xu, Brian~S. Lin, Han Qiu, et~al.
   misinformation via persuasive conversation.
 \newblock \emph{arXiv preprint arXiv:2312.06717}, 2023.
 \newblock URL \url{https://arxiv.org/abs/2312.06717}.
+
+\bibitem[Yoon et~al.(2025)Yoon, Kim, Yang, Kim, Kim, Kim, Choi, Kim, and
+  Seo]{yoon2025reasoningmodelsbetterexpress}
+Dongkeun Yoon, Seungone Kim, Sohee Yang, Sunkyoung Kim, Soyeon Kim, Yongil Kim,
+  Eunbi Choi, Yireun Kim, and Minjoon Seo.
+\newblock Reasoning models better express their confidence, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.14489}.
 
 \bibitem[Zheng et~al.(2025)Zheng, Fu, Hu, Cai, Ye, Lu, and
   Liu]{zheng2025deepresearcherscalingdeepresearch}
