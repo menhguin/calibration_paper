@@ -74,20 +74,22 @@
 % The \author macro works with any number of authors.
 % For a single author:
 \author{%
-Pradyumna Shyama Prasad \\ % Replace with your name
+Pradyumna Shyama Prasad$^{*}$ \\ % Replace with your name
   School of Computing \\ % Replace with your department/lab
   National University of Singapore \\ % Replace with your university
   % Your City, Your State/Country \\ % Optional location details
   \texttt{pradyumna.prasad@u.nus.edu} \\ % Replace with your email
   \And
-  Minh Nhat Nguyen \\
-  Apart Research \\
+  Minh Nhat Nguyen$^{*}$ \\
+  Independent \\
   \texttt{minh1228@gmail.com} \\
 }
 
 \begin{document}
 
 \maketitle
+
+\footnotetext[1]{*Equal contribution}
 
 % --- Abstract ---
 % Replace with your paper abstract.
@@ -103,7 +105,7 @@ Pradyumna Shyama Prasad \\ % Replace with your name
 
 \section{Introduction}
 
-Large language models (LLMs) are increasingly deployed in complex domains requiring critical thinking and reasoning under uncertainty, such as coding and research \citep{handa2025economictasksperformedai, zheng2025deepresearcherscalingdeepresearch}. A foundational requirement is calibration—aligning confidence with correctness. Poorly calibrated LLMs create risks: In \textbf{assistant roles}, users may accept incorrect but confidently-stated legal analysis without verification, especially in domains where they lack expertise, while in \textbf{agentic settings}, autonomous coding and research agents may persist with flawed reasoning paths with increasing confidence despite contradictory evidence. Indeed, hours before our submission, Cognition Labs released Devin~2.1, a coding agent that relies on a 0-100 \emph{Confidence Score} \citep{cognitionlabs_devin21_2025}
+Large language models (LLMs) are increasingly deployed in complex domains requiring critical thinking and reasoning under uncertainty, such as coding and research \citep{handa2025economictasksperformedai, zheng2025deepresearcherscalingdeepresearch}. A foundational requirement is calibration—aligning confidence with correctness. Poorly calibrated LLMs create risks: In \textbf{assistant roles}, users may accept incorrect but confidently-stated legal analysis without verification, especially in domains where they lack expertise, while in \textbf{agentic settings}, autonomous coding and research agents may persist with flawed reasoning paths with increasing confidence despite contradictory evidence. For example, Cognition Labs recently released Devin~2.1, a coding agent that relies on a 0-100 \emph{Confidence Score} \citep{cognitionlabs_devin21_2025}
 
 In this work, we study how well LLMs revise their confidence when facing opposition in adversarial settings. While recent work explores calibration in static fact-based QA \citep{tian2023justask, xiong2024uncertainty, kadavath2022know,groot-valdenegro-toro-2024-overconfidence}, we introduce two critical innovations:
 (1) \textbf{dynamic, multi-turn debate format} requiring models to update beliefs as new, conflicting information emerges, and
