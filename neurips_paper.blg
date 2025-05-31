@@ -1,46 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2023)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: neurips_paper.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
-You've used 31 entries,
+Warning--entry type for "cognitionlabs_devin21_2025" isn't style-file defined
+--line 707 of file references.bib
+You've used 42 entries,
             2773 wiz_defined-function locations,
-            764 strings with 17662 characters,
-and the built_in function-call counts, 30362 in all, are:
-= -- 2174
-> -- 3916
-< -- 12
-+ -- 1308
-- -- 1276
-* -- 3111
-:= -- 5145
-add.period$ -- 114
-call.type$ -- 31
-change.case$ -- 513
-chr.to.int$ -- 30
-cite$ -- 62
-duplicate$ -- 598
-empty$ -- 1088
-format.name$ -- 1319
-if$ -- 5859
+            832 strings with 20971 characters,
+and the built_in function-call counts, 37387 in all, are:
+= -- 2743
+> -- 4602
+< -- 18
++ -- 1538
+- -- 1495
+* -- 3753
+:= -- 6275
+add.period$ -- 157
+call.type$ -- 42
+change.case$ -- 619
+chr.to.int$ -- 41
+cite$ -- 84
+duplicate$ -- 808
+empty$ -- 1472
+format.name$ -- 1553
+if$ -- 7283
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 16
-newline$ -- 182
-num.names$ -- 128
-pop$ -- 1066
+missing$ -- 19
+newline$ -- 246
+num.names$ -- 172
+pop$ -- 1287
 preamble$ -- 1
-purify$ -- 482
+purify$ -- 577
 quote$ -- 0
-skip$ -- 828
+skip$ -- 1064
 stack$ -- 0
-substring$ -- 167
-swap$ -- 56
-text.length$ -- 3
+substring$ -- 252
+swap$ -- 91
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 341
+type$ -- 462
 warning$ -- 0
-while$ -- 105
+while$ -- 141
 width$ -- 0
-write$ -- 428
+write$ -- 584
+(There was 1 warning)

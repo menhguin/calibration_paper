@@ -1,16 +1,19 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Agarwal and Khanna(2025)]{agarwal2025persuasionoverridestruthmultiagent}
+\bibitem[Agarwal and
+  Khanna(2025)]{agarwal2025persuasionoverridestruthmultiagent}
 Mahak Agarwal and Divyam Khanna.
-\newblock When persuasion overrides truth in multi-agent llm debates: Introducing a confidence-weighted persuasion override rate (cw-por), 2025.
+\newblock When persuasion overrides truth in multi-agent llm debates:
+  Introducing a confidence-weighted persuasion override rate (cw-por), 2025.
 \newblock URL \url{https://arxiv.org/abs/2504.00374}.
 
-\bibitem[Brown-Cohen et~al.(2023)Brown-Cohen, Irving, and Piliouras]{browncohen2023debate}
+\bibitem[Brown-Cohen et~al.(2023)Brown-Cohen, Irving, and
+  Piliouras]{browncohen2023debate}
 Jonah Brown-Cohen, Geoffrey Irving, and Georgios Piliouras.
 \newblock Scalable ai safety via doubly-efficient debate.
 \newblock \emph{arXiv preprint arXiv:2311.14125}, 2023.
@@ -18,10 +21,17 @@ Jonah Brown-Cohen, Geoffrey Irving, and Georgios Piliouras.
 
 \bibitem[Chhikara(2025)]{chhikara2025mindconfidencegapoverconfidence}
 Prateek Chhikara.
-\newblock Mind the confidence gap: Overconfidence, calibration, and distractor effects in large language models, 2025.
+\newblock Mind the confidence gap: Overconfidence, calibration, and distractor
+  effects in large language models, 2025.
 \newblock URL \url{https://arxiv.org/abs/2502.11028}.
 
-\bibitem[Chung et~al.(2025)Chung, Du, and Fu]{chung2025learningfailuresmultiattemptreinforcement}
+\bibitem[Chua and Evans(2025)]{chua2025deepseekr1reasoningmodels}
+James Chua and Owain Evans.
+\newblock Are deepseek r1 and other reasoning models more faithful?, 2025.
+\newblock URL \url{https://arxiv.org/abs/2501.08156}.
+
+\bibitem[Chung et~al.(2025)Chung, Du, and
+  Fu]{chung2025learningfailuresmultiattemptreinforcement}
 Stephen Chung, Wenyu Du, and Jie Fu.
 \newblock Learning from failures in multi-attempt reinforcement learning, 2025.
 \newblock URL \url{https://arxiv.org/abs/2503.04808}.
@@ -29,30 +39,47 @@ Stephen Chung, Wenyu Du, and Jie Fu.
 \bibitem[Griffin and Tversky(1992)]{GriffinTversky1992}
 Dale Griffin and Amos Tversky.
 \newblock The weighing of evidence and the determinants of confidence.
-\newblock \emph{Cognitive Psychology}, 24\penalty0 (3):\penalty0 411--435, 1992.
+\newblock \emph{Cognitive Psychology}, 24\penalty0 (3):\penalty0 411--435,
+  1992.
 \newblock \doi{https://doi.org/10.1016/0010-0285(92)90013-R}.
 
-\bibitem[Groot and Valdenegro~Toro(2024)]{groot-valdenegro-toro-2024-overconfidence}
+\bibitem[Groot and
+  Valdenegro~Toro(2024)]{groot-valdenegro-toro-2024-overconfidence}
 Tobias Groot and Matias Valdenegro~Toro.
-\newblock Overconfidence is key: Verbalized uncertainty evaluation in large language and vision-language models.
-\newblock In Anaelia Ovalle, Kai-Wei Chang, Yang~Trista Cao, Ninareh Mehrabi, Jieyu Zhao, Aram Galstyan, Jwala Dhamala, Anoop Kumar, and Rahul Gupta, editors, \emph{Proceedings of the 4th Workshop on Trustworthy Natural Language Processing (TrustNLP 2024)}, pages 145--171, Mexico City, Mexico, June 2024. Association for Computational Linguistics.
+\newblock Overconfidence is key: Verbalized uncertainty evaluation in large
+  language and vision-language models.
+\newblock In Anaelia Ovalle, Kai-Wei Chang, Yang~Trista Cao, Ninareh Mehrabi,
+  Jieyu Zhao, Aram Galstyan, Jwala Dhamala, Anoop Kumar, and Rahul Gupta,
+  editors, \emph{Proceedings of the 4th Workshop on Trustworthy Natural
+  Language Processing (TrustNLP 2024)}, pages 145--171, Mexico City, Mexico,
+  June 2024. Association for Computational Linguistics.
 \newblock \doi{10.18653/v1/2024.trustnlp-1.13}.
 \newblock URL \url{https://aclanthology.org/2024.trustnlp-1.13/}.
 
-\bibitem[Handa et~al.(2025)Handa, Tamkin, McCain, Huang, Durmus, Heck, Mueller, Hong, Ritchie, Belonax, Troy, Amodei, Kaplan, Clark, and Ganguli]{handa2025economictasksperformedai}
-Kunal Handa, Alex Tamkin, Miles McCain, Saffron Huang, Esin Durmus, Sarah Heck, Jared Mueller, Jerry Hong, Stuart Ritchie, Tim Belonax, Kevin~K. Troy, Dario Amodei, Jared Kaplan, Jack Clark, and Deep Ganguli.
-\newblock Which economic tasks are performed with ai? evidence from millions of claude conversations, 2025.
+\bibitem[Handa et~al.(2025)Handa, Tamkin, McCain, Huang, Durmus, Heck, Mueller,
+  Hong, Ritchie, Belonax, Troy, Amodei, Kaplan, Clark, and
+  Ganguli]{handa2025economictasksperformedai}
+Kunal Handa, Alex Tamkin, Miles McCain, Saffron Huang, Esin Durmus, Sarah Heck,
+  Jared Mueller, Jerry Hong, Stuart Ritchie, Tim Belonax, Kevin~K. Troy, Dario
+  Amodei, Jared Kaplan, Jack Clark, and Deep Ganguli.
+\newblock Which economic tasks are performed with ai? evidence from millions of
+  claude conversations, 2025.
 \newblock URL \url{https://arxiv.org/abs/2503.04761}.
 
 \bibitem[Hashim(2024)]{Hashim2024}
 Muhammad~J. Hashim.
-\newblock Verbal probability terms for communicating clinical risk - a systematic review.
-\newblock \emph{Ulster Medical Journal}, 93\penalty0 (1):\penalty0 18--23, Jan 2024.
+\newblock Verbal probability terms for communicating clinical risk - a
+  systematic review.
+\newblock \emph{Ulster Medical Journal}, 93\penalty0 (1):\penalty0 18--23, Jan
+  2024.
 \newblock Epub 2024 May 3.
 
-\bibitem[Hu et~al.(2024)Hu, Liu, Feng, Zhao, Ng, Luu, He, Koh, and Hooi]{hu2024uncertaintythoughtsuncertaintyawareplanning}
-Zhiyuan Hu, Chumin Liu, Xidong Feng, Yilun Zhao, See-Kiong Ng, Anh~Tuan Luu, Junxian He, Pang~Wei Koh, and Bryan Hooi.
-\newblock Uncertainty of thoughts: Uncertainty-aware planning enhances information seeking in large language models, 2024.
+\bibitem[Hu et~al.(2024)Hu, Liu, Feng, Zhao, Ng, Luu, He, Koh, and
+  Hooi]{hu2024uncertaintythoughtsuncertaintyawareplanning}
+Zhiyuan Hu, Chumin Liu, Xidong Feng, Yilun Zhao, See-Kiong Ng, Anh~Tuan Luu,
+  Junxian He, Pang~Wei Koh, and Bryan Hooi.
+\newblock Uncertainty of thoughts: Uncertainty-aware planning enhances
+  information seeking in large language models, 2024.
 \newblock URL \url{https://arxiv.org/abs/2402.03271}.
 
 \bibitem[Irving et~al.(2018)Irving, Christiano, and Amodei]{irving2018debate}
@@ -61,67 +88,245 @@ Geoffrey Irving, Paul Christiano, and Dario Amodei.
 \newblock \emph{arXiv preprint arXiv:1805.00899}, 2018.
 \newblock URL \url{https://arxiv.org/abs/1805.00899}.
 
-\bibitem[Kadavath et~al.(2022)Kadavath, Conerly, Askell, Henighan, Drain, Perez, Schiefer, Hatfield-Dodds, DasSarma, Tran-Johnson, et~al.]{kadavath2022know}
-Saurav Kadavath, Tom Conerly, Amanda Askell, Tom Henighan, Dawn Drain, Ethan Perez, Nicholas Schiefer, Zac Hatfield-Dodds, Nova DasSarma, Eli Tran-Johnson, et~al.
+\bibitem[Johnson and Fowler(2011)]{Johnson_2011}
+Dominic D.~P. Johnson and James~H. Fowler.
+\newblock The evolution of overconfidence.
+\newblock \emph{Nature}, 477\penalty0 (7364):\penalty0 317–320, September
+  2011.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature10384}.
+\newblock URL \url{http://dx.doi.org/10.1038/nature10384}.
+
+\bibitem[Kadavath et~al.(2022)Kadavath, Conerly, Askell, Henighan, Drain,
+  Perez, Schiefer, Hatfield-Dodds, DasSarma, Tran-Johnson,
+  et~al.]{kadavath2022know}
+Saurav Kadavath, Tom Conerly, Amanda Askell, Tom Henighan, Dawn Drain, Ethan
+  Perez, Nicholas Schiefer, Zac Hatfield-Dodds, Nova DasSarma, Eli
+  Tran-Johnson, et~al.
 \newblock Language models (mostly) know what they know.
 \newblock \emph{arXiv preprint arXiv:2207.05221}, 2022.
 \newblock URL \url{https://arxiv.org/abs/2207.05221}.
 
-\bibitem[Kobalczyk et~al.(2025)Kobalczyk, Astorga, Liu, and van~der Schaar]{kobalczyk2025activetaskdisambiguationllms}
+\bibitem[Kobalczyk et~al.(2025)Kobalczyk, Astorga, Liu, and van~der
+  Schaar]{kobalczyk2025activetaskdisambiguationllms}
 Katarzyna Kobalczyk, Nicolas Astorga, Tennison Liu, and Mihaela van~der Schaar.
 \newblock Active task disambiguation with llms, 2025.
 \newblock URL \url{https://arxiv.org/abs/2502.04485}.
 
-\bibitem[Leng et~al.(2025)Leng, Huang, Zhu, and Huang]{leng2025tamingoverconfidencellmsreward}
+\bibitem[Labs(2025)]{cognitionlabs_devin21_2025}
+Cognition Labs.
+\newblock “it’s true: coding agents are overconfident. that’s why devin
+  2.1 gives confidence scores to indicate its likelihood of completing
+  tasks.”, May 2025.
+\newblock URL \url{https://x.com/cognition_labs/status/1923110270660116965}.
+\newblock Tweet.
+
+\bibitem[Lanham et~al.(2023)Lanham, Chen, Radhakrishnan, Steiner, Denison,
+  Hernandez, Li, Durmus, Hubinger, Kernion, Lukošiūtė, Nguyen, Cheng,
+  Joseph, Schiefer, Rausch, Larson, McCandlish, Kundu, Kadavath, Yang,
+  Henighan, Maxwell, Telleen-Lawton, Hume, Hatfield-Dodds, Kaplan, Brauner,
+  Bowman, and Perez]{lanham2023measuringfaithfulnesschainofthoughtreasoning}
+Tamera Lanham, Anna Chen, Ansh Radhakrishnan, Benoit Steiner, Carson Denison,
+  Danny Hernandez, Dustin Li, Esin Durmus, Evan Hubinger, Jackson Kernion,
+  Kamilė Lukošiūtė, Karina Nguyen, Newton Cheng, Nicholas Joseph, Nicholas
+  Schiefer, Oliver Rausch, Robin Larson, Sam McCandlish, Sandipan Kundu, Saurav
+  Kadavath, Shannon Yang, Thomas Henighan, Timothy Maxwell, Timothy
+  Telleen-Lawton, Tristan Hume, Zac Hatfield-Dodds, Jared Kaplan, Jan Brauner,
+  Samuel~R. Bowman, and Ethan Perez.
+\newblock Measuring faithfulness in chain-of-thought reasoning, 2023.
+\newblock URL \url{https://arxiv.org/abs/2307.13702}.
+
+\bibitem[Leng et~al.(2025)Leng, Huang, Zhu, and
+  Huang]{leng2025tamingoverconfidencellmsreward}
 Jixuan Leng, Chengsong Huang, Banghua Zhu, and Jiaxin Huang.
 \newblock Taming overconfidence in llms: Reward calibration in rlhf, 2025.
 \newblock URL \url{https://arxiv.org/abs/2410.09724}.
 
-\bibitem[Li et~al.(2024)Li, Chen, Su, Chen, Zhang, Xing, and Zhang]{Li2024ConfidenceMR}
-Loka Li, Guan-Hong Chen, Yusheng Su, Zhenhao Chen, Yixuan Zhang, Eric~P. Xing, and Kun Zhang.
-\newblock Confidence matters: Revisiting intrinsic self-correction capabilities of large language models.
+\bibitem[Li et~al.(2024)Li, Chen, Su, Chen, Zhang, Xing, and
+  Zhang]{Li2024ConfidenceMR}
+Loka Li, Guan-Hong Chen, Yusheng Su, Zhenhao Chen, Yixuan Zhang, Eric~P. Xing,
+  and Kun Zhang.
+\newblock Confidence matters: Revisiting intrinsic self-correction capabilities
+  of large language models.
 \newblock \emph{ArXiv}, abs/2402.12563, 2024.
 \newblock URL \url{https://api.semanticscholar.org/CorpusID:268032763}.
 
-\bibitem[Liang et~al.(2025)Liang, Zhang, and Fisac]{liang2025introspectiveplanningaligningrobots}
+\bibitem[Liang et~al.(2025)Liang, Zhang, and
+  Fisac]{liang2025introspectiveplanningaligningrobots}
 Kaiqu Liang, Zixu Zhang, and Jaime~Fernández Fisac.
-\newblock Introspective planning: Aligning robots' uncertainty with inherent task ambiguity, 2025.
+\newblock Introspective planning: Aligning robots' uncertainty with inherent
+  task ambiguity, 2025.
 \newblock URL \url{https://arxiv.org/abs/2402.06529}.
+
+\bibitem[Liu et~al.(2025)Liu, Chen, Li, Qi, Pang, Du, Lee, and
+  Lin]{liu2025understandingr1zeroliketrainingcritical}
+Zichen Liu, Changyu Chen, Wenjun Li, Penghui Qi, Tianyu Pang, Chao Du, Wee~Sun
+  Lee, and Min Lin.
+\newblock Understanding r1-zero-like training: A critical perspective, 2025.
+\newblock URL \url{https://arxiv.org/abs/2503.20783}.
 
 \bibitem[Mandel(2019)]{Mandel2019}
 David~R. Mandel.
 \newblock Systematic monitoring of forecasting skill in strategic intelligence.
-\newblock In David~R. Mandel, editor, \emph{Assessment and Communication of Uncertainty in Intelligence to Support Decision Making: Final Report of Research Task Group SAS-114}, page~16. NATO Science and Technology Organization, Brussels, Belgium, March 2019.
-\newblock URL \url{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3435945}.
+\newblock In David~R. Mandel, editor, \emph{Assessment and Communication of
+  Uncertainty in Intelligence to Support Decision Making: Final Report of
+  Research Task Group SAS-114}, page~16. NATO Science and Technology
+  Organization, Brussels, Belgium, March 2019.
+\newblock URL
+  \url{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3435945}.
 \newblock Posted: 15 Aug 2019, Conditionally accepted.
 
 \bibitem[Meer and Wesep(2007)]{RePEc:sip:dpaper:06-042}
 Jonathan Meer and Edward~Van Wesep.
-\newblock {A Test of Confidence Enhanced Performance: Evidence from US College Debaters}.
-\newblock Discussion Papers 06-042, Stanford Institute for Economic Policy Research, August 2007.
+\newblock {A Test of Confidence Enhanced Performance: Evidence from US College
+  Debaters}.
+\newblock Discussion Papers 06-042, Stanford Institute for Economic Policy
+  Research, August 2007.
 \newblock URL \url{https://ideas.repec.org/p/sip/dpaper/06-042.html}.
+
+\bibitem[Monés(2025)]{roldan2025genai}
+Antonio~Roldán Monés.
+\newblock When genai increases inequality: Evidence from a university
+  experiment.
+\newblock POID Working Paper 10951, Programme on Innovation and Diffusion
+  (POID), London School of Economics and Political Science, 2025.
+\newblock URL
+  \url{https://poid.lse.ac.uk/PUBLICATIONS/abstract.asp?index=10951}.
+\newblock Accessed: 2025-05-27.
 
 \bibitem[Moore and Healy(2008)]{Moore2008}
 Don~A. Moore and Paul~J. Healy.
 \newblock The trouble with overconfidence.
-\newblock \emph{Psychological Review}, 115\penalty0 (2):\penalty0 502--517, 2008.
+\newblock \emph{Psychological Review}, 115\penalty0 (2):\penalty0 502--517,
+  2008.
 \newblock \doi{https://doi.org/10.1037/0033-295X.115.2.502}.
 
-\bibitem[OpenAI et~al.(2024)OpenAI, Achiam, Adler, Agarwal, Ahmad, Akkaya, Aleman, Almeida, Altenschmidt, Altman, Anadkat, Avila, Babuschkin, Balaji, Balcom, Baltescu, Bao, Bavarian, Belgum, Bello, Berdine, Bernadett-Shapiro, Berner, Bogdonoff, Boiko, Boyd, Brakman, Brockman, Brooks, Brundage, Button, Cai, Campbell, Cann, Carey, Carlson, Carmichael, Chan, Chang, Chantzis, Chen, Chen, Chen, Chen, Chen, Chess, Cho, Chu, Chung, Cummings, Currier, Dai, Decareaux, Degry, Deutsch, Deville, Dhar, Dohan, Dowling, Dunning, Ecoffet, Eleti, Eloundou, Farhi, Fedus, Felix, Fishman, Forte, Fulford, Gao, Georges, Gibson, Goel, Gogineni, Goh, Gontijo-Lopes, Gordon, Grafstein, Gray, Greene, Gross, Gu, Guo, Hallacy, Han, Harris, He, Heaton, Heidecke, Hesse, Hickey, Hickey, Hoeschele, Houghton, Hsu, Hu, Hu, Huizinga, Jain, Jain, Jang, Jiang, Jiang, Jin, Jin, Jomoto, Jonn, Jun, Kaftan, Łukasz Kaiser, Kamali, Kanitscheider, Keskar, Khan, Kilpatrick, Kim, Kim, Kim, Kirchner, Kiros, Knight, Kokotajlo, Łukasz Kondraciuk, Kondrich, Konstantinidis, Kosic, Krueger, Kuo, Lampe, Lan, Lee, Leike, Leung, Levy, Li, Lim, Lin, Lin, Litwin, Lopez, Lowe, Lue, Makanju, Malfacini, Manning, Markov, Markovski, Martin, Mayer, Mayne, McGrew, McKinney, McLeavey, McMillan, McNeil, Medina, Mehta, Menick, Metz, Mishchenko, Mishkin, Monaco, Morikawa, Mossing, Mu, Murati, Murk, Mély, Nair, Nakano, Nayak, Neelakantan, Ngo, Noh, Ouyang, O'Keefe, Pachocki, Paino, Palermo, Pantuliano, Parascandolo, Parish, Parparita, Passos, Pavlov, Peng, Perelman, de~Avila Belbute~Peres, Petrov, de~Oliveira~Pinto, Michael, Pokorny, Pokrass, Pong, Powell, Power, Power, Proehl, Puri, Radford, Rae, Ramesh, Raymond, Real, Rimbach, Ross, Rotsted, Roussez, Ryder, Saltarelli, Sanders, Santurkar, Sastry, Schmidt, Schnurr, Schulman, Selsam, Sheppard, Sherbakov, Shieh, Shoker, Shyam, Sidor, Sigler, Simens, Sitkin, Slama, Sohl, Sokolowsky, Song, Staudacher, Such, Summers, Sutskever, Tang, Tezak, Thompson, Tillet, Tootoonchian, Tseng, Tuggle, Turley, Tworek, Uribe, Vallone, Vijayvergiya, Voss, Wainwright, Wang, Wang, Wang, Ward, Wei, Weinmann, Welihinda, Welinder, Weng, Weng, Wiethoff, Willner, Winter, Wolrich, Wong, Workman, Wu, Wu, Wu, Xiao, Xu, Yoo, Yu, Yuan, Zaremba, Zellers, Zhang, Zhang, Zhao, Zheng, Zhuang, Zhuk, and Zoph]{openai2024gpt4technicalreport}
-OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia~Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom, Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, Tim Brooks, Miles Brundage, Kevin Button, Trevor Cai, Rosie Campbell, Andrew Cann, Brittany Carey, Chelsea Carlson, Rory Carmichael, Brooke Chan, Che Chang, Fotis Chantzis, Derek Chen, Sully Chen, Ruby Chen, Jason Chen, Mark Chen, Ben Chess, Chester Cho, Casey Chu, Hyung~Won Chung, Dave Cummings, Jeremiah Currier, Yunxing Dai, Cory Decareaux, Thomas Degry, Noah Deutsch, Damien Deville, Arka Dhar, David Dohan, Steve Dowling, Sheila Dunning, Adrien Ecoffet, Atty Eleti, Tyna Eloundou, David Farhi, Liam Fedus, Niko Felix, Simón~Posada Fishman, Juston Forte, Isabella Fulford, Leo Gao, Elie Georges, Christian Gibson, Vik Goel, Tarun Gogineni, Gabriel Goh, Rapha Gontijo-Lopes, Jonathan Gordon, Morgan Grafstein, Scott Gray, Ryan Greene, Joshua Gross, Shixiang~Shane Gu, Yufei Guo, Chris Hallacy, Jesse Han, Jeff Harris, Yuchen He, Mike Heaton, Johannes Heidecke, Chris Hesse, Alan Hickey, Wade Hickey, Peter Hoeschele, Brandon Houghton, Kenny Hsu, Shengli Hu, Xin Hu, Joost Huizinga, Shantanu Jain, Shawn Jain, Joanne Jang, Angela Jiang, Roger Jiang, Haozhun Jin, Denny Jin, Shino Jomoto, Billie Jonn, Heewoo Jun, Tomer Kaftan, Łukasz Kaiser, Ali Kamali, Ingmar Kanitscheider, Nitish~Shirish Keskar, Tabarak Khan, Logan Kilpatrick, Jong~Wook Kim, Christina Kim, Yongjik Kim, Jan~Hendrik Kirchner, Jamie Kiros, Matt Knight, Daniel Kokotajlo, Łukasz Kondraciuk, Andrew Kondrich, Aris Konstantinidis, Kyle Kosic, Gretchen Krueger, Vishal Kuo, Michael Lampe, Ikai Lan, Teddy Lee, Jan Leike, Jade Leung, Daniel Levy, Chak~Ming Li, Rachel Lim, Molly Lin, Stephanie Lin, Mateusz Litwin, Theresa Lopez, Ryan Lowe, Patricia Lue, Anna Makanju, Kim Malfacini, Sam Manning, Todor Markov, Yaniv Markovski, Bianca Martin, Katie Mayer, Andrew Mayne, Bob McGrew, Scott~Mayer McKinney, Christine McLeavey, Paul McMillan, Jake McNeil, David Medina, Aalok Mehta, Jacob Menick, Luke Metz, Andrey Mishchenko, Pamela Mishkin, Vinnie Monaco, Evan Morikawa, Daniel Mossing, Tong Mu, Mira Murati, Oleg Murk, David Mély, Ashvin Nair, Reiichiro Nakano, Rajeev Nayak, Arvind Neelakantan, Richard Ngo, Hyeonwoo Noh, Long Ouyang, Cullen O'Keefe, Jakub Pachocki, Alex Paino, Joe Palermo, Ashley Pantuliano, Giambattista Parascandolo, Joel Parish, Emy Parparita, Alex Passos, Mikhail Pavlov, Andrew Peng, Adam Perelman, Filipe de~Avila Belbute~Peres, Michael Petrov, Henrique~Ponde de~Oliveira~Pinto, Michael, Pokorny, Michelle Pokrass, Vitchyr~H. Pong, Tolly Powell, Alethea Power, Boris Power, Elizabeth Proehl, Raul Puri, Alec Radford, Jack Rae, Aditya Ramesh, Cameron Raymond, Francis Real, Kendra Rimbach, Carl Ross, Bob Rotsted, Henri Roussez, Nick Ryder, Mario Saltarelli, Ted Sanders, Shibani Santurkar, Girish Sastry, Heather Schmidt, David Schnurr, John Schulman, Daniel Selsam, Kyla Sheppard, Toki Sherbakov, Jessica Shieh, Sarah Shoker, Pranav Shyam, Szymon Sidor, Eric Sigler, Maddie Simens, Jordan Sitkin, Katarina Slama, Ian Sohl, Benjamin Sokolowsky, Yang Song, Natalie Staudacher, Felipe~Petroski Such, Natalie Summers, Ilya Sutskever, Jie Tang, Nikolas Tezak, Madeleine~B. Thompson, Phil Tillet, Amin Tootoonchian, Elizabeth Tseng, Preston Tuggle, Nick Turley, Jerry Tworek, Juan Felipe~Cerón Uribe, Andrea Vallone, Arun Vijayvergiya, Chelsea Voss, Carroll Wainwright, Justin~Jay Wang, Alvin Wang, Ben Wang, Jonathan Ward, Jason Wei, CJ~Weinmann, Akila Welihinda, Peter Welinder, Jiayi Weng, Lilian Weng, Matt Wiethoff, Dave Willner, Clemens Winter, Samuel Wolrich, Hannah Wong, Lauren Workman, Sherwin Wu, Jeff Wu, Michael Wu, Kai Xiao, Tao Xu, Sarah Yoo, Kevin Yu, Qiming Yuan, Wojciech Zaremba, Rowan Zellers, Chong Zhang, Marvin Zhang, Shengjia Zhao, Tianhao Zheng, Juntang Zhuang, William Zhuk, and Barret Zoph.
+\bibitem[OpenAI et~al.(2024)OpenAI, Achiam, Adler, Agarwal, Ahmad, Akkaya,
+  Aleman, Almeida, Altenschmidt, Altman, Anadkat, Avila, Babuschkin, Balaji,
+  Balcom, Baltescu, Bao, Bavarian, Belgum, Bello, Berdine, Bernadett-Shapiro,
+  Berner, Bogdonoff, Boiko, Boyd, Brakman, Brockman, Brooks, Brundage, Button,
+  Cai, Campbell, Cann, Carey, Carlson, Carmichael, Chan, Chang, Chantzis, Chen,
+  Chen, Chen, Chen, Chen, Chess, Cho, Chu, Chung, Cummings, Currier, Dai,
+  Decareaux, Degry, Deutsch, Deville, Dhar, Dohan, Dowling, Dunning, Ecoffet,
+  Eleti, Eloundou, Farhi, Fedus, Felix, Fishman, Forte, Fulford, Gao, Georges,
+  Gibson, Goel, Gogineni, Goh, Gontijo-Lopes, Gordon, Grafstein, Gray, Greene,
+  Gross, Gu, Guo, Hallacy, Han, Harris, He, Heaton, Heidecke, Hesse, Hickey,
+  Hickey, Hoeschele, Houghton, Hsu, Hu, Hu, Huizinga, Jain, Jain, Jang, Jiang,
+  Jiang, Jin, Jin, Jomoto, Jonn, Jun, Kaftan, Łukasz Kaiser, Kamali,
+  Kanitscheider, Keskar, Khan, Kilpatrick, Kim, Kim, Kim, Kirchner, Kiros,
+  Knight, Kokotajlo, Łukasz Kondraciuk, Kondrich, Konstantinidis, Kosic,
+  Krueger, Kuo, Lampe, Lan, Lee, Leike, Leung, Levy, Li, Lim, Lin, Lin, Litwin,
+  Lopez, Lowe, Lue, Makanju, Malfacini, Manning, Markov, Markovski, Martin,
+  Mayer, Mayne, McGrew, McKinney, McLeavey, McMillan, McNeil, Medina, Mehta,
+  Menick, Metz, Mishchenko, Mishkin, Monaco, Morikawa, Mossing, Mu, Murati,
+  Murk, Mély, Nair, Nakano, Nayak, Neelakantan, Ngo, Noh, Ouyang, O'Keefe,
+  Pachocki, Paino, Palermo, Pantuliano, Parascandolo, Parish, Parparita,
+  Passos, Pavlov, Peng, Perelman, de~Avila Belbute~Peres, Petrov,
+  de~Oliveira~Pinto, Michael, Pokorny, Pokrass, Pong, Powell, Power, Power,
+  Proehl, Puri, Radford, Rae, Ramesh, Raymond, Real, Rimbach, Ross, Rotsted,
+  Roussez, Ryder, Saltarelli, Sanders, Santurkar, Sastry, Schmidt, Schnurr,
+  Schulman, Selsam, Sheppard, Sherbakov, Shieh, Shoker, Shyam, Sidor, Sigler,
+  Simens, Sitkin, Slama, Sohl, Sokolowsky, Song, Staudacher, Such, Summers,
+  Sutskever, Tang, Tezak, Thompson, Tillet, Tootoonchian, Tseng, Tuggle,
+  Turley, Tworek, Uribe, Vallone, Vijayvergiya, Voss, Wainwright, Wang, Wang,
+  Wang, Ward, Wei, Weinmann, Welihinda, Welinder, Weng, Weng, Wiethoff,
+  Willner, Winter, Wolrich, Wong, Workman, Wu, Wu, Wu, Xiao, Xu, Yoo, Yu, Yuan,
+  Zaremba, Zellers, Zhang, Zhang, Zhao, Zheng, Zhuang, Zhuk, and
+  Zoph]{openai2024gpt4technicalreport}
+OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya,
+  Florencia~Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman,
+  Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom,
+  Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake
+  Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg
+  Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, Tim Brooks, Miles
+  Brundage, Kevin Button, Trevor Cai, Rosie Campbell, Andrew Cann, Brittany
+  Carey, Chelsea Carlson, Rory Carmichael, Brooke Chan, Che Chang, Fotis
+  Chantzis, Derek Chen, Sully Chen, Ruby Chen, Jason Chen, Mark Chen, Ben
+  Chess, Chester Cho, Casey Chu, Hyung~Won Chung, Dave Cummings, Jeremiah
+  Currier, Yunxing Dai, Cory Decareaux, Thomas Degry, Noah Deutsch, Damien
+  Deville, Arka Dhar, David Dohan, Steve Dowling, Sheila Dunning, Adrien
+  Ecoffet, Atty Eleti, Tyna Eloundou, David Farhi, Liam Fedus, Niko Felix,
+  Simón~Posada Fishman, Juston Forte, Isabella Fulford, Leo Gao, Elie Georges,
+  Christian Gibson, Vik Goel, Tarun Gogineni, Gabriel Goh, Rapha Gontijo-Lopes,
+  Jonathan Gordon, Morgan Grafstein, Scott Gray, Ryan Greene, Joshua Gross,
+  Shixiang~Shane Gu, Yufei Guo, Chris Hallacy, Jesse Han, Jeff Harris, Yuchen
+  He, Mike Heaton, Johannes Heidecke, Chris Hesse, Alan Hickey, Wade Hickey,
+  Peter Hoeschele, Brandon Houghton, Kenny Hsu, Shengli Hu, Xin Hu, Joost
+  Huizinga, Shantanu Jain, Shawn Jain, Joanne Jang, Angela Jiang, Roger Jiang,
+  Haozhun Jin, Denny Jin, Shino Jomoto, Billie Jonn, Heewoo Jun, Tomer Kaftan,
+  Łukasz Kaiser, Ali Kamali, Ingmar Kanitscheider, Nitish~Shirish Keskar,
+  Tabarak Khan, Logan Kilpatrick, Jong~Wook Kim, Christina Kim, Yongjik Kim,
+  Jan~Hendrik Kirchner, Jamie Kiros, Matt Knight, Daniel Kokotajlo, Łukasz
+  Kondraciuk, Andrew Kondrich, Aris Konstantinidis, Kyle Kosic, Gretchen
+  Krueger, Vishal Kuo, Michael Lampe, Ikai Lan, Teddy Lee, Jan Leike, Jade
+  Leung, Daniel Levy, Chak~Ming Li, Rachel Lim, Molly Lin, Stephanie Lin,
+  Mateusz Litwin, Theresa Lopez, Ryan Lowe, Patricia Lue, Anna Makanju, Kim
+  Malfacini, Sam Manning, Todor Markov, Yaniv Markovski, Bianca Martin, Katie
+  Mayer, Andrew Mayne, Bob McGrew, Scott~Mayer McKinney, Christine McLeavey,
+  Paul McMillan, Jake McNeil, David Medina, Aalok Mehta, Jacob Menick, Luke
+  Metz, Andrey Mishchenko, Pamela Mishkin, Vinnie Monaco, Evan Morikawa, Daniel
+  Mossing, Tong Mu, Mira Murati, Oleg Murk, David Mély, Ashvin Nair, Reiichiro
+  Nakano, Rajeev Nayak, Arvind Neelakantan, Richard Ngo, Hyeonwoo Noh, Long
+  Ouyang, Cullen O'Keefe, Jakub Pachocki, Alex Paino, Joe Palermo, Ashley
+  Pantuliano, Giambattista Parascandolo, Joel Parish, Emy Parparita, Alex
+  Passos, Mikhail Pavlov, Andrew Peng, Adam Perelman, Filipe de~Avila
+  Belbute~Peres, Michael Petrov, Henrique~Ponde de~Oliveira~Pinto, Michael,
+  Pokorny, Michelle Pokrass, Vitchyr~H. Pong, Tolly Powell, Alethea Power,
+  Boris Power, Elizabeth Proehl, Raul Puri, Alec Radford, Jack Rae, Aditya
+  Ramesh, Cameron Raymond, Francis Real, Kendra Rimbach, Carl Ross, Bob
+  Rotsted, Henri Roussez, Nick Ryder, Mario Saltarelli, Ted Sanders, Shibani
+  Santurkar, Girish Sastry, Heather Schmidt, David Schnurr, John Schulman,
+  Daniel Selsam, Kyla Sheppard, Toki Sherbakov, Jessica Shieh, Sarah Shoker,
+  Pranav Shyam, Szymon Sidor, Eric Sigler, Maddie Simens, Jordan Sitkin,
+  Katarina Slama, Ian Sohl, Benjamin Sokolowsky, Yang Song, Natalie Staudacher,
+  Felipe~Petroski Such, Natalie Summers, Ilya Sutskever, Jie Tang, Nikolas
+  Tezak, Madeleine~B. Thompson, Phil Tillet, Amin Tootoonchian, Elizabeth
+  Tseng, Preston Tuggle, Nick Turley, Jerry Tworek, Juan Felipe~Cerón Uribe,
+  Andrea Vallone, Arun Vijayvergiya, Chelsea Voss, Carroll Wainwright,
+  Justin~Jay Wang, Alvin Wang, Ben Wang, Jonathan Ward, Jason Wei, CJ~Weinmann,
+  Akila Welihinda, Peter Welinder, Jiayi Weng, Lilian Weng, Matt Wiethoff, Dave
+  Willner, Clemens Winter, Samuel Wolrich, Hannah Wong, Lauren Workman, Sherwin
+  Wu, Jeff Wu, Michael Wu, Kai Xiao, Tao Xu, Sarah Yoo, Kevin Yu, Qiming Yuan,
+  Wojciech Zaremba, Rowan Zellers, Chong Zhang, Marvin Zhang, Shengjia Zhao,
+  Tianhao Zheng, Juntang Zhuang, William Zhuk, and Barret Zoph.
 \newblock Gpt-4 technical report, 2024.
 \newblock URL \url{https://arxiv.org/abs/2303.08774}.
 
-\bibitem[Ren et~al.(2023)Ren, Dixit, Bodrova, Singh, Tu, Brown, Xu, Takayama, Xia, Varley, Xu, Sadigh, Zeng, and Majumdar]{ren2023robotsaskhelpuncertainty}
-Allen~Z. Ren, Anushri Dixit, Alexandra Bodrova, Sumeet Singh, Stephen Tu, Noah Brown, Peng Xu, Leila Takayama, Fei Xia, Jake Varley, Zhenjia Xu, Dorsa Sadigh, Andy Zeng, and Anirudha Majumdar.
-\newblock Robots that ask for help: Uncertainty alignment for large language model planners, 2023.
+\bibitem[Priscilla et~al.(2022)Priscilla, Günther, Kammerlander, and
+  Lampe]{priscilla2022overconfidence}
+Kraft Priscilla, Christina Günther, Nadine Kammerlander, and Jan Lampe.
+\newblock Overconfidence and entrepreneurship: A meta-analysis of different
+  types of overconfidence in the entrepreneurial process.
+\newblock \emph{Journal of Business Venturing}, 37:\penalty0 106207, 07 2022.
+\newblock \doi{10.1016/j.jbusvent.2022.106207}.
+
+\bibitem[Ren et~al.(2023)Ren, Dixit, Bodrova, Singh, Tu, Brown, Xu, Takayama,
+  Xia, Varley, Xu, Sadigh, Zeng, and Majumdar]{ren2023robotsaskhelpuncertainty}
+Allen~Z. Ren, Anushri Dixit, Alexandra Bodrova, Sumeet Singh, Stephen Tu, Noah
+  Brown, Peng Xu, Leila Takayama, Fei Xia, Jake Varley, Zhenjia Xu, Dorsa
+  Sadigh, Andy Zeng, and Anirudha Majumdar.
+\newblock Robots that ask for help: Uncertainty alignment for large language
+  model planners, 2023.
 \newblock URL \url{https://arxiv.org/abs/2307.01928}.
 
 \bibitem[Rivera et~al.(2023)Rivera, Ye, Kim, and Li]{rivera2023assertive}
 Colin Rivera, Xinyi Ye, Yonsei Kim, and Wenpeng Li.
-\newblock Linguistic assertiveness affects factuality ratings and model behavior in qa systems.
-\newblock In \emph{Findings of the Association for Computational Linguistics (ACL)}, 2023.
+\newblock Linguistic assertiveness affects factuality ratings and model
+  behavior in qa systems.
+\newblock In \emph{Findings of the Association for Computational Linguistics
+  (ACL)}, 2023.
 \newblock URL \url{https://arxiv.org/abs/2305.04745}.
+
+\bibitem[Rivera et~al.(2024)Rivera, Mukobi, Reuel, Lamparth, Smith, and
+  Schneider]{Rivera_2024}
+Juan-Pablo Rivera, Gabriel Mukobi, Anka Reuel, Max Lamparth, Chandler Smith,
+  and Jacquelyn Schneider.
+\newblock Escalation risks from language models in military and diplomatic
+  decision-making.
+\newblock In \emph{The 2024 ACM Conference on Fairness, Accountability, and
+  Transparency}, FAccT ’24, page 836–898. ACM, June 2024.
+\newblock \doi{10.1145/3630106.3658942}.
+\newblock URL \url{http://dx.doi.org/10.1145/3630106.3658942}.
 
 \bibitem[Song et~al.(2025)Song, Hu, and Mahowald]{song2025introspect}
 Siyuan Song, Jennifer Hu, and Kyle Mahowald.
@@ -129,15 +334,36 @@ Siyuan Song, Jennifer Hu, and Kyle Mahowald.
 \newblock \emph{arXiv preprint arXiv:2503.07513}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2503.07513}.
 
-\bibitem[Tian et~al.(2023)Tian, Mitchell, Zhou, Sharma, Rafailov, Yao, Finn, and Manning]{tian2023justask}
-Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov, Huaxiu Yao, Chelsea Finn, and Christopher~D. Manning.
-\newblock Just ask for calibration: Strategies for eliciting calibrated confidence scores from language models fine-tuned with human feedback.
-\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)}, 2023.
+\bibitem[Stechly et~al.(2025)Stechly, Valmeekam, Gundawar, Palod, and
+  Kambhampati]{stechly2025semanticsunreasonableeffectivenessreasonless}
+Kaya Stechly, Karthik Valmeekam, Atharva Gundawar, Vardhan Palod, and Subbarao
+  Kambhampati.
+\newblock Beyond semantics: The unreasonable effectiveness of reasonless
+  intermediate tokens, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.13775}.
+
+\bibitem[Tian et~al.(2023)Tian, Mitchell, Zhou, Sharma, Rafailov, Yao, Finn,
+  and Manning]{tian2023justask}
+Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov,
+  Huaxiu Yao, Chelsea Finn, and Christopher~D. Manning.
+\newblock Just ask for calibration: Strategies for eliciting calibrated
+  confidence scores from language models fine-tuned with human feedback.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, 2023.
 \newblock URL \url{https://arxiv.org/abs/2305.14975}.
+
+\bibitem[Tjuatja et~al.(2024)Tjuatja, Chen, Wu, Talwalkar, and
+  Neubig]{tjuatja2024llmsexhibithumanlikeresponse}
+Lindia Tjuatja, Valerie Chen, Sherry~Tongshuang Wu, Ameet Talwalkar, and Graham
+  Neubig.
+\newblock Do llms exhibit human-like response biases? a case study in survey
+  design, 2024.
+\newblock URL \url{https://arxiv.org/abs/2311.04076}.
 
 \bibitem[Wen et~al.(2024)Wen, Xu, HAN, Wolfe, Wang, and Howe]{wen2024from}
 Bingbing Wen, Chenjun Xu, Bin HAN, Robert Wolfe, Lucy~Lu Wang, and Bill Howe.
-\newblock From human to model overconfidence: Evaluating confidence dynamics in large language models.
+\newblock From human to model overconfidence: Evaluating confidence dynamics in
+  large language models.
 \newblock In \emph{NeurIPS 2024 Workshop on Behavioral Machine Learning}, 2024.
 \newblock URL \url{https://openreview.net/forum?id=y9UdO5cmHs}.
 
@@ -146,37 +372,59 @@ Peter West and Christopher Potts.
 \newblock Base models beat aligned models at randomness and creativity, 2025.
 \newblock URL \url{https://arxiv.org/abs/2505.00047}.
 
-\bibitem[Wilie et~al.(2024)Wilie, Cahyawijaya, Ishii, He, and Fung]{wilie2024beliefrevisionadaptabilitylarge}
+\bibitem[Wilie et~al.(2024)Wilie, Cahyawijaya, Ishii, He, and
+  Fung]{wilie2024beliefrevisionadaptabilitylarge}
 Bryan Wilie, Samuel Cahyawijaya, Etsuko Ishii, Junxian He, and Pascale Fung.
-\newblock Belief revision: The adaptability of large language models reasoning, 2024.
+\newblock Belief revision: The adaptability of large language models reasoning,
+  2024.
 \newblock URL \url{https://arxiv.org/abs/2406.19764}.
 
-\bibitem[Xiong et~al.(2024)Xiong, Hu, Lu, Li, Fu, He, and Hooi]{xiong2024uncertainty}
-Miao Xiong, Zhiyuan Hu, Xinyang Lu, Yifei Li, Jie Fu, Junxian He, and Bryan Hooi.
-\newblock Can llms express their uncertainty? an empirical evaluation of confidence elicitation in llms.
-\newblock In \emph{Proceedings of the 2024 International Conference on Learning Representations (ICLR)}, 2024.
+\bibitem[Xiong et~al.(2024)Xiong, Hu, Lu, Li, Fu, He, and
+  Hooi]{xiong2024uncertainty}
+Miao Xiong, Zhiyuan Hu, Xinyang Lu, Yifei Li, Jie Fu, Junxian He, and Bryan
+  Hooi.
+\newblock Can llms express their uncertainty? an empirical evaluation of
+  confidence elicitation in llms.
+\newblock In \emph{Proceedings of the 2024 International Conference on Learning
+  Representations (ICLR)}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2306.13063}.
 
 \bibitem[Xu et~al.(2023)Xu, Lin, Qiu, et~al.]{xu2023earthflat}
 Rongwu Xu, Brian~S. Lin, Han Qiu, et~al.
-\newblock The earth is flat because...: Investigating llms' belief towards misinformation via persuasive conversation.
+\newblock The earth is flat because...: Investigating llms' belief towards
+  misinformation via persuasive conversation.
 \newblock \emph{arXiv preprint arXiv:2312.06717}, 2023.
 \newblock URL \url{https://arxiv.org/abs/2312.06717}.
 
-\bibitem[Zheng et~al.(2025)Zheng, Fu, Hu, Cai, Ye, Lu, and Liu]{zheng2025deepresearcherscalingdeepresearch}
-Yuxiang Zheng, Dayuan Fu, Xiangkun Hu, Xiaojie Cai, Lyumanshan Ye, Pengrui Lu, and Pengfei Liu.
-\newblock Deepresearcher: Scaling deep research via reinforcement learning in real-world environments, 2025.
+\bibitem[Yoon et~al.(2025)Yoon, Kim, Yang, Kim, Kim, Kim, Choi, Kim, and
+  Seo]{yoon2025reasoningmodelsbetterexpress}
+Dongkeun Yoon, Seungone Kim, Sohee Yang, Sunkyoung Kim, Soyeon Kim, Yongil Kim,
+  Eunbi Choi, Yireun Kim, and Minjoon Seo.
+\newblock Reasoning models better express their confidence, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.14489}.
+
+\bibitem[Zheng et~al.(2025)Zheng, Fu, Hu, Cai, Ye, Lu, and
+  Liu]{zheng2025deepresearcherscalingdeepresearch}
+Yuxiang Zheng, Dayuan Fu, Xiangkun Hu, Xiaojie Cai, Lyumanshan Ye, Pengrui Lu,
+  and Pengfei Liu.
+\newblock Deepresearcher: Scaling deep research via reinforcement learning in
+  real-world environments, 2025.
 \newblock URL \url{https://arxiv.org/abs/2504.03160}.
 
-\bibitem[Zhou et~al.(2023{\natexlab{a}})Zhou, Jurafsky, and Hashimoto]{zhou2023epistemic}
+\bibitem[Zhou et~al.(2023{\natexlab{a}})Zhou, Jurafsky, and
+  Hashimoto]{zhou2023epistemic}
 Kaitlyn Zhou, Dan Jurafsky, and Tatsunori Hashimoto.
-\newblock Navigating the grey area: How expressions of uncertainty and overconfidence affect language models.
-\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)}, 2023{\natexlab{a}}.
+\newblock Navigating the grey area: How expressions of uncertainty and
+  overconfidence affect language models.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, 2023{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2302.13439}.
 
-\bibitem[Zhou et~al.(2023{\natexlab{b}})Zhou, Jurafsky, and Hashimoto]{zhou2023navigatinggreyareaexpressions}
+\bibitem[Zhou et~al.(2023{\natexlab{b}})Zhou, Jurafsky, and
+  Hashimoto]{zhou2023navigatinggreyareaexpressions}
 Kaitlyn Zhou, Dan Jurafsky, and Tatsunori Hashimoto.
-\newblock Navigating the grey area: How expressions of uncertainty and overconfidence affect language models, 2023{\natexlab{b}}.
+\newblock Navigating the grey area: How expressions of uncertainty and
+  overconfidence affect language models, 2023{\natexlab{b}}.
 \newblock URL \url{https://arxiv.org/abs/2302.13439}.
 
 \end{thebibliography}
