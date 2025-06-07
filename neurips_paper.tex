@@ -459,19 +459,18 @@ Our analysis of private reasoning versus public betting behavior (Finding 5) rai
 
 \subsection{Potential Mitigations and Guardrails}
 \label{subsec:mitigations}
-Self Red-Teaming prompts that explicitly instruct models to consider both winning and losing scenarios (e.g. \textit{"think through why you will win, but also explicitly consider why your opponent could win,"}) significantly reduced confidence escalation. Overall, confidence increased by only 3.05 percentage points (from 67.03\% to 70.08\%), a marked improvement over the ~10-11\% average escalation in other experiments (details in Appendix~\ref{appendix:self_redteam_ablation}). These findings suggest that prompting models to consider alternative outcomes is a promising, though not universally effective, mitigation for overconfidence.
+\textbf{Self Red-Teaming prompts}, such as our \textbf{Redteam v1} prompt that explicitly instruct models to consider both winning and losing scenarios (e.g. \textit{"think through why you will win, but also explicitly consider why your opponent could win,"}) significantly reduced confidence escalation. Overall, confidence increased by only 3.05 percentage points (from 67.03\% to 70.08\%), a marked improvement over the ~10-11\% average escalation in other experiments (details in Appendix~\ref{appendix:self_redteam_ablation}). We also tested a \textbf{Redteam v2 (RPT prompt).} which uses \emph{Reasoning through Perspective Transition} by \citet{wang2025perspectivetransitionlargelanguage}. Redteam v2 (RPT) maintained similar starting baseline confidence (71.0\%) but reduced escalation to 5.7\% (smaller than Standard Debate (10.7\%) though less effective overall than our own Redteam v1 (3.05\%)). This suggests third-person perspective being less effective compared to first or second person in the specific context of adversarial 2-sided debate (see Appendix~\ref{tab:self_redteam_v2}). These findings show that prompting models to consider alternative perspectives can mitigate overconfidence.
 
-% ---- New concise mention of Redteam v2 ----
-\paragraph{Redteam v2 (RPT prompt).} We also evaluated a variant that leverages the \emph{Reasoning through Perspective Transition} (RPT) prompt from \citet{wang2025perspectivetransitionlargelanguage}.  This ``Redteam v2'' setup kept the average \emph{opening} confidence essentially unchanged (71.0\%) but further dampened escalation: confidence rose by only 5.7 percentage points from opening to closing, roughly 4 pp lower than the standard debate baseline.  The smaller improvement compared to Redteam v1 likely reflects the fact that the RPT prompt was not tuned for a multi-round debate context.  Full per-model results are provided in Appendix~\ref{tab:self_redteam_v2}.
+\paragraph{Deceptive self-debate.} We also ran a variant where models were told they were debating a \emph{highly skilled debater}—while in reality debating identical models. Opening confidence stayed similar to Self-debate and Public Bets (63.9 \%), but escalated by 6.7\%, lower than Self-debates (11.1\%). Although less effective than explicit red-teaming, it suggests that simply lowering a model's perceived relative strength encourages more conservative calibration (see Appendix~\ref{tab:deceptive_self_debate} for details).
 
 \subsection{Limitations and Future Research Directions}
 \label{subsec:limitations_future}
 
 \paragraph{Exploring Agentic Workflows.} We document overconfidence and propose mitigations for debate. We encourage further testing for generalising to multi-turn, long-horizon agentic tasks such as code generation and web search. \citet{cognitionlabs_devin21_2025} which uses 0-100 confidence scores for their newest coding agent, underscores a real-world applications of our findings. Research on LLM task disambiguation \citep{hu2024uncertaintythoughtsuncertaintyawareplanning,kobalczyk2025activetaskdisambiguationllms} and in robotics \citep{liang2025introspectiveplanningaligningrobots,ren2023robotsaskhelpuncertainty} suggests human-LLM teams could outperform calibration by humans or agents alone \citep{roldan2025genai}.
 
-\paragraph{Judging Limitations and Win-Rate Imbalance.} Two related challenges affected our debate evaluation: (1) Opposition positions consistently won approximately 70\% of the time despite balanced topic design, and (2) establishing reliable ground truth for debate outcomes proved difficult. Our AI jury setup faced issues with inter-judge reliability (different LLMs reaching different conclusions) and intra-judge consistency (identical debates receiving different verdicts). Without extensive human expert judging, we cannot definitively determine which model "won" a given debate.
+\paragraph{Judging Limitations and Win-Rate Imbalance.} Two related challenges affected our debate evaluation: (1) Opposition positions consistently won approximately 70\% of the time despite balanced topic design, and (2) establishing reliable ground truth for debate outcomes proved difficult. Our AI jury setup faced issues with inter-judge reliability (different LLMs reaching different conclusions) and intra-judge consistency (identical debates receiving different verdicts). Currently, without extensive human expert judging, we cannot definitively determine which model "won" a given debate.
 
-However, our core findings about systematic overconfidence remain valid because (a) the zero-sum nature of debates makes simultaneous high confidence logically impossible, and (b) we observed persistently high overconfidence patterns in self-debates where models faced exact copies of themselves—scenarios where win probability must mathematically be exactly 50\%. These judging challenges underscore the need for improved debate evaluation methods in future work. Details about our AI jury implementation can be found in Appendix \ref{appendix:ai_jury}.
+However, our core findings about systematic overconfidence remain valid because (a) the zero-sum nature of debates makes simultaneous high confidence logically impossible, and (b) we observed persistently high overconfidence patterns in self-debates where models faced exact copies of themselves—scenarios where win probability must mathematically be exactly 50\%. Details about our AI jury implementation can be found in Appendix \ref{appendix:ai_jury}.
 
 \section{Conclusion}
 
@@ -1302,6 +1301,31 @@ Note that for transitions where there was no variance in the bet differences (e.
   }
 \end{table}
 
+\begin{table*}[htbp]
+  \centering
+  \caption{Deceptive Self-debate: Result Across Rounds}
+  \label{tab:deceptive_self_debate}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{lrrrrrr}
+    \toprule
+    Model & Opening Bet & Rebuttal Bet & Closing Bet & Open$\rightarrow$Rebuttal & Rebuttal$\rightarrow$Closing & Open$\rightarrow$Closing \\
+    \midrule
+    claude-3.5-haiku                  & 75.42 ± 5.94  & 72.08 ± 4.31   & 79.58 ± 5.19   & $\Delta$ = –3.33, p = 0.9244   & $\Delta$ = 7.50, p = 0.0027** & $\Delta$ = 4.17, p = 0.0830    \\
+    claude-3.7-sonnet                 & 59.58 ± 18.42 & 70.42 ± 3.20   & 72.92 ± 3.20   & $\Delta$ = 10.83, p = 0.0373*   & $\Delta$ = 2.50, p = 0.0556    & $\Delta$ = 13.33, p = 0.0204*  \\
+    deepseek-chat                     & 62.50 ± 3.23  & 78.75 ± 5.82   & 71.67 ± 4.25   & $\Delta$ = 16.25, p = 0.0000*** & $\Delta$ = –7.08, p = 0.9993   & $\Delta$ = 9.17, p = 0.0002*** \\
+    deepseek-rl-distill-qwen-14b:free & 72.92 ± 6.28  & 63.75 ± 19.38  & 71.67 ± 17.12  & $\Delta$ = –9.17, p = 0.8894    & $\Delta$ = 7.92, p = 0.0631    & $\Delta$ = –1.25, p = 0.5819   \\
+    gemini-2.0-flash-001              & 48.17 ± 11.67 & 54.58 ± 13.42  & 50.00 ± 15.01  & $\Delta$ = 6.42, p = 0.1052     & $\Delta$ = –4.17, p = 0.7944   & $\Delta$ = 1.83, p = 0.3545    \\
+    gemma-3-27b-it                    & 54.58 ± 18.70 & 45.00 ± 14.14  & 53.33 ± 21.73  & $\Delta$ = –9.58, p = 0.9458    & $\Delta$ = 8.33, p = 0.1177    & $\Delta$ = –1.25, p = 0.5648   \\
+    gpt-4o-mini                       & 65.00 ± 8.16  & 68.33 ± 10.27  & 69.58 ± 8.28   & $\Delta$ = 3.33, p = 0.2428     & $\Delta$ = 1.25, p = 0.3087    & $\Delta$ = 4.58, p = 0.1275    \\
+    o3-mini                           & 63.17 ± 17.11 & 74.58 ± 6.57   & 72.92 ± 6.13   & $\Delta$ = 11.42, p = 0.0001*** & $\Delta$ = –1.67, p = 0.9990   & $\Delta$ = 9.75, p = 0.0012**  \\
+    qwen-max                          & 62.67 ± 4.31  & 70.00 ± 10.00  & 76.67 ± 9.82   & $\Delta$ = 7.92, p = 0.0226*    & $\Delta$ = 6.25, p = 0.0504    & $\Delta$ = 14.17, p = 0.0003***\\
+    qwq-32b:free                      & 75.83 ± 7.86  & 77.67 ± 5.98   & 84.17 ± 5.71   & $\Delta$ = 1.83, p = 0.2629     & $\Delta$ = 6.50, p = 0.0032**  & $\Delta$ = 8.33, p = 0.0126*   \\
+    \midrule
+    \textbf{Overall}                 & 63.92 ± 12.88 & 67.52 ± 14.47  & 70.62 ± 15.27  & $\Delta$ = 3.59, p = 0.0105*    & $\Delta$ = 3.11, p = 0.0062**  & $\Delta$ = 6.70, p = 0.0000*** \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table*}
 
 % === OVERALL MODEL AVERAGES & ESCALATION (ACROSS ALL EXPERIMENT TYPES) ===
 \begin{table}[htbp]
@@ -1437,6 +1461,32 @@ This ablation tested the effect of a "self red-teaming" prompt designed to mitig
     qwq-32b:free                      & 75.00 ± 6.81  & 74.17 ± 6.40  & 82.67 ± 4.90   & $\Delta$ = –0.83, p = 0.4371     & $\Delta$ = 8.50, p = 0.0029** & $\Delta$ = 7.67, p = 0.0070**   \\
     \midrule
     \textbf{Overall}                  & 71.00 ± 9.91  & 74.38 ± 8.45  & 76.74 ± 11.65  & $\Delta$ = 3.38, p = 0.0000***   & $\Delta$ = 2.37, p = 0.0146*  & $\Delta$ = 5.74, p = 0.0000***  \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table*}
+
+\begin{table*}[htbp]
+  \centering
+  \caption{Deceptive Self-debate: Result Across Rounds}
+  \label{tab:deceptive_self_debate}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{lrrrrrr}
+    \toprule
+    Model & Opening Bet & Rebuttal Bet & Closing Bet & Open$\rightarrow$Rebuttal & Rebuttal$\rightarrow$Closing & Open$\rightarrow$Closing \\
+    \midrule
+    claude-3.5-haiku                  & 75.42 ± 5.94  & 72.08 ± 4.31   & 79.58 ± 5.19   & $\Delta$ = –3.33, p = 0.9244   & $\Delta$ = 7.50, p = 0.0027** & $\Delta$ = 4.17, p = 0.0830    \\
+    claude-3.7-sonnet                 & 59.58 ± 18.42 & 70.42 ± 3.20   & 72.92 ± 3.20   & $\Delta$ = 10.83, p = 0.0373*   & $\Delta$ = 2.50, p = 0.0556    & $\Delta$ = 13.33, p = 0.0204*  \\
+    deepseek-chat                     & 62.50 ± 3.23  & 78.75 ± 5.82   & 71.67 ± 4.25   & $\Delta$ = 16.25, p = 0.0000*** & $\Delta$ = –7.08, p = 0.9993   & $\Delta$ = 9.17, p = 0.0002*** \\
+    deepseek-rl-distill-qwen-14b:free & 72.92 ± 6.28  & 63.75 ± 19.38  & 71.67 ± 17.12  & $\Delta$ = –9.17, p = 0.8894    & $\Delta$ = 7.92, p = 0.0631    & $\Delta$ = –1.25, p = 0.5819   \\
+    gemini-2.0-flash-001              & 48.17 ± 11.67 & 54.58 ± 13.42  & 50.00 ± 15.01  & $\Delta$ = 6.42, p = 0.1052     & $\Delta$ = –4.17, p = 0.7944   & $\Delta$ = 1.83, p = 0.3545    \\
+    gemma-3-27b-it                    & 54.58 ± 18.70 & 45.00 ± 14.14  & 53.33 ± 21.73  & $\Delta$ = –9.58, p = 0.9458    & $\Delta$ = 8.33, p = 0.1177    & $\Delta$ = –1.25, p = 0.5648   \\
+    gpt-4o-mini                       & 65.00 ± 8.16  & 68.33 ± 10.27  & 69.58 ± 8.28   & $\Delta$ = 3.33, p = 0.2428     & $\Delta$ = 1.25, p = 0.3087    & $\Delta$ = 4.58, p = 0.1275    \\
+    o3-mini                           & 63.17 ± 17.11 & 74.58 ± 6.57   & 72.92 ± 6.13   & $\Delta$ = 11.42, p = 0.0001*** & $\Delta$ = –1.67, p = 0.9990   & $\Delta$ = 9.75, p = 0.0012**  \\
+    qwen-max                          & 62.67 ± 4.31  & 70.00 ± 10.00  & 76.67 ± 9.82   & $\Delta$ = 7.92, p = 0.0226*    & $\Delta$ = 6.25, p = 0.0504    & $\Delta$ = 14.17, p = 0.0003***\\
+    qwq-32b:free                      & 75.83 ± 7.86  & 77.67 ± 5.98   & 84.17 ± 5.71   & $\Delta$ = 1.83, p = 0.2629     & $\Delta$ = 6.50, p = 0.0032**  & $\Delta$ = 8.33, p = 0.0126*   \\
+    \midrule
+    \textbf{Overall}                 & 63.92 ± 12.88 & 67.52 ± 14.47  & 70.62 ± 15.27  & $\Delta$ = 3.59, p = 0.0105*    & $\Delta$ = 3.11, p = 0.0062**  & $\Delta$ = 6.70, p = 0.0000*** \\
     \bottomrule
   \end{tabular}
   }
