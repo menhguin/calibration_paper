@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.25)  28 MAY 2025 00:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.25)  7 JUN 2025 19:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -742,191 +742,190 @@ LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 341.
  [6] [7] [8] (neurips_paper.bbl [9] [10] [11] [12])
-Underfull \hbox (badness 10000) in paragraph at lines 553--570
+Underfull \hbox (badness 10000) in paragraph at lines 531--548
 \T1/ptm/m/n/10 (+20) All ex-per-i-ments were per-formed be-tween Febru-ary and May 2025
  []
 
-[13]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 2469) has occurred while \output is active []
 
-[14]
-Overfull \hbox (59.1535pt too wide) in paragraph at lines 658--658
+ [13] [14]
+Overfull \hbox (59.1535pt too wide) in paragraph at lines 636--636
 []    \T1/cmtt/m/n/10 Connection: (Explicit explanation of how this evidence/principle proves your claim)[] 
  []
 
 [15]
-Overfull \hbox (59.1535pt too wide) in paragraph at lines 685--685
+Overfull \hbox (59.1535pt too wide) in paragraph at lines 663--663
 []     \T1/cmtt/m/n/10 - Simply making new arguments without engaging opponents' points will be penalized[] 
  []
 
 
-Overfull \hbox (80.14838pt too wide) in paragraph at lines 690--690
+Overfull \hbox (80.14838pt too wide) in paragraph at lines 668--668
 []     \T1/cmtt/m/n/10 1. Strongest: Specific statistics, named examples, verifiable cases with dates/numbers[] 
  []
 
 
-Overfull \hbox (27.6612pt too wide) in paragraph at lines 692--692
+Overfull \hbox (27.6612pt too wide) in paragraph at lines 670--670
 []     \T1/cmtt/m/n/10 3. Weak: General examples, unnamed cases, theoretical claims without support[] 
  []
 
 
-Overfull \hbox (877.95355pt too wide) in paragraph at lines 714--714
+Overfull \hbox (877.95355pt too wide) in paragraph at lines 692--692
 []     \T1/cmtt/m/n/10 The judge will ignore speaking style, rhetoric, and presentation. Focus entirely on argument substance, evidence quality, and logical reasoning. Your case will be evaluated based on what you explicitly prove, not what you assume or imply.[] 
  []
 
 [16]
-Overfull \hbox (6.66632pt too wide) in paragraph at lines 748--748
+Overfull \hbox (6.66632pt too wide) in paragraph at lines 726--726
 []   \T1/cmtt/m/n/10 Impact: (Explain exactly why winning this point is crucial for the debate)[] 
- []
-
-
-Overfull \hbox (53.90479pt too wide) in paragraph at lines 795--795
-[]    \T1/cmtt/m/n/10 - Simply making new arguments without engaging opponents' points will be penalized[] 
- []
-
-
-Overfull \hbox (74.89966pt too wide) in paragraph at lines 800--800
-[]    \T1/cmtt/m/n/10 1. Strongest: Specific statistics, named examples, verifiable cases with dates/numbers[] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Overfull \hbox (22.41248pt too wide) in paragraph at lines 802--802
-[]    \T1/cmtt/m/n/10 3. Weak: General examples, unnamed cases, theoretical claims without support[] 
- []
-
-
-Overfull \hbox (872.70483pt too wide) in paragraph at lines 824--824
-[]    \T1/cmtt/m/n/10 The judge will ignore speaking style, rhetoric, and presentation. Focus entirely on argument substance, evidence quality, and logical reasoning. Your case will be evaluated based on what you explicitly prove, not what you assume or imply.[] 
- []
-
-[18]
-Overfull \hbox (53.90479pt too wide) in paragraph at lines 886--886
+Overfull \hbox (53.90479pt too wide) in paragraph at lines 773--773
 []    \T1/cmtt/m/n/10 - Simply making new arguments without engaging opponents' points will be penalized[] 
  []
 
 
-Overfull \hbox (74.89966pt too wide) in paragraph at lines 891--891
+Overfull \hbox (74.89966pt too wide) in paragraph at lines 778--778
 []    \T1/cmtt/m/n/10 1. Strongest: Specific statistics, named examples, verifiable cases with dates/numbers[] 
  []
 
 
-Overfull \hbox (22.41248pt too wide) in paragraph at lines 893--893
+Overfull \hbox (22.41248pt too wide) in paragraph at lines 780--780
 []    \T1/cmtt/m/n/10 3. Weak: General examples, unnamed cases, theoretical claims without support[] 
  []
 
 
-Overfull \hbox (872.70483pt too wide) in paragraph at lines 915--915
+Overfull \hbox (872.70483pt too wide) in paragraph at lines 802--802
 []    \T1/cmtt/m/n/10 The judge will ignore speaking style, rhetoric, and presentation. Focus entirely on argument substance, evidence quality, and logical reasoning. Your case will be evaluated based on what you explicitly prove, not what you assume or imply.[] 
  []
 
+[18]
+Overfull \hbox (53.90479pt too wide) in paragraph at lines 864--864
+[]    \T1/cmtt/m/n/10 - Simply making new arguments without engaging opponents' points will be penalized[] 
+ []
+
+
+Overfull \hbox (74.89966pt too wide) in paragraph at lines 869--869
+[]    \T1/cmtt/m/n/10 1. Strongest: Specific statistics, named examples, verifiable cases with dates/numbers[] 
+ []
+
+
+Overfull \hbox (22.41248pt too wide) in paragraph at lines 871--871
+[]    \T1/cmtt/m/n/10 3. Weak: General examples, unnamed cases, theoretical claims without support[] 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19] [20] [21]
+ [19]
+Overfull \hbox (872.70483pt too wide) in paragraph at lines 893--893
+[]    \T1/cmtt/m/n/10 The judge will ignore speaking style, rhetoric, and presentation. Focus entirely on argument substance, evidence quality, and logical reasoning. Your case will be evaluated based on what you explicitly prove, not what you assume or imply.[] 
+ []
+
+[20] [21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
-\T1/cmtt/m/n/10 debating against yourself. The other debater is without question another
- []
-
-
-Underfull \vbox (badness 2173) has occurred while \output is active []
+Underfull \vbox (badness 1577) has occurred while \output is active []
 
  [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
+Underfull \hbox (badness 10000) in paragraph at lines 1070--1071
 \T1/cmtt/m/n/10 debating against yourself. The other debater is without question another
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
-\T1/cmtt/m/n/10 copy of yourself and has the same competence as you have. By definition,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
-\T1/cmtt/m/n/10 you have exactly a 50% chance of winning this debate since you are debating
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1100--1102
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 \T1/cmtt/m/n/10 debating against yourself. The other debater is without question another
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1100--1102
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 \T1/cmtt/m/n/10 copy of yourself and has the same competence as you have. By definition,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1100--1102
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 \T1/cmtt/m/n/10 you have exactly a 50% chance of winning this debate since you are debating
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1103--1104
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1080
+\T1/cmtt/m/n/10 debating against yourself. The other debater is without question another
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1080
+\T1/cmtt/m/n/10 copy of yourself and has the same competence as you have. By definition,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1080
+\T1/cmtt/m/n/10 you have exactly a 50% chance of winning this debate since you are debating
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
 []\T1/cmtt/m/n/10 After your speech, you must include a public confidence bet (0-100)
  []
 
-[24] [25] [26] [27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
-Overfull \hbox (16.06107pt too wide) in paragraph at lines 1496--1516
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24]
+Underfull \vbox (badness 2503) has occurred while \output is active []
+
+ [25] [26] [27] [28] [29]
+Overfull \hbox (16.06107pt too wide) in paragraph at lines 1566--1586
  [][] 
  []
 
 
-Overfull \hbox (46.011pt too wide) in paragraph at lines 1527--1539
+Overfull \hbox (46.011pt too wide) in paragraph at lines 1597--1609
  [][] 
  []
 
 
-Overfull \hbox (63.5324pt too wide) in paragraph at lines 1545--1557
+Overfull \hbox (63.5324pt too wide) in paragraph at lines 1615--1627
  [][] 
  []
 
-[29]
+[30]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 1585.
+            Default family used instead on input line 1655.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 1590.
+            Default family used instead on input line 1660.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 1591.
- [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1618--1620
+            Default family used instead on input line 1661.
+ [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1688--1690
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1621--1627
+Underfull \hbox (badness 10000) in paragraph at lines 1691--1697
 
  []
 
-
-Underfull \vbox (badness 6641) has occurred while \output is active []
-
- [31] [32] [33] [34] [35] (neurips_paper.aux)
+[32] [33] [34] [35] [36] (neurips_paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `neurips_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 3B0EA2A13F5D0C8E4D6065E304D3D190;11121.
+(rerunfilecheck)             Checksum: C431FEB2FD694FD6E798E0EC48F195BD;11355.
  ) 
 Here is how much of TeX's memory you used:
- 26732 strings out of 474486
- 484698 string characters out of 5743755
- 2790542 words of memory out of 5000000
- 47880 multiletter control sequences out of 15000+600000
- 610733 words of font info for 304 fonts, out of 8000000 for 9000
+ 26735 strings out of 474486
+ 484935 string characters out of 5743755
+ 2801542 words of memory out of 5000000
+ 47887 multiletter control sequences out of 15000+600000
+ 610189 words of font info for 298 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,87p,2463b,2016s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -939,9 +938,9 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  <C:\Users\minh1\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\minh1\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\minh1\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on neurips_paper.pdf (35 pages, 416939 bytes).
+Output written on neurips_paper.pdf (36 pages, 421051 bytes).
 PDF statistics:
- 1149 PDF objects out of 1200 (max. 8388607)
- 355 named destinations out of 1000 (max. 500000)
- 50133 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 1165 PDF objects out of 1200 (max. 8388607)
+ 360 named destinations out of 1000 (max. 500000)
+ 50141 words of extra memory for PDF output out of 51595 (max. 10000000)
 

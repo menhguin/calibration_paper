@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -115,9 +115,9 @@ Katarzyna Kobalczyk, Nicolas Astorga, Tennison Liu, and Mihaela van~der Schaar.
 
 \bibitem[Labs(2025)]{cognitionlabs_devin21_2025}
 Cognition Labs.
-\newblock “it’s true: coding agents are overconfident. that’s why devin
-  2.1 gives confidence scores to indicate its likelihood of completing
-  tasks.”, May 2025.
+\newblock "it's true: coding agents are overconfident. that's why devin 2.1
+  gives confidence scores to indicate its likelihood of completing tasks.", May
+  2025.
 \newblock URL \url{https://x.com/cognition_labs/status/1923110270660116965}.
 \newblock Tweet.
 
@@ -359,6 +359,14 @@ Lindia Tjuatja, Valerie Chen, Sherry~Tongshuang Wu, Ameet Talwalkar, and Graham
 \newblock Do llms exhibit human-like response biases? a case study in survey
   design, 2024.
 \newblock URL \url{https://arxiv.org/abs/2311.04076}.
+
+\bibitem[Wang et~al.(2025)Wang, Zhang, Wang, Xu, Luo, Wang, Li, and
+  Liu]{wang2025perspectivetransitionlargelanguage}
+Xiaolong Wang, Yuanchi Zhang, Ziyue Wang, Yuzhuang Xu, Fuwen Luo, Yile Wang,
+  Peng Li, and Yang Liu.
+\newblock Perspective transition of large language models for solving
+  subjective tasks, 2025.
+\newblock URL \url{https://arxiv.org/abs/2501.09265}.
 
 \bibitem[Wen et~al.(2024)Wen, Xu, HAN, Wolfe, Wang, and Howe]{wen2024from}
 Bingbing Wen, Chenjun Xu, Bin HAN, Robert Wolfe, Lucy~Lu Wang, and Bill Howe.

@@ -458,33 +458,11 @@ The confidence escalation identified in this study has significant implications 
 Our analysis of private reasoning versus public betting behavior (Finding 5) raises additional concerns about chain-of-thought (CoT) faithfulness. The discrepancies observed between models' internal reasoning and expressed confidence suggest that verbalized reasoning processes may not accurately reflect models' actual decision-making. This challenges a key assumption underlying CoT-based interpretability methods—that models' explicitly articulated reasoning reflects their internal computation. If LLMs generate post-hoc justifications rather than transparent reasoning trails, this limits our ability to detect flawed reasoning through reasoning traces alone, creating blind spots in monitoring and oversight systems that rely on CoT transparency \citep{lanham2023measuringfaithfulnesschainofthoughtreasoning,chua2025deepseekr1reasoningmodels}.
 
 \subsection{Potential Mitigations and Guardrails}
-Self Red-Teaming prompts that explicitly instruct models to consider both winning and losing scenarios significantly reduced confidence escalation (e.g. \textit{"think through why you will win, but also explicitly consider why your opponent could win,"}). As shown in Table~\ref{tab:self_redteam_ablation}, confidence increased only 3.05\% (67.03\% to 70.08\%) versus 10.34\% in Cross-Model and 11.12\% in Self-Debates.
+\label{subsec:mitigations}
+Self Red-Teaming prompts that explicitly instruct models to consider both winning and losing scenarios (e.g. \textit{"think through why you will win, but also explicitly consider why your opponent could win,"}) significantly reduced confidence escalation. Overall, confidence increased by only 3.05 percentage points (from 67.03\% to 70.08\%), a marked improvement over the ~10-11\% average escalation in other experiments (details in Appendix~\ref{appendix:self_redteam_ablation}). These findings suggest that prompting models to consider alternative outcomes is a promising, though not universally effective, mitigation for overconfidence.
 
-\begin{table*}[htbp]
-  \centering
-  \caption{Self Redteam Debate: Result Across Rounds (Private Self-Debate, No Explicit 50\%)}
-  \label{tab:self_redteam_ablation}
-  \resizebox{\textwidth}{!}{
-  \begin{tabular}{lrrrrrr}
-    \toprule
-    Model & Opening Bet & Rebuttal Bet & Closing Bet & Open$\rightarrow$Rebuttal & Rebuttal$\rightarrow$Closing & Open$\rightarrow$Closing \\
-    \midrule
-    claude-3.5-haiku                  & 69.58 ± 8.53  & 68.75 ± 8.93   & 75.83 ± 6.40   & $\Delta$ = –0.83, p = 0.6139   & $\Delta$ = 7.08, p = 0.0058** & $\Delta$ = 6.25, p = 0.0202*   \\
-    claude-3.7-sonnet                 & 58.33 ± 2.36  & 60.00 ± 2.89   & 60.00 ± 2.89   & $\Delta$ = 1.67, p = 0.1099    & $\Delta$ = 0.00, p = 0.5000   & $\Delta$ = 1.67, p = 0.1099    \\
-    deepseek-chat                     & 62.08 ± 4.31  & 70.00 ± 2.89   & 69.58 ± 1.38   & $\Delta$ = 7.92, p = 0.0001*** & $\Delta$ = –0.42, p = 0.6629  & $\Delta$ = 7.50, p = 0.0001*** \\
-    deepseek-r1-distill-qwen-14b:free & 81.25 ± 8.93  & 64.17 ± 25.97  & 77.50 ± 10.31  & $\Delta$ = –17.08, p = 0.9743 & $\Delta$ = 13.33, p = 0.0453* & $\Delta$ = –3.75, p = 0.8585   \\
-    gemini-2.0-flash-001              & 59.92 ± 5.17  & 61.25 ± 6.17   & 53.33 ± 11.06  & $\Delta$ = 1.33, p = 0.2483    & $\Delta$ = –7.92, p = 0.9760  & $\Delta$ = –6.58, p = 0.9409   \\
-    gemma-3-27b-it                    & 69.58 ± 6.28  & 75.00 ± 5.77   & 72.50 ± 7.22   & $\Delta$ = 5.42, p = 0.0388*   & $\Delta$ = –2.50, p = 0.7578  & $\Delta$ = 2.92, p = 0.1468    \\
-    gpt-4o-mini                       & 71.25 ± 2.17  & 67.92 ± 4.77   & 72.50 ± 4.79   & $\Delta$ = –3.33, p = 0.9806   & $\Delta$ = 4.58, p = 0.0170*  & $\Delta$ = 1.25, p = 0.2146    \\
-    o3-mini                           & 70.00 ± 9.13  & 78.75 ± 4.62   & 77.92 ± 4.31   & $\Delta$ = 8.75, p = 0.0098**  & $\Delta$ = –0.83, p = 0.6493  & $\Delta$ = 7.92, p = 0.0090**  \\
-    qwen-max                          & 63.33 ± 5.89  & 65.83 ± 5.71   & 68.33 ± 7.17   & $\Delta$ = 2.50, p = 0.1694    & $\Delta$ = 2.50, p = 0.1944  & $\Delta$ = 5.00, p = 0.0228*   \\
-    qwq-32b:free                      & 65.00 ± 4.56  & 70.17 ± 6.15   & 73.33 ± 7.17   & $\Delta$ = 5.17, p = 0.0183*   & $\Delta$ = 3.17, p = 0.1330  & $\Delta$ = 8.33, p = 0.0027**  \\
-    \midrule
-    \textbf{Overall}                  & 67.03 ± 8.93  & 68.18 ± 11.22  & 70.08 ± 10.16  & $\Delta$ = 1.15, p = 0.1674    & $\Delta$ = 1.90, p = 0.0450* & $\Delta$ = 3.05, p = 0.0004*** \\
-    \bottomrule
-  \end{tabular}
-  }
-\end{table*}
+% ---- New concise mention of Redteam v2 ----
+\paragraph{Redteam v2 (RPT prompt).} We also evaluated a variant that leverages the \emph{Reasoning through Perspective Transition} (RPT) prompt from \citet{wang2025perspectivetransitionlargelanguage}.  This ``Redteam v2'' setup kept the average \emph{opening} confidence essentially unchanged (71.0\%) but further dampened escalation: confidence rose by only 5.7 percentage points from opening to closing, roughly 4 pp lower than the standard debate baseline.  The smaller improvement compared to Redteam v1 likely reflects the fact that the RPT prompt was not tuned for a multi-round debate context.  Full per-model results are provided in Appendix~\ref{tab:self_redteam_v2}.
 
 \subsection{Limitations and Future Research Directions}
 \label{subsec:limitations_future}
@@ -1371,6 +1349,98 @@ Note that for transitions where there was no variance in the bet differences (e.
     \bottomrule
   \end{tabular}
 \end{table}
+
+\section{Self Red-Teaming Mitigation Ablation}
+\label{appendix:self_redteam_ablation}
+This ablation tested the effect of a "self red-teaming" prompt designed to mitigate confidence escalation. The prompt instructed models to explicitly consider reasons why their opponent might win, in addition to reasons why they might win. Table~\ref{tab:self_redteam_ablation} shows the round-by-round confidence for each model under this condition.
+
+\begin{table*}[htbp]
+  \centering
+  \caption{Self Redteam Debate: Result Across Rounds (Private 
+  Self-Debate, No Explicit 50\%)}
+  \label{tab:self_redteam_ablation}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{lrrrrrr}
+    \toprule
+    Model & Opening Bet & Rebuttal Bet & Closing Bet & 
+    Open$\rightarrow$Rebuttal & Rebuttal$\rightarrow$Closing & 
+    Open$\rightarrow$Closing \\
+    \midrule
+    claude-3.5-haiku                  & 69.58 ± 8.53  & 68.75 ± 8.
+    93   & 75.83 ± 6.40   & $\Delta$ = –0.83, p = 0.6139   & 
+    $\Delta$ = 7.08, p = 0.0058** & $\Delta$ = 6.25, p = 0.
+    0202*   \\
+    claude-3.7-sonnet                 & 58.33 ± 2.36  & 60.00 ± 2.
+    89   & 60.00 ± 2.89   & $\Delta$ = 1.67, p = 0.1099    & 
+    $\Delta$ = 0.00, p = 0.5000   & $\Delta$ = 1.67, p = 0.
+    1099    \\
+    deepseek-chat                     & 62.08 ± 4.31  & 70.00 ± 2.
+    89   & 69.58 ± 1.38   & $\Delta$ = 7.92, p = 0.0001*** & 
+    $\Delta$ = –0.42, p = 0.6629  & $\Delta$ = 7.50, p = 0.
+    0001*** \\
+    deepseek-r1-distill-qwen-14b:free & 81.25 ± 8.93  & 64.17 ± 
+    25.97  & 77.50 ± 10.31  & $\Delta$ = –17.08, p = 0.9743 & 
+    $\Delta$ = 13.33, p = 0.0453* & $\Delta$ = –3.75, p = 0.
+    8585   \\
+    gemini-2.0-flash-001              & 59.92 ± 5.17  & 61.25 ± 6.
+    17   & 53.33 ± 11.06  & $\Delta$ = 1.33, p = 0.2483    & 
+    $\Delta$ = –7.92, p = 0.9760  & $\Delta$ = –6.58, p = 0.
+    9409   \\
+    gemma-3-27b-it                    & 69.58 ± 6.28  & 75.00 ± 5.
+    77   & 72.50 ± 7.22   & $\Delta$ = 5.42, p = 0.0388*   & 
+    $\Delta$ = –2.50, p = 0.7578  & $\Delta$ = 2.92, p = 0.
+    1468    \\
+    gpt-4o-mini                       & 71.25 ± 2.17  & 67.92 ± 4.
+    77   & 72.50 ± 4.79   & $\Delta$ = –3.33, p = 0.9806   & 
+    $\Delta$ = 4.58, p = 0.0170*  & $\Delta$ = 1.25, p = 0.
+    2146    \\
+    o3-mini                           & 70.00 ± 9.13  & 78.75 ± 4.
+    62   & 77.92 ± 4.31   & $\Delta$ = 8.75, p = 0.0098**  & 
+    $\Delta$ = –0.83, p = 0.6493  & $\Delta$ = 7.92, p = 0.
+    0090**  \\
+    qwen-max                          & 63.33 ± 5.89  & 65.83 ± 5.
+    71   & 68.33 ± 7.17   & $\Delta$ = 2.50, p = 0.1694    & 
+    $\Delta$ = 2.50, p = 0.1944  & $\Delta$ = 5.00, p = 0.0228*   
+    \\
+    qwq-32b:free                      & 65.00 ± 4.56  & 70.17 ± 6.
+    15   & 73.33 ± 7.17   & $\Delta$ = 5.17, p = 0.0183*   & 
+    $\Delta$ = 3.17, p = 0.1330  & $\Delta$ = 8.33, p = 0.0027**  
+    \\
+    \midrule
+    \textbf{Overall}                  & 67.03 ± 8.93  & 68.18 ± 
+    11.22  & 70.08 ± 10.16  & $\Delta$ = 1.15, p = 0.1674    & 
+    $\Delta$ = 1.90, p = 0.0450* & $\Delta$ = 3.05, p = 0.0004*** 
+    \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table*}
+
+\begin{table*}[htbp]
+  \centering
+  \caption{Self Redteam Debate v2: Result Across Rounds (Private Self-Debate, No Explicit 50\%)}
+  \label{tab:self_redteam_v2}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{lrrrrrr}
+    \toprule
+    Model & Opening Bet & Rebuttal Bet & Closing Bet & Open$\rightarrow$Rebuttal & Rebuttal$\rightarrow$Closing & Open$\rightarrow$Closing \\
+    \midrule
+    claude-3.5-haiku                  & 64.17 ± 12.22 & 75.00 ± 2.04  & 77.08 ± 4.31   & $\Delta$ = 10.83, p = 0.0062**   & $\Delta$ = 2.08, p = 0.0876   & $\Delta$ = 12.92, p = 0.0052** \\
+    claude-3.7-sonnet                 & 64.58 ± 3.80  & 68.33 ± 3.73  & 65.83 ± 3.44   & $\Delta$ = 3.75, p = 0.0105*     & $\Delta$ = –2.50, p = 0.9444  & $\Delta$ = 1.25, p = 0.1375     \\
+    deepseek-chat                     & 70.00 ± 4.56  & 78.75 ± 4.15  & 81.67 ± 6.24   & $\Delta$ = 8.75, p = 0.0001***   & $\Delta$ = 2.92, p = 0.1586   & $\Delta$ = 11.67, p = 0.0002*** \\
+    deepseek-rl-distill-qwen-14b:free & 78.75 ± 7.94  & 78.33 ± 6.24  & 84.17 ± 10.96  & $\Delta$ = –0.42, p = 0.5462     & $\Delta$ = 5.83, p = 0.0945   & $\Delta$ = 5.42, p = 0.0176*    \\
+    gemini-2.0-flash-001              & 63.75 ± 13.71 & 63.33 ± 12.13 & 64.58 ± 11.08  & $\Delta$ = –0.42, p = 0.5543     & $\Delta$ = 1.25, p = 0.4095   & $\Delta$ = 0.83, p = 0.4432     \\
+    gemma-3-27b-it                    & 67.92 ± 6.91  & 72.08 ± 7.20  & 72.08 ± 22.22  & $\Delta$ = 4.17, p = 0.0585      & $\Delta$ = 0.00, p = 0.5000   & $\Delta$ = 4.17, p = 0.2968     \\
+    gpt-4o-mini                       & 76.67 ± 3.73  & 74.58 ± 3.20  & 75.58 ± 4.03   & $\Delta$ = –2.08, p = 0.9731     & $\Delta$ = 1.00, p = 0.2234   & $\Delta$ = –1.08, p = 0.7618    \\
+    o3-mini                           & 82.50 ± 4.33  & 84.17 ± 1.93  & 84.17 ± 1.66   & $\Delta$ = 1.67, p = 0.1329      & $\Delta$ = 0.00, p = 0.5000   & $\Delta$ = 1.67, p = 0.1694     \\
+    qwen-max                          & 67.92 ± 5.19  & 72.50 ± 8.42  & 78.17 ± 6.15   & $\Delta$ = 4.58, p = 0.0022**    & $\Delta$ = 5.67, p = 0.0293*  & $\Delta$ = 10.25, p = 0.0008*** \\
+    qwq-32b:free                      & 75.00 ± 6.81  & 74.17 ± 6.40  & 82.67 ± 4.90   & $\Delta$ = –0.83, p = 0.4371     & $\Delta$ = 8.50, p = 0.0029** & $\Delta$ = 7.67, p = 0.0070**   \\
+    \midrule
+    \textbf{Overall}                  & 71.00 ± 9.91  & 74.38 ± 8.45  & 76.74 ± 11.65  & $\Delta$ = 3.38, p = 0.0000***   & $\Delta$ = 2.37, p = 0.0146*  & $\Delta$ = 5.74, p = 0.0000***  \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table*}
 
 \section{Private Reasoning and Bet Alignment Analysis}
 \label{appendix:bet_alignment}
