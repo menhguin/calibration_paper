@@ -173,7 +173,7 @@ To test different factors influencing LLMs' confidence, we conduct \textbf{four 
 
     \item \textbf{Informed Self-Debates (explicit 50\% winrate):} In addition to the Standard Self-Debate setup, models were now explicitly told they had exactly 50\% chance of winning (Appendix \ref{appendix:self_debate_informed}). This tested whether direct probability anchoring affects confidence calibration.
 
-    \item \textbf{Public Self-Debates:} In addition to Self-Debate and Explicit 50\% Winrate, confidence bets were now \textbf{publicly shown} to both models (Appendix \ref{appendix:self_debate_public}). Initially designed to test whether models would better calibrate with this new information, it also revealed strategic divergence between private beliefs and public statements.
+    \item \textbf{Public Self-Debates:} In addition to Self-Debate and Implied 50\% Winrate, confidence bets were now \textbf{publicly shown} to both models (Appendix \ref{appendix:self_debate_public}). Initially designed to test whether models would better calibrate with this new information, it also revealed strategic divergence between private beliefs and public statements.
 \end{enumerate}
 Each configuration involved debates across the six policy topics, with models rotating roles and opponents as appropriate for the design. The following sections detail the common elements of the debate setup and the specific analysis conducted for each experimental configuration.
 
@@ -210,56 +210,58 @@ We do not allow models to see both responses for the current round, as this woul
   belowcaptionskip=0pt
 }
 % -----------------------------------------------------
-For debaters, we used \textbf{Structured Prompts} (see Appendix~\ref{appendix:debater_prompts} for full text) across all speech types to ensure consistency. Key components include:
+For debaters, we used \textbf{Structured Prompts} (see Appendix~\ref{appendix:debater_prompts} for full text) across all speech types to ensure consistency. Table~\ref{tab:prompt_structure} summarizes the key components:
 
-\begin{itemize}
- \item \textbf{Opening Speech Structure:}
- \begin{itemize}
-   \item \textbf{Arguments 1-3}: Each requiring structured presentation of:
-   \begin{itemize}
-     \item Core Claim (single clear sentence)
-     \item Support Type (Evidence or Principle)
-     \item Detailed Support (specific examples or framework)
-     \item Connection (explicit link between support and claim)
-   \end{itemize}
-   \item \textbf{Synthesis}: Integration of arguments into cohesive case
- \end{itemize}
-
- \item \textbf{Rebuttal Speech Structure:}
- \begin{itemize}
-   \item \textbf{Clash Points 1-3}: Each including:
-   \begin{itemize}
-     \item Original Claim (exact quote from opponent)
-     \item Challenge Type (Evidence/Principle Critique or Counter Evidence/Principle)
-     \item Detailed Challenge (specific flaws or counter-arguments)
-     \item Impact (strategic importance of winning this point)
-   \end{itemize}
-   \item \textbf{Defensive Analysis}: Addressing vulnerabilities and additional support
-   \item \textbf{Weighing}: Comparative analysis of competing arguments
- \end{itemize}
-
- \item \textbf{Final Speech Structure:}
- \begin{itemize}
-   \item \textbf{Framing}: Identification of core questions and evaluation lens
-   \item \textbf{Key Clashes}: For each major disagreement:
-   \begin{itemize}
-     \item Direct quotes of points of contention
-     \item Case strength analysis
-     \item Opponent response gaps
-     \item Impact assessment
-   \end{itemize}
-   \item \textbf{Voting Issues}: Priority analysis and final weighing
- \end{itemize}
-
- \item \textbf{Judging Guidance} (consistent across all speeches):
- \begin{itemize}
-   \item \textbf{Direct Clash Analysis}: Requiring explicit quotation and direct engagement
-   \item \textbf{Evidence Quality Hierarchy}: Prioritizing specific statistics and verifiable cases
-   \item \textbf{Logical Validity}: Requiring explicit warrants and coherent reasoning
-   \item \textbf{Response Obligations}: Penalizing dropped or late-addressed arguments
-   \item \textbf{Impact Analysis \& Weighing}: Comparing competing impacts and principles
- \end{itemize}
-\end{itemize}
+\begin{table}[h]
+\centering
+\caption{Four-quadrant overview of debate prompt structures}
+\label{tab:prompt_structure}
+\begin{tabular}{|p{0.48\textwidth}|p{0.48\textwidth}|}
+\hline
+\textbf{1. Opening Speech Structure} & \textbf{2. Rebuttal Speech Structure} \\
+\hline
+\textbf{Arguments 1-3}, each requiring:
+\vspace{2pt}
+\newline • Core Claim (single clear sentence)
+\newline • Support Type (Evidence or Principle)
+\newline • Detailed Support (specific examples or framework)
+\newline • Connection (explicit link between support and claim)
+\vspace{4pt}
+\newline \textbf{Synthesis}: Integration of arguments into cohesive case
+&
+\textbf{Clash Points 1-3}, each including:
+\vspace{2pt}
+\newline • Original Claim (exact quote from opponent)
+\newline • Challenge Type (Evidence/Principle Critique or Counter Evidence/Principle)
+\newline • Detailed Challenge (specific flaws or counter-arguments)
+\newline • Impact (strategic importance of winning this point)
+\vspace{4pt}
+\newline \textbf{Defensive Analysis}: Addressing vulnerabilities and additional support
+\newline \textbf{Weighing}: Comparative analysis of competing arguments
+\\
+\hline
+\textbf{3. Final Speech Structure} & \textbf{4. Judging Guidance (all speeches)} \\
+\hline
+\textbf{Framing}: Identification of core questions and evaluation lens
+\vspace{4pt}
+\newline \textbf{Key Clashes}, for each major disagreement:
+\vspace{2pt}
+\newline • Direct quotes of points of contention
+\newline • Case strength analysis
+\newline • Opponent response gaps
+\newline • Impact assessment
+\vspace{4pt}
+\newline \textbf{Voting Issues}: Priority analysis and final weighing
+&
+• \textbf{Direct Clash Analysis}: Requiring explicit quotation and direct engagement
+\newline • \textbf{Evidence Quality Hierarchy}: Prioritizing specific statistics and verifiable cases
+\newline • \textbf{Logical Validity}: Requiring explicit warrants and coherent reasoning
+\newline • \textbf{Response Obligations}: Penalizing dropped or late-addressed arguments
+\newline • \textbf{Impact Analysis \& Weighing}: Comparing competing impacts and principles
+\\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Dynamic Confidence Elicitation}
 \label{subsec:confidence_elicitation}
@@ -290,7 +292,7 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
   \begin{tabular}{lcccc}
     \toprule
     Model & Cross-model & Standard Self & Informed Self & Public Bets \\
-          & \textit{(highest first)} &               & (50\% informed) & (Public Bets) \\
+          & \textit{(highest first)} & \textit{(implied 50\% w/r)} & \textit{(explicit 50\% w/r)} & \textit{(implied 50\% w/r)} \\
     \midrule
     deepseek/deepseek-r1-distill-qwen-14b:free & 79.09 $\pm$ 10.44* & 76.67 $\pm$ 13.20 & 55.75 $\pm$ 4.71 & 69.58 $\pm$ 16.30 \\
     qwen/qwq-32b:free                          & 78.75 $\pm$ 4.33 & 70.83 $\pm$ 10.62 & 50.42 $\pm$ 1.44 & 71.67 $\pm$ 8.62 \\
@@ -320,7 +322,7 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
 
 \textbf{Statistical evidence}: One-sample t-tests confirm initial confidence significantly exceeds the rational 50\% baseline in Cross-model (t=31.67, p<0.001), Standard Self (t=10.07, p<0.001), and Public Bets (t=9.03, p<0.001) configurations. Wilcoxon tests yielded identical conclusions (all p<0.001).
 
-\textbf{Individual model analysis}: Overconfidence was widespread but varied, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). While all began overconfident, Gemini 2.0 Flash almost always had the lowest confidence and highest variability. While \citet{yoon2025reasoningmodelsbetterexpress} suggests reasoning models better calibrate their confidence in fact-based QA, we did not observe this, possibly due to our adversarial debate setup which may be less aligned with reasoning models' STEM-focused problem-solving datasets.
+\textbf{Individual model analysis}: All models displayed some systematic overconfidence, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). While all began overconfident, Gemini 2.0 Flash almost always had the lowest confidence and highest variability. While \citet{yoon2025reasoningmodelsbetterexpress} suggests advanced reasoning models better calibrate their confidence in fact-based QA, we do not find evidence of any correlation between overconfidence and model type (reasoning vs chat), model scale or benchmark performance i this debate setting.
 
 \textbf{Human comparison}: We compare these results to human college debaters in \citet{RePEc:sip:dpaper:06-042}, who report a comparable mean of 65.00\%, but much higher variability (SD=35.10\%). This suggests that \textbf{while humans and LLMs are comparably overconfident on average, LLMs are much more consistently overconfident, while humans seem to adjust their odds more based on context.}
 
@@ -346,24 +348,24 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
 
 \begin{table*}[htbp] % table* spans two columns
   \centering
-  \caption{Overall Mean Confidence (0-100\%) and Escalation Across Debate Rounds by Experimental Configuration. Values show Mean $\pm$ Standard Deviation. $\Delta$ indicates mean change from the earlier to the later round. Significance levels indicated by asterisks.}
+  \caption{Overall Mean Confidence (0-100\%) and Escalation Across Debate Rounds by Experimental Configuration. Values show Mean $\pm$ Standard Deviation. $\Delta$ indicates mean change from the earlier to the later round. All results are p$<$0.001 except where noted.}
   \label{tab:escalation_summary}
   \resizebox{\textwidth}{!}{ % This will scale the table to fit within the text width
   \begin{tabular}{lccccccc}
     \toprule
-    Experiment Type & Opening Bet & Rebuttal Bet & Closing Bet & Open$\to$Rebuttal & Rebuttal$\to$Closing & Open$\to$Closing \\
+    Experiment Type & Opening Bet & Open$\to$Rebuttal & Rebuttal Bet & Rebuttal$\to$Closing & Closing Bet & Open$\to$Closing \\
     \midrule
-    Cross-model          & 72.92 $\pm$ 7.89 & 77.67 $\pm$ 9.75 & 83.26 $\pm$ 10.06 & $\Delta$=4.75*** & $\Delta$=5.59*** & $\Delta$=10.34*** \\
-    Informed Self        & 50.00 $\pm$ 13.55 & 55.77 $\pm$ 9.73 & 57.08 $\pm$ 8.97 & $\Delta$=5.77*** & $\Delta$=1.32, p=0.0945 & $\Delta$=7.08*** \\
-    Public Bets          & 63.50 $\pm$ 16.31 & 69.43 $\pm$ 16.03 & 74.15 $\pm$ 14.34 & $\Delta$=5.93*** & $\Delta$=4.72*** & $\Delta$=10.65*** \\
-    Standard Self        & 64.08 $\pm$ 15.25 & 69.07 $\pm$ 16.63 & 75.20 $\pm$ 15.39 & $\Delta$=4.99*** & $\Delta$=6.13*** & $\Delta$=11.12*** \\
+    Cross-model          & 72.92 $\pm$ 7.89 & $\Delta$=4.75 & 77.67 $\pm$ 9.75 & $\Delta$=5.59 & 83.26 $\pm$ 10.06 & $\Delta$=10.34 \\
+    Self-Debate (\textit{no 50\%})        & 64.08 $\pm$ 15.25 & $\Delta$=4.99 & 69.07 $\pm$ 16.63 & $\Delta$=6.13 & 75.20 $\pm$ 15.39 & $\Delta$=11.12 \\
+    Informed Self (\textit{w/ 50\%})        & 50.00 $\pm$ 13.55 & $\Delta$=5.77 & 55.77 $\pm$ 9.73 & $\Delta$=1.32* & 57.08 $\pm$ 8.97 & $\Delta$=7.08 \\
+    Public Bets (\textit{no 50\%}) & 63.50 $\pm$ 16.31 & $\Delta$=5.93 & 69.43 $\pm$ 16.03 & $\Delta$=4.72 & 74.15 $\pm$ 14.34 & $\Delta$=10.65 \\
     \midrule
-    \textbf{GRAND OVERALL} & \textbf{62.62 $\pm$ 15.91} & \textbf{67.98 $\pm$ 15.57} & \textbf{72.42 $\pm$ 15.71} & \textbf{$\Delta$=5.36***} & \textbf{$\Delta$=4.44***} & \textbf{$\Delta$=9.80***} \\
+    \textbf{GRAND OVERALL} & \textbf{62.62 $\pm$ 15.91} & \textbf{$\Delta$=5.36} & \textbf{67.98 $\pm$ 15.57} & \textbf{$\Delta$=4.44} & \textbf{72.42 $\pm$ 15.71} & \textbf{$\Delta$=9.80} \\
     \bottomrule
   \end{tabular}
   }
   \vspace{0.2cm}
-  \footnotesize{\textit{* p$\leq$0.05, ** p$\leq$0.01, *** p$\leq$0.001. All sample sizes are N=120 per debate setup, total N=480 for all 4 debates.}}
+  \footnotesize{\textit{All p$<$0.001 except * p=0.0945. All sample sizes are N=120 per debate setup, total N=480 for all 4 debates.}}
 \end{table*}
 
 \subsection{Logical Impossibility: Simultaneous High Confidence (Finding 3)}
@@ -384,19 +386,19 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
 
 \begin{table}[htbp]
   \centering
-  \caption{Distribution of Confidence Level Combinations for Both Debaters in the Closing Round, by Experiment Type. Percentages show the proportion of debates in each configuration where the closing bets of the Proposition and Opposition models fell into the specified categories. The 'Both $>$75\%' column represents the core logical inconsistency finding.}
+  \caption{Distribution of Confidence Level Combinations for Both Debaters in the Closing Round, by Experiment Type (n=60 debates per experiment type). Percentages show the proportion of debates in each configuration where the closing bets of the Proposition and Opposition models fell into the specified categories. The 'Both $>$75\%' column represents the core logical inconsistency finding.}
   \label{tab:logical_impossibility}
   \resizebox{\columnwidth}{!}{ % Scale table to fit width
-  \begin{tabular}{lccccccc}
+  \begin{tabular}{lcccccc}
     \toprule
-    Experiment Type & Total Debates & Both $\le$50\% & Both 51-75\% & Both $>$75\% & 50\%+51-75\% & 50\%+\textbf{$>$}75\% & 51-75\%+\textbf{$>$}75\% \\
+    Experiment Type & Both $\le$50\% & Both 51-75\% & Both $>$75\% & 50\%+51-75\% & 50\%+\textbf{$>$}75\% & 51-75\%+\textbf{$>$}75\% \\
     \midrule
-    cross\_model     & 60            & 0.0\%          & 6.7\%        & \textbf{61.7\%} & 0.0\%        & 0.0\%          & 31.7\%          \\
-    self\_debate     & 60            & 0.0\%          & 26.7\%       & \textbf{35.0\%} & 5.0\%        & 0.0\%          & 33.3\%          \\
-    informed\_self   & 60            & 23.3\%         & 56.7\%       & \textbf{0.0\%}  & 15.0\%       & 0.0\%          & 5.0\%           \\
-    public\_bets     & 60            & 1.7\%          & 26.7\%       & \textbf{33.3\%} & 3.3\%        & 1.7\%          & 33.3\%          \\
+    Cross Model     & 0.0\%          & 6.7\%        & \textbf{61.7\%} & 0.0\%        & 0.0\%          & 31.7\%          \\
+    Self Debate (\textit{no 50\%})    & 0.0\%          & 26.7\%       & \textbf{35.0\%} & 5.0\%        & 0.0\%          & 33.3\%          \\
+    Informed Self (\textit{w/ 50\%})   & 23.3\%         & 56.7\%       & \textbf{0.0\%}  & 15.0\%       & 0.0\%          & 5.0\%           \\
+    Public Bets (\textit{no 50\%})     & 1.7\%          & 26.7\%       & \textbf{33.3\%} & 3.3\%        & 1.7\%          & 33.3\%          \\
     \midrule
-    overall         & 240           & 6.2\%          & 29.2\%       & \textbf{32.5\%} & 5.8\%        & 0.4\%          & 25.8\%          \\
+    Overall         & 6.2\%          & 29.2\%       & \textbf{32.5\%} & 5.8\%        & 0.4\%          & 25.8\%          \\
     \bottomrule
   \end{tabular}
   }
@@ -442,7 +444,7 @@ Our findings reveal significant limitations in LLMs' metacognitive abilities to 
 \begin{itemize}
     \item \textbf{General overconfidence:} Research shows systematic overconfidence across models and tasks \citep{chhikara2025mindconfidencegapoverconfidence,xiong2024uncertainty}, with larger LLMs more overconfident on difficult tasks and smaller ones consistently overconfident across task types \citep{wen2024from}.
 
-    \item \textbf{RLHF amplification:} Post-training for human preferences exacerbates overconfidence, biasing models to indicate high certainty even when incorrect \citep{leng2025tamingoverconfidencellmsreward} and provide more 7/10 ratings \citep{west2025basemodelsbeataligned,openai2024gpt4technicalreport} relative to base models. \citet{tjuatja2024llmsexhibithumanlikeresponse} found mild correlation between uncertainty and LLMs exhibiting certain human-like response bias (r=0.259 for RLHF and r=0.267 for base models), but less so compared to humans (r=0.4-0.6). This suggests that the primary effect indeed comes directly from increasing overconfidence, not a reflection of human-like response bias.
+    \item \textbf{RLHF amplification:} Post-training for human preferences exacerbates overconfidence, biasing models to indicate high certainty even when incorrect \citep{leng2025tamingoverconfidencellmsreward} and provide more 7/10 ratings \citep{west2025basemodelsbeataligned,openai2024gpt4technicalreport} relative to base models. \citet{tjuatja2024llmsexhibithumanlikeresponse} found mild correlation between uncertainty and LLMs exhibiting certain human-like response bias (r=0.259 for RLHF and r=0.267 for base models), but less so compared to humans (r=0.4-0.6). This suggests that LLM overconfidence increases human-like response bias, but human-like response bias itself does not cause overconfidence.
     
     \item \textbf{Task length and sequential inference:} LLMs have displayed biases based on output length \citep{liu2025understandingr1zeroliketrainingcritical}. We tested a 4-round debate setup, but could not draw definitive conclusions as most models faced long-context coherence issues (see Appendix~\ref{appendix:four_round}).
 
