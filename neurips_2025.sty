@@ -327,8 +327,11 @@
 % handle tweaks for camera-ready copy vs. submission copy
 \if@preprint
   \newcommand{\@noticestring}{%
-    Preprint. Under review. Code available at \url{https://github.com/pradyuprasad/llms_overconfidence}%
+    Preprint. Under review.%
   }
+  % -------- Code availability macro (preprint only) --------
+  \newcommand{\codeavailable}{}
+  \renewcommand{\codeavailable}{\\[4pt]\small Code is available at \url{https://github.com/pradyuprasad/llms_overconfidence}}
 \else
   \if@neuripsfinal
     \newcommand{\@noticestring}{%
