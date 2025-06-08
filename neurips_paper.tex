@@ -95,9 +95,7 @@ Pradyumna Shyama Prasad$^{*}$ \\ % Replace with your name
 % Replace with your paper abstract.
 
 \begin{abstract}
-  Can LLMs accurately adjust their confidence when facing opposition? Building on previous studies measuring calibration on static fact-based question-answering tasks, we evaluate Large Language Models (LLMs) in a dynamic, adversarial debate setting, uniquely combining two realistic factors: (a) a \textbf{multi-turn format} requiring models to update beliefs as new information emerges, and (b) a \textbf{zero-sum structure} to control for task-related uncertainty, since mutual high-confidence claims imply systematic overconfidence. We organized 60 three-round policy debates among ten state-of-the-art LLMs, with models privately rating their confidence (0-100) in winning after each round. We observed five concerning patterns: \textit{(1)} \textbf{Systematic overconfidence}: models began debates with average initial confidence of 72.9\% vs. a rational 50\% baseline. \textit{(2) Confidence escalation}: rather than reducing confidence as debates progressed, debaters increased their win probabilities, averaging 83\% by the final round. \textit{(3) Mutual overestimation}: in 61.7\% of debates, both sides simultaneously claimed $\geq$75\% probability of victory, a logical impossibility. \textit{(4) Persistent self-debate bias}: models debating identical copies increased confidence from 64.1\% to 75.2\%; even when explicitly informed their chance of winning was exactly 50\%, confidence still rose (from 50.0\% to 57.1\%). \textit{(5) Misaligned private reasoning}: models' private scratchpad thoughts sometimes differed from their public confidence ratings, raising concerns about faithfulness of chain-of-thought reasoning. These results suggest LLMs lack the ability to accurately self-assess or update their beliefs in dynamic, multi-turn tasks; a major concern as LLM outputs are deployed without careful review in assistant roles or agentic settings.
-  %Industry attention to this calibration gap is growing: just hours before our submission, Cognition Labs released Devin~2.1, a production coding agent that surfaces a per-task \emph{Confidence Score} and varies its behavior accordingly \citep{cognitionlabs_devin21_2025}. 
-  %However, language models often struggle to express their confidence in a meaningful or reliable way.
+  Can LLMs accurately adjust their confidence when facing opposition? Building on previous studies measuring calibration on static fact-based question-answering tasks, we evaluate Large Language Models (LLMs) in a dynamic, adversarial debate setting, uniquely combining two realistic factors: (a) a \textbf{multi-turn format} requiring models to update beliefs as new information emerges, and (b) a \textbf{zero-sum structure} to control for task-related uncertainty, since mutual high-confidence claims imply systematic overconfidence. We organized 60 three-round policy debates among ten state-of-the-art LLMs, with models privately rating their confidence (0-100) in winning after each round. We observed five concerning patterns: \textit{(1)} \textbf{Systematic overconfidence}: models began debates with average initial confidence of 72.9\% vs. a rational 50\% baseline. \textit{(2) Confidence escalation}: rather than reducing confidence as debates progressed, debaters increased their win probabilities, averaging 83\% by the final round. \textit{(3) Mutual overestimation}: in 61.7\% of debates, both sides simultaneously claimed $\geq$75\% probability of victory, a logical impossibility. \textit{(4) Persistent self-debate bias}: models debating identical copies increased confidence from 64.1\% to 75.2\%; even when explicitly informed their chance of winning was exactly 50\%, confidence still rose (from 50.0\% to 57.1\%). \textit{(5) Misaligned private reasoning}: models' private scratchpad thoughts sometimes differed from their public confidence ratings, raising concerns about faithfulness of chain-of-thought reasoning. These results suggest LLMs lack the ability to accurately self-assess or update their beliefs in dynamic, multi-turn tasks; a major concern as LLMs are now increasingly deployed without careful review in assistant and agentic roles.
   \end{abstract}
 
 % --- Main Body of the Paper ---
@@ -169,11 +167,11 @@ To test different factors influencing LLMs' confidence, we conduct \textbf{four 
 \begin{enumerate}    
     \item \textbf{Cross-Model Debates:} 60 debates between heterogenous model pairs across 10 leading LLMs and 6 policy topics (see Appendices~\ref{appendix:llms}, \ref{appendix:topics}, \ref{appendix:pairings})..
 
-    \item \textbf{Standard Self-Debates (implied 50\% winrate):} Models debated identical LLMs across 6 topics, with prompts stating they faced equally capable opponents (Appendix \ref{appendix:self_debate}). This symmetrical setup with implicit 50\% winrate \textbf{removes model and jury-related confounders}.
+    \item \textbf{Standard Self-Debates \textit{(implied 50\% winrate)}:} Models debated identical LLMs across 6 topics, with prompts stating they faced equally capable opponents (Appendix \ref{appendix:self_debate}). This symmetrical setup with implicit 50\% winrate \textbf{removes model and jury-related confounders}.
 
-    \item \textbf{Informed Self-Debates (explicit 50\% winrate):} In addition to the Standard Self-Debate setup, models were now explicitly told they had exactly 50\% chance of winning (Appendix \ref{appendix:self_debate_informed}). This tested whether direct probability anchoring affects confidence calibration.
+    \item \textbf{Informed Self-Debates \textit{(explicit 50\% winrate)}:} In addition to the Standard Self-Debate setup, models were now explicitly told they had exactly 50\% chance of winning (Appendix \ref{appendix:self_debate_informed}). This tested whether direct probability anchoring affects confidence calibration.
 
-    \item \textbf{Public Self-Debates:} In addition to Self-Debate and Implied 50\% Winrate, confidence bets were now \textbf{publicly shown} to both models (Appendix \ref{appendix:self_debate_public}). Initially designed to test whether models would better calibrate with this new information, it also revealed strategic divergence between private beliefs and public statements.
+    \item \textbf{Public Self-Debates \textit{(implied 50\% winrate)}:} In addition to Self-Debate and Implied 50\% Winrate, confidence bets were now \textbf{publicly shown} to both models (Appendix \ref{appendix:self_debate_public}). Initially designed to test whether models would better calibrate with this new information, it also revealed strategic divergence between private beliefs and public statements.
 \end{enumerate}
 Each configuration involved debates across the six policy topics, with models rotating roles and opponents as appropriate for the design. The following sections detail the common elements of the debate setup and the specific analysis conducted for each experimental configuration.
 
@@ -294,18 +292,18 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
     Model & Cross-model & Standard Self & Informed Self & Public Bets \\
           & \textit{(highest first)} & \textit{(implied 50\% w/r)} & \textit{(explicit 50\% w/r)} & \textit{(implied 50\% w/r)} \\
     \midrule
-    deepseek/deepseek-r1-distill-qwen-14b:free & 79.09 $\pm$ 10.44* & 76.67 $\pm$ 13.20 & 55.75 $\pm$ 4.71 & 69.58 $\pm$ 16.30 \\
-    qwen/qwq-32b:free                          & 78.75 $\pm$ 4.33 & 70.83 $\pm$ 10.62 & 50.42 $\pm$ 1.44 & 71.67 $\pm$ 8.62 \\
-    openai/o3-mini                             & 77.50 $\pm$ 5.84 & 70.00 $\pm$ 10.66 & 50.00 $\pm$ 0.00 & 72.08 $\pm$ 9.40 \\
-    openai/gpt-4o-mini                         & 75.00 $\pm$ 3.69 & 67.08 $\pm$ 7.22 & 57.08 $\pm$ 12.70 & 72.92 $\pm$ 4.98 \\
-    deepseek/deepseek-chat                     & 74.58 $\pm$ 7.22 & 54.58 $\pm$ 4.98 & 49.17 $\pm$ 6.34 & 56.25 $\pm$ 7.42 \\
-    qwen/qwen-max                              & 73.33 $\pm$ 8.62 & 62.08 $\pm$ 12.87 & 43.33 $\pm$ 22.29 & 64.58 $\pm$ 10.97 \\
-    anthropic/claude-3.5-haiku                 & 71.67 $\pm$ 4.92 & 71.25 $\pm$ 6.44 & 54.58 $\pm$ 9.64 & 73.33 $\pm$ 7.18 \\
-    google/gemma-3-27b-it                      & 67.50 $\pm$ 6.22 & 68.75 $\pm$ 7.42 & 53.33 $\pm$ 11.15 & 63.75 $\pm$ 9.80 \\
-    anthropic/claude-3.7-sonnet                & 67.31 $\pm$ 3.88* & 56.25 $\pm$ 8.56 & 50.08 $\pm$ 2.15 & 56.25 $\pm$ 6.08 \\
-    google/gemini-2.0-flash-001                & 65.42 $\pm$ 8.38 & 43.25 $\pm$ 27.03 & 36.25 $\pm$ 26.04 & 34.58 $\pm$ 25.80 \\
+    deepseek/deepseek-r1-distill-qwen-14b:free & 79.09 $\pm$ \textit{10.44}* & 76.67 $\pm$ \textit{13.20} & 55.75 $\pm$ \textit{4.71} & 69.58 $\pm$ \textit{16.30} \\
+    qwen/qwq-32b:free                          & 78.75 $\pm$ \textit{4.33} & 70.83 $\pm$ \textit{10.62} & 50.42 $\pm$ \textit{1.44} & 71.67 $\pm$ \textit{8.62} \\
+    openai/o3-mini                             & 77.50 $\pm$ \textit{5.84} & 70.00 $\pm$ \textit{10.66} & 50.00 $\pm$ \textit{0.00} & 72.08 $\pm$ \textit{9.40} \\
+    openai/gpt-4o-mini                         & 75.00 $\pm$ \textit{3.69} & 67.08 $\pm$ \textit{7.22} & 57.08 $\pm$ \textit{12.70} & 72.92 $\pm$ \textit{4.98} \\
+    deepseek/deepseek-chat                     & 74.58 $\pm$ \textit{7.22} & 54.58 $\pm$ \textit{4.98} & 49.17 $\pm$ \textit{6.34} & 56.25 $\pm$ \textit{7.42} \\
+    qwen/qwen-max                              & 73.33 $\pm$ \textit{8.62} & 62.08 $\pm$ \textit{12.87} & 43.33 $\pm$ \textit{22.29} & 64.58 $\pm$ \textit{10.97} \\
+    anthropic/claude-3.5-haiku                 & 71.67 $\pm$ \textit{4.92} & 71.25 $\pm$ \textit{6.44} & 54.58 $\pm$ \textit{9.64} & 73.33 $\pm$ \textit{7.18} \\
+    google/gemma-3-27b-it                      & 67.50 $\pm$ \textit{6.22} & 68.75 $\pm$ \textit{7.42} & 53.33 $\pm$ \textit{11.15} & 63.75 $\pm$ \textit{9.80} \\
+    anthropic/claude-3.7-sonnet                & 67.31 $\pm$ \textit{3.88}* & 56.25 $\pm$ \textit{8.56} & 50.08 $\pm$ \textit{2.15} & 56.25 $\pm$ \textit{6.08} \\
+    google/gemini-2.0-flash-001                & 65.42 $\pm$ \textit{8.38} & 43.25 $\pm$ \textit{27.03} & 36.25 $\pm$ \textit{26.04} & 34.58 $\pm$ \textit{25.80} \\
     \midrule
-    \textbf{OVERALL AVERAGE}                   & \textbf{72.92 $\pm$ 7.93} & \textbf{64.08 $\pm$ 15.32} & \textbf{50.00 $\pm$ 13.61} & \textbf{63.50 $\pm$ 16.38} \\
+    \textbf{OVERALL AVERAGE}                   & \textbf{72.92 $\pm$ \textit{7.93}} & \textbf{64.08 $\pm$ \textit{15.32}} & \textbf{50.00 $\pm$ \textit{13.61}} & \textbf{63.50 $\pm$ \textit{16.38}} \\
     \bottomrule
   \end{tabular}
   }
@@ -314,17 +312,17 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
   \footnotesize{\textit{*For Cross-model, anthropic/claude-3.7-sonnet had n=13, deepseek-r1-distill-qwen-14b:free had n=11}}
 \end{table*}
 \begin{itemize}
-    \item \textbf{Cross-model debates}: Highest overconfidence (72.92\% $\pm$ 7.93)
-    \item \textbf{Standard Self-debates}: Substantial overconfidence (64.08\% $\pm$ 15.32)
-    \item \textbf{Public Bets}: Similar to standard self-debates (63.50\% $\pm$ 16.38), with no significant difference (mean difference = 0.58, t=0.39, p=0.708)
-    \item \textbf{Informed Self (50\% explicit)}: Precise calibration (50.00\% $\pm$ 13.61), representing a significant reduction from Standard Self (mean difference = 14.08, t=7.07, p<0.001)
+    \item \textbf{Cross-Model Debates}: Highest overconfidence (72.92\% $\pm$ \textit{7.93})
+    \item \textbf{Standard Self-Debates}: Substantial overconfidence (64.08\% $\pm$ \textit{15.32})
+    \item \textbf{Informed Self (50\% explicit)}: Precise calibration (50.00\% $\pm$ \textit{13.61}), representing a significant reduction from Standard Self (mean difference = 14.08, t=7.07, p<0.001)
+    \item \textbf{Public Bets}: Similar to standard self-debates (63.50\% $\pm$ \textit{16.38}), with no significant difference (mean difference = 0.58, t=0.39, p=0.708)
 \end{itemize}
 
 \textbf{Statistical evidence}: One-sample t-tests confirm initial confidence significantly exceeds the rational 50\% baseline in Cross-model (t=31.67, p<0.001), Standard Self (t=10.07, p<0.001), and Public Bets (t=9.03, p<0.001) configurations. Wilcoxon tests yielded identical conclusions (all p<0.001).
 
 \textbf{Individual model analysis}: All models displayed some systematic overconfidence, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). While all began overconfident, Gemini 2.0 Flash almost always had the lowest confidence and highest variability. While \citet{yoon2025reasoningmodelsbetterexpress} suggests advanced reasoning models better calibrate their confidence in fact-based QA, we do not find evidence of any correlation between overconfidence and model type (reasoning vs chat), model scale or benchmark performance i this debate setting.
 
-\textbf{Human comparison}: We compare these results to human college debaters in \citet{RePEc:sip:dpaper:06-042}, who report a comparable mean of 65.00\%, but much higher variability (SD=35.10\%). This suggests that \textbf{while humans and LLMs are comparably overconfident on average, LLMs are much more consistently overconfident, while humans seem to adjust their odds more based on context.}
+\textbf{Human comparison}: We compare these results to human college debaters in \citet{RePEc:sip:dpaper:06-042}, who report a comparable mean of 65.00\%, but much higher variability (SD=\textit{35.10}\%). This suggests that \textbf{while humans and LLMs are comparably overconfident on average, LLMs are much more consistently overconfident, while humans seem to adjust their odds more based on context.}
 
 \textbf{Implications}: The pattern confirms large, systematic miscalibration that explicit anchoring partially corrects. LLM overconfidence is more consistently high and less context-sensitive than humans'.
 
@@ -334,10 +332,10 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
 \textbf{Finding 2}: Across all 4 experiments, LLMs display significant \textbf{confidence escalation}—consistently increasing their self-assessed win probability as debates progress, in spite of opposing arguments.
 
 \begin{itemize}
-    \item \textbf{Cross-model}: Significant increase from 72.92\% to 83.26\% ($\Delta$=10.34, p<0.001)
-    \item \textbf{Standard Self-debates}: Significant increase from 64.08\% to 75.20\% ($\Delta$=11.12, p<0.001)
-    \item \textbf{Public Bets}: Significant increase from 63.50\% to 74.15\% ($\Delta$=10.65, p<0.001)
-    \item \textbf{Informed Self}: Smallest, still significant increase from 50\% to 57.08\% ($\Delta$=7.08, p<0.001)
+    \item \textbf{Cross-Model}: Significant increase from 72.92\% to 83.26\% ($\Delta$=10.34)
+    \item \textbf{Standard Self-Debates}: Significant increase from 64.08\% to 75.20\% ($\Delta$=11.12)
+    \item \textbf{Informed Self (w/ 50\%)}: Smallest, still significant increase from 50\% to 57.08\% ($\Delta$=7.08)
+    \item \textbf{Public Bets}: Significant increase from 63.50\% to 74.15\% ($\Delta$=10.65)
 \end{itemize}
 
 \textbf{Statistical evidence}: Paired t-tests confirmed significant increases across all configurations from Opening to Closing (all p<0.001). This escalation occurred in both debate transitions, with only Rebuttal→Closing in the Informed Self condition showing non-significance (p=0.0945).
@@ -355,12 +353,12 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
     \toprule
     Experiment Type & Opening Bet & Open$\to$Rebuttal & Rebuttal Bet & Rebuttal$\to$Closing & Closing Bet & Open$\to$Closing \\
     \midrule
-    Cross-model          & 72.92 $\pm$ 7.89 & $\Delta$=4.75 & 77.67 $\pm$ 9.75 & $\Delta$=5.59 & 83.26 $\pm$ 10.06 & $\Delta$=10.34 \\
-    Self-Debate (\textit{no 50\%})        & 64.08 $\pm$ 15.25 & $\Delta$=4.99 & 69.07 $\pm$ 16.63 & $\Delta$=6.13 & 75.20 $\pm$ 15.39 & $\Delta$=11.12 \\
-    Informed Self (\textit{w/ 50\%})        & 50.00 $\pm$ 13.55 & $\Delta$=5.77 & 55.77 $\pm$ 9.73 & $\Delta$=1.32* & 57.08 $\pm$ 8.97 & $\Delta$=7.08 \\
-    Public Bets (\textit{no 50\%}) & 63.50 $\pm$ 16.31 & $\Delta$=5.93 & 69.43 $\pm$ 16.03 & $\Delta$=4.72 & 74.15 $\pm$ 14.34 & $\Delta$=10.65 \\
+    Cross-model          & 72.92 $\pm$ \textit{7.89} & $\Delta$=4.75 & 77.67 $\pm$ \textit{9.75} & $\Delta$=5.59 & 83.26 $\pm$ \textit{10.06} & $\Delta$=10.34 \\
+    Self-Debate (\textit{no 50\%})        & 64.08 $\pm$ \textit{15.25} & $\Delta$=4.99 & 69.07 $\pm$ \textit{16.63} & $\Delta$=6.13 & 75.20 $\pm$ \textit{15.39} & $\Delta$=11.12 \\
+    Informed Self (\textit{w/ 50\%})        & 50.00 $\pm$ \textit{13.55} & $\Delta$=5.77 & 55.77 $\pm$ \textit{9.73} & $\Delta$=1.32* & 57.08 $\pm$ \textit{8.97} & $\Delta$=7.08 \\
+    Public Bets (\textit{no 50\%}) & 63.50 $\pm$ \textit{16.31} & $\Delta$=5.93 & 69.43 $\pm$ \textit{16.03} & $\Delta$=4.72 & 74.15 $\pm$ \textit{14.34} & $\Delta$=10.65 \\
     \midrule
-    \textbf{GRAND OVERALL} & \textbf{62.62 $\pm$ 15.91} & \textbf{$\Delta$=5.36} & \textbf{67.98 $\pm$ 15.57} & \textbf{$\Delta$=4.44} & \textbf{72.42 $\pm$ 15.71} & \textbf{$\Delta$=9.80} \\
+    \textbf{GRAND OVERALL} & \textbf{62.62 $\pm$ \textit{15.91}} & \textbf{$\Delta$=5.36} & \textbf{67.98 $\pm$ \textit{15.57}} & \textbf{$\Delta$=4.44} & \textbf{72.42 $\pm$ \textit{15.71}} & \textbf{$\Delta$=9.80} \\
     \bottomrule
   \end{tabular}
   }
@@ -374,10 +372,10 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
 \textbf{Finding 3}: Across all 4 experiments, LLMs concluded most debates with \textbf{mutually exclusive high confidence (both >50\%) in victory}—a mathematically impossible outcome in zero-sum competition.
 
 \begin{itemize}
-    \item \textbf{Cross-model}: By far the most logical inconsistency (61.7\% w/ both sides >75\% confidence)
-    \item \textbf{Standard Self-debates}: Significant logical inconsistency (35.0\% with both sides >75\%)
-    \item \textbf{Public Bets}: Significant logical inconsistency (33.3\% with both sides >75\%)
+    \item \textbf{Cross-Model}: By far the most logical inconsistency (61.7\% w/ both sides >75\% confidence)
+    \item \textbf{Standard Self-Debates}: Significant logical inconsistency (35.0\% with both sides >75\%)
     \item \textbf{Informed Self}: Complete absence of severe logical inconsistency (0\% w/ both sides >75\%)
+    \item \textbf{Public Bets}: Significant logical inconsistency (33.3\% with both sides >75\%)
 \end{itemize}
 
 \textbf{Statistical analysis}: As shown in Table~\ref{tab:logical_impossibility}, the pattern of simultaneous high confidence was prevalent in non-anchored experiments but entirely absent when models were explicitly informed of the 50\% baseline probability. Across all 240 debates, 32.5\% ended with both sides claiming >75\% confidence, and 61.7\% ended with both sides claiming >50\% confidence.
@@ -410,11 +408,11 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
 \textbf{Finding 5}: Across all 4 experiments, LLMs show significant \textbf{discrepancies between private reasoning and public confidence}, raising concerns about chain-of-thought faithfulness.
 
 \begin{itemize}
-    \item \textbf{Public Bets}: Highest misalignment between private reasoning and expressed confidence when numerical estimates were present (20.4\% misaligned, with 15.7\% overbetting)
-    \item \textbf{Cross-model}: Lowest misalignment (9.4\% misaligned when numerical estimates present)
-    \item \textbf{Private Self-Bets}: Moderate misalignment (17.6\% w/ numerical estimates, 14.8\% overbet)
-    \item \textbf{Informed Self}: Moderate misalignment (15.9\% misaligned w/ numerical estimates)
-\end{itemize}
+    \item \textbf{Cross-Model}: Lowest misalignment (9.4\% misaligned when numerical estimates present)
+    \item \textbf{Standard Self-Debates}: Moderate misalignment (17.6\% w/ num. estimates, 14.8\% overbet)
+    \item \textbf{Informed Self (w/ 50\%)}: Moderate misalignment (15.9\% misaligned w/ num. estimates)
+    \item \textbf{Public Bets}: Highest misalignment between private reasoning and expressed confidence when num. estimates were present (20.4\% misaligned, with 15.7\% overbetting)
+  \end{itemize}
 
 \textbf{Statistical analysis}: As detailed in Appendix~\ref{appendix:bet_alignment}, our analysis of 480 debate round confidence assessments revealed that only 40-50\% of private reasoning contained explicit numerical confidence estimates. When numeric confidence was explicitly stated, models showed higher rates of misalignment—particularly overconfidence compared to the overall sample (14.8\% vs. 11.6\% in private self-bet, 13.9\% vs. 11.6\% in anchored private self-bet, and 15.0\% vs. 10.0\% in public bets). This range of misalignment (2.9-15.0\% overconfidence) across experiments indicates systematic discrepancies between internal reasoning and expressed confidence.
 
@@ -432,7 +430,7 @@ Our findings reveal significant limitations in LLMs' metacognitive abilities to 
 
 \paragraph{Human-like biases}
 \begin{itemize}
-    \item \textbf{Baseline debate overconfidence:} Research on human debaters by \citet{RePEc:sip:dpaper:06-042} found college debate participants estimated their odds of winning at approximately 65\% on average, similar to our LLM findings. However, humans showed much higher variability (SD=35.10\%), suggesting LLM overconfidence is more persistent and context-agnostic.
+    \item \textbf{Baseline debate overconfidence:} Research on human debaters by \citet{RePEc:sip:dpaper:06-042} found college debate participants estimated their odds of winning at approximately 65\% on average, similar to our LLM findings. However, humans showed much higher variability (SD=\textit{35.10}\%), suggesting LLM overconfidence is more persistent and context-agnostic.
 
     \item \textbf{Evidence weighting bias:} \citet{GriffinTversky1992} found humans overweight evidence favoring their beliefs while underweighting its credibility, leading to overconfidence when strength is high but weight is low. \citet{Moore2008} and \citet{RePEc:sip:dpaper:06-042} found limited accuracy improvement over repeated human trials, mirroring our LLM results.
 
@@ -1302,32 +1300,6 @@ Note that for transitions where there was no variance in the bet differences (e.
   \end{tabular}
   }
 \end{table}
-
-\begin{table*}[htbp]
-  \centering
-  \caption{Deceptive Self-debate: Result Across Rounds}
-  \label{tab:deceptive_self_debate}
-  \resizebox{\textwidth}{!}{
-  \begin{tabular}{lrrrrrr}
-    \toprule
-    Model & Opening Bet & Rebuttal Bet & Closing Bet & Open$\rightarrow$Rebuttal & Rebuttal$\rightarrow$Closing & Open$\rightarrow$Closing \\
-    \midrule
-    claude-3.5-haiku                  & 75.42 ± 5.94  & 72.08 ± 4.31   & 79.58 ± 5.19   & $\Delta$ = –3.33, p = 0.9244   & $\Delta$ = 7.50, p = 0.0027** & $\Delta$ = 4.17, p = 0.0830    \\
-    claude-3.7-sonnet                 & 59.58 ± 18.42 & 70.42 ± 3.20   & 72.92 ± 3.20   & $\Delta$ = 10.83, p = 0.0373*   & $\Delta$ = 2.50, p = 0.0556    & $\Delta$ = 13.33, p = 0.0204*  \\
-    deepseek-chat                     & 62.50 ± 3.23  & 78.75 ± 5.82   & 71.67 ± 4.25   & $\Delta$ = 16.25, p = 0.0000*** & $\Delta$ = –7.08, p = 0.9993   & $\Delta$ = 9.17, p = 0.0002*** \\
-    deepseek-rl-distill-qwen-14b:free & 72.92 ± 6.28  & 63.75 ± 19.38  & 71.67 ± 17.12  & $\Delta$ = –9.17, p = 0.8894    & $\Delta$ = 7.92, p = 0.0631    & $\Delta$ = –1.25, p = 0.5819   \\
-    gemini-2.0-flash-001              & 48.17 ± 11.67 & 54.58 ± 13.42  & 50.00 ± 15.01  & $\Delta$ = 6.42, p = 0.1052     & $\Delta$ = –4.17, p = 0.7944   & $\Delta$ = 1.83, p = 0.3545    \\
-    gemma-3-27b-it                    & 54.58 ± 18.70 & 45.00 ± 14.14  & 53.33 ± 21.73  & $\Delta$ = –9.58, p = 0.9458    & $\Delta$ = 8.33, p = 0.1177    & $\Delta$ = –1.25, p = 0.5648   \\
-    gpt-4o-mini                       & 65.00 ± 8.16  & 68.33 ± 10.27  & 69.58 ± 8.28   & $\Delta$ = 3.33, p = 0.2428     & $\Delta$ = 1.25, p = 0.3087    & $\Delta$ = 4.58, p = 0.1275    \\
-    o3-mini                           & 63.17 ± 17.11 & 74.58 ± 6.57   & 72.92 ± 6.13   & $\Delta$ = 11.42, p = 0.0001*** & $\Delta$ = –1.67, p = 0.9990   & $\Delta$ = 9.75, p = 0.0012**  \\
-    qwen-max                          & 62.67 ± 4.31  & 70.00 ± 10.00  & 76.67 ± 9.82   & $\Delta$ = 7.92, p = 0.0226*    & $\Delta$ = 6.25, p = 0.0504    & $\Delta$ = 14.17, p = 0.0003***\\
-    qwq-32b:free                      & 75.83 ± 7.86  & 77.67 ± 5.98   & 84.17 ± 5.71   & $\Delta$ = 1.83, p = 0.2629     & $\Delta$ = 6.50, p = 0.0032**  & $\Delta$ = 8.33, p = 0.0126*   \\
-    \midrule
-    \textbf{Overall}                 & 63.92 ± 12.88 & 67.52 ± 14.47  & 70.62 ± 15.27  & $\Delta$ = 3.59, p = 0.0105*    & $\Delta$ = 3.11, p = 0.0062**  & $\Delta$ = 6.70, p = 0.0000*** \\
-    \bottomrule
-  \end{tabular}
-  }
-\end{table*}
 
 % === OVERALL MODEL AVERAGES & ESCALATION (ACROSS ALL EXPERIMENT TYPES) ===
 \begin{table}[htbp]

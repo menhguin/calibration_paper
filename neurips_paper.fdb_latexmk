@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex neurips_paper"] 1749388318.04482 "neurips_paper.aux" "neurips_paper.bbl" "neurips_paper" 1749388991.93912 0
+["bibtex neurips_paper"] 1749393783.0004 "neurips_paper.aux" "neurips_paper.bbl" "neurips_paper" 1749393823.2186 0
   "./references.bib" 1749295339 27393 10fc5620a0608d06d352b8f9c980f76e ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/bibtex/bst/natbib/plainnat.bst" 1284455456 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "neurips_paper.aux" 1749388989 31304 0141b147269c97567f13e953f0a02396 "pdflatex"
+  "neurips_paper.aux" 1749393820 31045 a449dc69ee98943b121d65c5b052a983 "pdflatex"
   (generated)
   "neurips_paper.bbl"
   "neurips_paper.blg"
   (rewritten before read)
-["pdflatex"] 1749388984.9628 "c:/Users/minh1/local/calibration_paper/calibration_paper/neurips_paper.tex" "neurips_paper.pdf" "neurips_paper" 1749388991.93979 0
+["pdflatex"] 1749393817.39857 "c:/Users/minh1/local/calibration_paper/calibration_paper/neurips_paper.tex" "neurips_paper.pdf" "neurips_paper" 1749393823.2195 0
   "C:/Users/minh1/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746618470 96176 40a8022d15c5925d7081b1ad66e03248 ""
   "C:/Users/minh1/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt0900.pk" 1746963826 17512 492cee3dab6e843ee6365a07b3b246bf ""
   "C:/Users/minh1/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1000.pk" 1746339302 20028 3a7ca0b8a97f2ddc8cad80a92ae4304c ""
@@ -16,6 +16,8 @@
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8r.tfm" 1136801054 4524 6bce29db5bc272ba5f332261583fee9c ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8t.tfm" 1136801054 6880 f19b8995b61c334d78fc734065f6b4d4 ""
+  "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmbi8r.tfm" 1136801054 4480 10409ed8bab5aea9ec9a78028b763919 ""
+  "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmbi8t.tfm" 1136801054 6784 37b32cc10800b5afa030d935c393695a ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8c.tfm" 1136801054 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8r.tfm" 1136801054 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8t.tfm" 1136801054 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -47,9 +49,11 @@
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1247596666 32442 c975af247b6702f7ca0c299af3616b80 ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136882148 44729 fea0975e20ec51c992338362f05f1146 ""
+  "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb" 1136882148 44656 0cbca70e0534538582128f6b54593cca ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136882148 46026 687528a208fbfc1f00832bb96cccebbb ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb" 1136882148 45458 504e2b06fa82109d168c7a0afb09e145 ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb8t.vf" 1136801054 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
+  "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmbi8t.vf" 1136801054 2324 51908dae6e03953a90119973962f0e4d ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8c.vf" 1136801054 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8t.vf" 1136801054 2348 91706c542228501c410c266421fbe30c ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmri8t.vf" 1136801054 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
@@ -197,12 +201,12 @@
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/tex/latex/varwidth/varwidth.sty" 1238469540 10894 d359a13923460b2a73d4312d613554c8 ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/minh1/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/minh1/local/calibration_paper/calibration_paper/neurips_paper.tex" 1749388982 143547 05122a492c1123e06635aeffa1d6474b ""
-  "neurips_2025.sty" 1748364426 12000 5215b3f16f178d0dd070f39f8cb5ab09 ""
-  "neurips_paper.aux" 1749388989 31304 0141b147269c97567f13e953f0a02396 "pdflatex"
-  "neurips_paper.bbl" 1749388318 23921 69a476eafc370dee2fbf347bcdffdafe "bibtex neurips_paper"
-  "neurips_paper.out" 1749388989 11355 c431feb2fd694fd6e798e0ec48f195bd "pdflatex"
-  "neurips_paper.tex" 1749388982 143547 05122a492c1123e06635aeffa1d6474b ""
+  "c:/Users/minh1/local/calibration_paper/calibration_paper/neurips_paper.tex" 1749393815 141220 236a77f230ca274e6e6733fd4047625c ""
+  "neurips_2025.sty" 1749393525 12076 ade346744df33f573ad404e8b3758c8e ""
+  "neurips_paper.aux" 1749393820 31045 a449dc69ee98943b121d65c5b052a983 "pdflatex"
+  "neurips_paper.bbl" 1749393784 23921 69a476eafc370dee2fbf347bcdffdafe "bibtex neurips_paper"
+  "neurips_paper.out" 1749393820 11355 c431feb2fd694fd6e798e0ec48f195bd "pdflatex"
+  "neurips_paper.tex" 1749393815 141220 236a77f230ca274e6e6733fd4047625c ""
   (generated)
   "neurips_paper.aux"
   "neurips_paper.log"

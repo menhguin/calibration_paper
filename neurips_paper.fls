@@ -303,6 +303,7 @@ INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1000.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
+INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt0900.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi9.tfm
@@ -335,6 +336,9 @@ INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.v
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmbi8t.tfm
+INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmbi8t.vf
+INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmbi8r.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
@@ -348,7 +352,6 @@ INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm100
 INPUT .\neurips_paper.bbl
 INPUT .\neurips_paper.bbl
 INPUT neurips_paper.bbl
-INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt0900.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
@@ -356,10 +359,10 @@ INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.
 INPUT neurips_paper.aux
 INPUT .\neurips_paper.out
 INPUT .\neurips_paper.out
-INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
-INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
 INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
+INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
 INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk
 INPUT C:\Users\minh1\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
@@ -378,6 +381,8 @@ INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
+INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmbi8a.pfb
+INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmbi8a.pfb
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
 INPUT C:\Users\minh1\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmri8a.pfb
