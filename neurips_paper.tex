@@ -56,6 +56,9 @@
 \usepackage{threeparttable} % Required for tablenotes
 \usepackage{listings}
 \usepackage{tcolorbox}
+\usepackage{colortbl}
+\usepackage{tikz}
+
 \lstset{
   basicstyle=\ttfamily\small,
   columns=fullflexible,
@@ -63,6 +66,50 @@
   frame=single,
   framerule=0pt,
   backgroundcolor=\color{gray!5}
+}
+
+% Define color commands for simplified confidence gradient
+\definecolor{darkgreen}{RGB}{34,139,34}      % <45: Very under-confident
+\definecolor{lightgreen}{RGB}{144,238,144}   % 45-50: Under-confident
+\definecolor{lightyellow}{RGB}{255,255,153}  % 50-55: Well-calibrated (light)
+\definecolor{yellow}{RGB}{255,255,0}         % 55-60: Well-calibrated
+\definecolor{lightorange}{RGB}{255,165,0}    % 60-65: Slightly overconfident
+\definecolor{orange}{RGB}{255,140,0}         % 65-70: Moderately overconfident
+\definecolor{reddishorange}{RGB}{255,69,0}   % 70-75: Highly overconfident
+\definecolor{red}{RGB}{255,0,0}              % >75: Extremely overconfident
+
+% Command to color cells based on revised confidence value ranges
+\newcommand{\confcell}[2]{%
+  \pgfmathparse{#1}%
+  \ifdim\pgfmathresult pt<40pt%
+    \cellcolor{darkgreen}#1 $\pm$ \textit{#2}%
+  \else%
+    \ifdim\pgfmathresult pt<45pt%
+      \cellcolor{lightgreen}#1 $\pm$ \textit{#2}%
+    \else%
+      \ifdim\pgfmathresult pt<55pt%
+        \cellcolor{lightyellow}#1 $\pm$ \textit{#2}%
+      \else%
+        \ifdim\pgfmathresult pt<60pt%
+          \cellcolor{yellow}#1 $\pm$ \textit{#2}%
+        \else%
+          \ifdim\pgfmathresult pt<65pt%
+            \cellcolor{lightorange}#1 $\pm$ \textit{#2}%
+          \else%
+            \ifdim\pgfmathresult pt<70pt%
+              \cellcolor{orange}#1 $\pm$ \textit{#2}%
+            \else%
+              \ifdim\pgfmathresult pt<75pt%
+                \cellcolor{reddishorange}#1 $\pm$ \textit{#2}%
+              \else%
+                \cellcolor{red}#1 $\pm$ \textit{#2}%
+              \fi%
+            \fi%
+          \fi%
+        \fi%
+      \fi%
+    \fi%
+  \fi%
 }
 
 % --- Title ---
@@ -283,35 +330,35 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
 
 \textbf{Finding 1}: Across all four experimental configurations, LLMs exhibited \textbf{significant overconfidence in their initial assessment of debate performance before seeing any opposing arguments.} Given that a rational model should assess its baseline win probability at 50\% in a competitive debate, observed confidence levels consistently far exceeded this expectation.
 
-\begin{table*}[htbp] % table* spans two columns
+\begin{table*}[htbp]
   \centering
-  \caption{Mean (± Standard Deviation) Initial Confidence (0-100\%) Reported by LLMs Across Experimental Configurations. All experiments used a sample size of n=12 per model per configuration unless otherwise marked with an asterisk (*). Total sample size per configuration is n=120, as in each of the 60 debates, there are 2 participants. 'Standard Self' refers to private bets in self-debates without explicit instruction about 50\% win probability, while 'Informed Self' includes explicit instruction.}
-  \label{tab:initial_confidence}
-  \resizebox{\textwidth}{!}{ % This will scale the table to fit within the text width
-  \begin{tabular}{lcccc}
+  \caption{Mean Initial Confidence (0-100\%) for main 4 experimental configurations.}
+  \label{tab:initial_confidence_auto}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{l|cccc}
     \toprule
     Model & Cross-model & Standard Self & Informed Self & Public Bets \\
           & \textit{(highest first)} & \textit{(implied 50\% w/r)} & \textit{(explicit 50\% w/r)} & \textit{(implied 50\% w/r)} \\
     \midrule
-    deepseek-r1-distill-qwen-14b & 79.09 $\pm$ \textit{10.44}* & 76.67 $\pm$ \textit{13.20} & 55.75 $\pm$ \textit{4.71} & 69.58 $\pm$ \textit{16.30} \\
-    qwen/qwq-32b                          & 78.75 $\pm$ \textit{4.33} & 70.83 $\pm$ \textit{10.62} & 50.42 $\pm$ \textit{1.44} & 71.67 $\pm$ \textit{8.62} \\
-    openai/o3-mini                             & 77.50 $\pm$ \textit{5.84} & 70.00 $\pm$ \textit{10.66} & 50.00 $\pm$ \textit{0.00} & 72.08 $\pm$ \textit{9.40} \\
-    openai/gpt-4o-mini                         & 75.00 $\pm$ \textit{3.69} & 67.08 $\pm$ \textit{7.22} & 57.08 $\pm$ \textit{12.70} & 72.92 $\pm$ \textit{4.98} \\
-    deepseek/deepseek-chat                     & 74.58 $\pm$ \textit{7.22} & 54.58 $\pm$ \textit{4.98} & 49.17 $\pm$ \textit{6.34} & 56.25 $\pm$ \textit{7.42} \\
-    qwen/qwen-max                              & 73.33 $\pm$ \textit{8.62} & 62.08 $\pm$ \textit{12.87} & 43.33 $\pm$ \textit{22.29} & 64.58 $\pm$ \textit{10.97} \\
-    anthropic/claude-3.5-haiku                 & 71.67 $\pm$ \textit{4.92} & 71.25 $\pm$ \textit{6.44} & 54.58 $\pm$ \textit{9.64} & 73.33 $\pm$ \textit{7.18} \\
-    google/gemma-3-27b-it                      & 67.50 $\pm$ \textit{6.22} & 68.75 $\pm$ \textit{7.42} & 53.33 $\pm$ \textit{11.15} & 63.75 $\pm$ \textit{9.80} \\
-    anthropic/claude-3.7-sonnet                & 67.31 $\pm$ \textit{3.88}* & 56.25 $\pm$ \textit{8.56} & 50.08 $\pm$ \textit{2.15} & 56.25 $\pm$ \textit{6.08} \\
-    google/gemini-2.0-flash-001                & 65.42 $\pm$ \textit{8.38} & 43.25 $\pm$ \textit{27.03} & 36.25 $\pm$ \textit{26.04} & 34.58 $\pm$ \textit{25.80} \\
+    deepseek-r1-distill-qwen-14b & \confcell{79.09}{10.44}* & \confcell{76.67}{13.20} & \confcell{55.75}{4.71} & \confcell{69.58}{16.30} \\
+    qwen/qwq-32b & \confcell{78.75}{4.33} & \confcell{70.83}{10.62} & \confcell{50.42}{1.44} & \confcell{71.67}{8.62} \\
+    openai/o3-mini & \confcell{77.50}{5.84} & \confcell{70.00}{10.66} & \confcell{50.00}{0.00} & \confcell{72.08}{9.40} \\
+    openai/gpt-4o-mini & \confcell{75.00}{3.69} & \confcell{67.08}{7.22} & \confcell{57.08}{12.70} & \confcell{72.92}{4.98} \\
+    deepseek/deepseek-chat & \confcell{74.58}{7.22} & \confcell{54.58}{4.98} & \confcell{49.17}{6.34} & \confcell{56.25}{7.42} \\
+    qwen/qwen-max & \confcell{73.33}{8.62} & \confcell{62.08}{12.87} & \confcell{43.33}{22.29} & \confcell{64.58}{10.97} \\
+    anthropic/claude-3.5-haiku & \confcell{71.67}{4.92} & \confcell{71.25}{6.44} & \confcell{54.58}{9.64} & \confcell{73.33}{7.18} \\
+    google/gemma-3-27b-it & \confcell{67.50}{6.22} & \confcell{68.75}{7.42} & \confcell{53.33}{11.15} & \confcell{63.75}{9.80} \\
+    anthropic/claude-3.7-sonnet & \confcell{67.31}{3.88}* & \confcell{56.25}{8.56} & \confcell{50.08}{2.15} & \confcell{56.25}{6.08} \\
+    google/gemini-2.0-flash-001 & \confcell{65.42}{8.38} & \confcell{43.25}{27.03} & \confcell{36.25}{26.04} & \confcell{34.58}{25.80} \\
     \midrule
-    \textbf{OVERALL AVERAGE}                   & \textbf{72.92 $\pm$ \textit{7.93}} & \textbf{64.08 $\pm$ \textit{15.32}} & \textbf{50.00 $\pm$ \textit{13.61}} & \textbf{63.50 $\pm$ \textit{16.38}} \\
+    \textbf{OVERALL AVERAGE} & \confcell{72.92}{7.93} & \confcell{64.08}{15.32} & \confcell{50.00}{13.61} & \confcell{63.50}{16.38} \\
     \bottomrule
   \end{tabular}
   }
-  \label{app:tab:initial_confidence}
   \vspace{0.2cm}
-  \footnotesize{\textit{*For Cross-model, anthropic/claude-3.7-sonnet had n=13, deepseek-r1-distill-qwen-14b had n=11}}
+  \footnotesize{\textit{*n=12 per model, except for Cross-Model, claude-3.7-sonnet (n=13) and deepseek-r1-distill-qwen-14b (n=11) Total sample size: 10 models x 6 debates x 4 experiments x 2 sides per debate = 480}}
 \end{table*}
+
 \begin{itemize}
     \item \textbf{Cross-Model Debates}: Highest overconfidence (72.92\% $\pm$ \textit{7.93})
     \item \textbf{Standard Self-Debates}: Substantial overconfidence (64.08\% $\pm$ \textit{15.32})
@@ -321,7 +368,7 @@ Our experimental setup, involving 1) \textbf{60 simulated policy debates} per co
 
 \textbf{Statistical evidence}: One-sample t-tests confirm initial confidence significantly exceeds the rational 50\% baseline in Cross-model (t=31.67, p<0.001), Standard Self (t=10.07, p<0.001), and Public Bets (t=9.03, p<0.001) configurations. Wilcoxon tests yielded identical conclusions (all p<0.001).
 
-\textbf{Individual model analysis}: All models displayed some systematic overconfidence, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). While all began overconfident, Gemini 2.0 Flash almost always had the lowest confidence and highest variability. While \citet{yoon2025reasoningmodelsbetterexpress} suggests advanced reasoning models better calibrate their confidence in fact-based QA, we do not find evidence of any correlation between overconfidence and model type (reasoning vs chat), model scale or benchmark performance i this debate setting.
+\textbf{Individual model analysis}: All models displayed some systematic overconfidence, with 30/40 model-configuration combinations showing significant overconfidence (one-sided t-tests, $\alpha=0.05$). While all began overconfident, Gemini 2.0 Flash almost always had the lowest confidence and highest variability. While \citet{yoon2025reasoningmodelsbetterexpress} suggests advanced reasoning models better calibrate their confidence in fact-based QA, we do not find evidence of any correlation between overconfidence and model type (reasoning vs chat), model scale or benchmark performance in this debate setting.
 
 \textbf{Human comparison}: We compare these results to human college debaters in \citet{RePEc:sip:dpaper:06-042}, who report a comparable mean of 65.00\%, but much higher variability (SD=\textit{35.10}\%). This suggests that \textbf{while humans and LLMs are comparably overconfident on average, LLMs are much more consistently overconfident, while humans seem to adjust their odds more based on context.}
 
@@ -347,19 +394,19 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
 
 \begin{table*}[htbp] % table* spans two columns
   \centering
-  \caption{Overall Mean Confidence (0-100\%) and Escalation Across Debate Rounds by Experimental Configuration. Values show Mean $\pm$ Standard Deviation. $\Delta$ indicates mean change from the earlier to the later round. All results are p$<$0.001 except where noted.}
+  \caption{Overall Mean Confidence (0-100\%) and Escalation Across Debate Rounds for 4 Main Experiments (Mean $\pm$ \textit{Standard Deviation}). $\Delta$$\to$ denotes change across a single round, $\Delta$Total shows total change across all rounds. All results are p$<$0.001 except where noted (*).}
   \label{tab:escalation_summary}
   \resizebox{\textwidth}{!}{ % This will scale the table to fit within the text width
   \begin{tabular}{lccccccc}
     \toprule
-    Experiment Type & Opening Bet & Open$\to$Rebuttal & Rebuttal Bet & Rebuttal$\to$Closing & Closing Bet & Open$\to$Closing \\
+    Experiment Type & Opening Bet & $\Delta$$\to$ & Rebuttal Bet & $\Delta$$\to$ & Closing Bet & $\Delta$Total \\
     \midrule
-    Cross-model          & 72.92 $\pm$ \textit{7.89} & $\Delta$=4.75 & 77.67 $\pm$ \textit{9.75} & $\Delta$=5.59 & 83.26 $\pm$ \textit{10.06} & $\Delta$=10.34 \\
-    Self-Debate (\textit{no 50\%})        & 64.08 $\pm$ \textit{15.25} & $\Delta$=4.99 & 69.07 $\pm$ \textit{16.63} & $\Delta$=6.13 & 75.20 $\pm$ \textit{15.39} & $\Delta$=11.12 \\
-    Informed Self (\textit{w/ 50\%})        & 50.00 $\pm$ \textit{13.55} & $\Delta$=5.77 & 55.77 $\pm$ \textit{9.73} & $\Delta$=1.32* & 57.08 $\pm$ \textit{8.97} & $\Delta$=7.08 \\
-    Public Bets (\textit{no 50\%}) & 63.50 $\pm$ \textit{16.31} & $\Delta$=5.93 & 69.43 $\pm$ \textit{16.03} & $\Delta$=4.72 & 74.15 $\pm$ \textit{14.34} & $\Delta$=10.65 \\
+    Cross-model          & \confcell{72.92}{7.89} & +4.75 & \confcell{77.67}{9.75} & +5.59 & \confcell{83.26}{10.06} & +10.34 \\
+    Self-Debate (\textit{no 50\%})        & \confcell{64.08}{15.25} & +4.99 & \confcell{69.07}{16.63} & +6.13 & \confcell{75.20}{15.39} & +11.12 \\
+    Informed Self (\textit{w/ 50\%})        & \confcell{50.00}{13.55} & +5.77 & \confcell{55.77}{9.73} & +1.32* & \confcell{57.08}{8.97} & +7.08 \\
+    Public Bets (\textit{no 50\%}) & \confcell{63.50}{16.31} & +5.93 & \confcell{69.43}{16.03} & +4.72 & \confcell{74.15}{14.34} & +10.65 \\
     \midrule
-    \textbf{GRAND OVERALL} & \textbf{62.62 $\pm$ \textit{15.91}} & \textbf{$\Delta$=5.36} & \textbf{67.98 $\pm$ \textit{15.57}} & \textbf{$\Delta$=4.44} & \textbf{72.42 $\pm$ \textit{15.71}} & \textbf{$\Delta$=9.80} \\
+    \textbf{GRAND OVERALL} & \textbf{\confcell{72.92}{7.89}} & \textbf{+5.36} & \textbf{\confcell{67.98}{15.57}} & \textbf{+4.44} & \textbf{\confcell{72.42}{15.71}} & \textbf{+9.80} \\
     \bottomrule
   \end{tabular}
   }
