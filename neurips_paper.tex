@@ -69,40 +69,50 @@
 }
 
 % Define color commands for simplified confidence gradient
-\definecolor{darkgreen}{RGB}{34,139,34}      % <45: Very under-confident
-\definecolor{lightgreen}{RGB}{144,238,144}   % 45-50: Under-confident
-\definecolor{lightyellow}{RGB}{255,255,153}  % 50-55: Well-calibrated (light)
-\definecolor{yellow}{RGB}{255,255,0}         % 55-60: Well-calibrated
-\definecolor{lightorange}{RGB}{255,165,0}    % 60-65: Slightly overconfident
-\definecolor{orange}{RGB}{255,140,0}         % 65-70: Moderately overconfident
-\definecolor{reddishorange}{RGB}{255,69,0}   % 70-75: Highly overconfident
-\definecolor{red}{RGB}{255,0,0}              % >75: Extremely overconfident
+\definecolor{darkgreen}{RGB}{150,200,100}        % <40: Very under-confident (lighter for readability)
+\definecolor{lightgreen}{RGB}{220,255,153}     % 40-45: Under-confident
+\definecolor{lightgreenishyellow}{RGB}{210,255,50} % 45-51: Nearly well-calibrated (light greenish yellow)
+\definecolor{lightyellow}{RGB}{255,255,153}    % 51-55: Well-calibrated (light)
+\definecolor{yellow}{RGB}{255,255,0}           % 55-60: Well-calibrated
+\definecolor{lightorange}{RGB}{255,165,0}      % 60-65: Slightly overconfident
+\definecolor{orange}{RGB}{255,140,0}           % 65-70: Moderately overconfident
+\definecolor{reddishorange}{RGB}{255,69,0}     % 70-75: Highly overconfident
+\definecolor{red}{RGB}{220,20,60}              % 75-80: Extremely overconfident (deeper red)
+\definecolor{darkred}{RGB}{139,0,0}            % >80: Critically overconfident (dark red/brown)
 
-% Command to color cells based on revised confidence value ranges
+% Command to color cells based on revised confidence value ranges with light greenish yellow
 \newcommand{\confcell}[2]{%
   \pgfmathparse{#1}%
   \ifdim\pgfmathresult pt<40pt%
     \cellcolor{darkgreen}#1 $\pm$ \textit{#2}%
   \else%
-    \ifdim\pgfmathresult pt<45pt%
+    \ifdim\pgfmathresult pt<49pt%
       \cellcolor{lightgreen}#1 $\pm$ \textit{#2}%
     \else%
-      \ifdim\pgfmathresult pt<55pt%
-        \cellcolor{lightyellow}#1 $\pm$ \textit{#2}%
+      \ifdim\pgfmathresult pt<51pt%
+        \cellcolor{lightgreenishyellow}#1 $\pm$ \textit{#2}%
       \else%
-        \ifdim\pgfmathresult pt<60pt%
-          \cellcolor{yellow}#1 $\pm$ \textit{#2}%
+        \ifdim\pgfmathresult pt<55pt%
+          \cellcolor{lightyellow}#1 $\pm$ \textit{#2}%
         \else%
-          \ifdim\pgfmathresult pt<65pt%
-            \cellcolor{lightorange}#1 $\pm$ \textit{#2}%
+          \ifdim\pgfmathresult pt<60pt%
+            \cellcolor{yellow}#1 $\pm$ \textit{#2}%
           \else%
-            \ifdim\pgfmathresult pt<70pt%
-              \cellcolor{orange}#1 $\pm$ \textit{#2}%
+            \ifdim\pgfmathresult pt<65pt%
+              \cellcolor{lightorange}#1 $\pm$ \textit{#2}%
             \else%
-              \ifdim\pgfmathresult pt<75pt%
-                \cellcolor{reddishorange}#1 $\pm$ \textit{#2}%
+              \ifdim\pgfmathresult pt<70pt%
+                \cellcolor{orange}#1 $\pm$ \textit{#2}%
               \else%
-                \cellcolor{red}#1 $\pm$ \textit{#2}%
+                \ifdim\pgfmathresult pt<75pt%
+                  \cellcolor{reddishorange}#1 $\pm$ \textit{#2}%
+                \else%
+                  \ifdim\pgfmathresult pt<80pt%
+                    \cellcolor{red}#1 $\pm$ \textit{#2}%
+                  \else%
+                    \cellcolor{darkred}#1 $\pm$ \textit{#2}%
+                  \fi%
+                \fi%
               \fi%
             \fi%
           \fi%
@@ -426,29 +436,16 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
     \item \textbf{Public Bets}: Significant logical inconsistency (33.3\% with both sides >75\%)
 \end{itemize}
 
-\textbf{Statistical analysis}: As shown in Table~\ref{tab:logical_impossibility}, the pattern of simultaneous high confidence was prevalent in non-anchored experiments but entirely absent when models were explicitly informed of the 50\% baseline probability. Across all 240 debates, 32.5\% ended with both sides claiming >75\% confidence, and 61.7\% ended with both sides claiming >50\% confidence.
+\textbf{Statistical analysis}: As shown in Figure~\ref{fig:simultaneous_overconfidence} (see Table~\ref{tab:logical_impossibility} in Appendix~\ref{appendix:simultaneous_overconfidence_table} for full numbers), the pattern of simultaneous high confidence was persistent except when models were explicitly informed of the 50\% baseline probability. Across all 240 debates, 32.5\% ended with both sides claiming >75\% confidence, and 61.7\% ended with both sides claiming >50\% confidence.
 
 \textbf{Implications}: Models independently escalate confidence without considering strength of opposing arguments. This failure to converge towards a state reflecting the actual debate outcome, or debate's zero-sum nature, highlights systemic miscalibration, only partially mitigated by explicit anchoring. \citet{Rivera_2024} observed that in high-stakes domains like military and diplomatic decision-making, overconfident models may persistently pursue aggression while ignoring catastrophic outcomes, believing their chances of victory far outweigh existing losses.
 
-\begin{table}[htbp]
+\begin{figure}[htbp]
   \centering
-  \caption{Distribution of Confidence Level Combinations for Both Debaters in the Closing Round, by Experiment Type (n=60 debates per experiment type). Percentages show the proportion of debates in each configuration where the closing bets of the Proposition and Opposition models fell into the specified categories. The 'Both $>$75\%' column represents the core logical inconsistency finding.}
-  \label{tab:logical_impossibility}
-  \resizebox{\columnwidth}{!}{ % Scale table to fit width
-  \begin{tabular}{lcccccc}
-    \toprule
-    Experiment Type & Both $\le$50\% & Both 51-75\% & Both $>$75\% & 50\%+51-75\% & 50\%+\textbf{$>$}75\% & 51-75\%+\textbf{$>$}75\% \\
-    \midrule
-    Cross Model     & 0.0\%          & 6.7\%        & \textbf{61.7\%} & 0.0\%        & 0.0\%          & 31.7\%          \\
-    Self Debate (\textit{no 50\%})    & 0.0\%          & 26.7\%       & \textbf{35.0\%} & 5.0\%        & 0.0\%          & 33.3\%          \\
-    Informed Self (\textit{w/ 50\%})   & 23.3\%         & 56.7\%       & \textbf{0.0\%}  & 15.0\%       & 0.0\%          & 5.0\%           \\
-    Public Bets (\textit{no 50\%})     & 1.7\%          & 26.7\%       & \textbf{33.3\%} & 3.3\%        & 1.7\%          & 33.3\%          \\
-    \midrule
-    Overall         & 6.2\%          & 29.2\%       & \textbf{32.5\%} & 5.8\%        & 0.4\%          & 25.8\%          \\
-    \bottomrule
-  \end{tabular}
-  }
-\end{table}
+  \includegraphics[width=\linewidth]{figures/simultaneous_overconfidence.png}
+  \caption{Distribution of simultaneous high-confidence outcomes across debate configurations.}
+  \label{fig:simultaneous_overconfidence}
+\end{figure}
 
 \subsection{Strategic Confidence in Public Settings (Finding 5)}
 \label{subsec:strategic_confidence}
@@ -569,8 +566,6 @@ Minh conducted extensive revisions, proposed follow-up questions, provided exper
 % This section and its content do NOT count towards the page limit.
 % Ensure this comes AFTER the references in the camera-ready version if included in the same PDF.
 % For submission, supplementary material can often be submitted as a separate file.
-\appendix
-
 \appendix
 
 % Add these specific appendix sections here, after the \appendix command
@@ -1396,6 +1391,26 @@ Note that for transitions where there was no variance in the bet differences (e.
     self\_debate    & 7/10 & 7/10 & 8/10 \\
     \bottomrule
   \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Distribution of Confidence Level Combinations for Both Debaters in the Closing Round, by Experiment Type (n=60 debates per experiment type). Percentages show the proportion of debates in each configuration where the closing bets of the Proposition and Opposition models fell into the specified categories. The 'Both $>$75\%' column represents the core logical inconsistency finding.}
+  \label{tab:simultaneous_overconfidence_table}
+  \resizebox{\columnwidth}{!}{ % Scale table to fit width
+  \begin{tabular}{lcccccc}
+    \toprule
+    Experiment Type & Both $\le$50\% & Both 51-75\% & Both $>$75\% & 50\%+51-75\% & 50\%+\textbf{$>$}75\% & 51-75\%+\textbf{$>$}75\% \\
+    \midrule
+    Cross Model     & 0.0\%          & 6.7\%        & \textbf{61.7\%} & 0.0\%        & 0.0\%          & 31.7\%          \\
+    Self Debate (\textit{no 50\%})    & 0.0\%          & 26.7\%       & \textbf{35.0\%} & 5.0\%        & 0.0\%          & 33.3\%          \\
+    Informed Self (\textit{w/ 50\%})   & 23.3\%         & 56.7\%       & \textbf{0.0\%}  & 15.0\%       & 0.0\%          & 5.0\%           \\
+    Public Bets (\textit{no 50\%})     & 1.7\%          & 26.7\%       & \textbf{33.3\%} & 3.3\%        & 1.7\%          & 33.3\%          \\
+    \midrule
+    Overall         & 6.2\%          & 29.2\%       & \textbf{32.5\%} & 5.8\%        & 0.4\%          & 25.8\%          \\
+    \bottomrule
+  \end{tabular}
+  }
 \end{table}
 
 \section{Self Red-Teaming Mitigation Ablation}
