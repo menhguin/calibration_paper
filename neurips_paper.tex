@@ -218,7 +218,7 @@ Our work extends calibration and debate literature by using structured, zero-sum
 \section{Methodology}
 \label{sec:methodology}
 
-We assess LLMs' metacognitive abilities through competitive policy debates, focusing on confidence calibration and revision. Models accessed via OpenRouter API (total cost \$13, see Appendix~\ref{appendix:compute_cost}) provided \textbf{private confidence bets on their confidence in winning} (0-100) and explained their reasoning in a \textbf{private scratchpad} after each speech, allowing direct observation of their self-assessments throughout the debate process.
+We assess LLMs' metacognitive abilities for confidence calibration and revision through competitive policy debates. Models accessed via OpenRouter API (total cost \$13, see Appendix~\ref{appendix:compute_cost}) provided \textbf{private confidence bets on their confidence in winning} (0-100) and explained their reasoning in a \textbf{private scratchpad} after each speech, allowing us to observe their self-assessments across 3 rounds.
 
 To test different factors influencing LLMs' confidence, we conduct \textbf{four main ablation experiments}:
 
@@ -253,71 +253,16 @@ We do not allow models to see both responses for the current round, as this woul
 
 \subsection{Core Prompt Structures \& Constraints}
 \label{subsec:prompts}
-% ---------- compact style for prompt blocks ----------
-\lstdefinestyle{promptstyle}{
-  basicstyle=\ttfamily\scriptsize,
-  columns=fullflexible,
-  keepspaces=true,
-  breaklines=true,
-  frame=single,
-  framerule=0pt,
-  xleftmargin=0pt,xrightmargin=0pt,
-  abovecaptionskip=4pt,
-  belowcaptionskip=0pt
-}
-% -----------------------------------------------------
-For debaters, we used \textbf{Structured Prompts} (see Appendix~\ref{appendix:debater_prompts} for full text) across all speech types to ensure consistency. Table~\ref{tab:prompt_structure} summarizes the key components:
 
-\begin{table}[h]
-\centering
-\caption{Four-quadrant overview of debate prompt structures}
-\label{tab:prompt_structure}
-\begin{tabular}{|p{0.48\textwidth}|p{0.48\textwidth}|}
-\hline
-\textbf{1. Opening Speech Structure} & \textbf{2. Rebuttal Speech Structure} \\
-\hline
-\textbf{Arguments 1-3}, each requiring:
-\vspace{2pt}
-\newline • Core Claim (single clear sentence)
-\newline • Support Type (Evidence or Principle)
-\newline • Detailed Support (specific examples or framework)
-\newline • Connection (explicit link between support and claim)
-\vspace{4pt}
-\newline \textbf{Synthesis}: Integration of arguments into cohesive case
-&
-\textbf{Clash Points 1-3}, each including:
-\vspace{2pt}
-\newline • Original Claim (exact quote from opponent)
-\newline • Challenge Type (Evidence/Principle Critique or Counter Evidence/Principle)
-\newline • Detailed Challenge (specific flaws or counter-arguments)
-\newline • Impact (strategic importance of winning this point)
-\vspace{4pt}
-\newline \textbf{Defensive Analysis}: Addressing vulnerabilities and additional support
-\newline \textbf{Weighing}: Comparative analysis of competing arguments
-\\
-\hline
-\textbf{3. Final Speech Structure} & \textbf{4. Judging Guidance (all speeches)} \\
-\hline
-\textbf{Framing}: Identification of core questions and evaluation lens
-\vspace{4pt}
-\newline \textbf{Key Clashes}, for each major disagreement:
-\vspace{2pt}
-\newline • Direct quotes of points of contention
-\newline • Case strength analysis
-\newline • Opponent response gaps
-\newline • Impact assessment
-\vspace{4pt}
-\newline \textbf{Voting Issues}: Priority analysis and final weighing
-&
-• \textbf{Direct Clash Analysis}: Requiring explicit quotation and direct engagement
-\newline • \textbf{Evidence Quality Hierarchy}: Prioritizing specific statistics and verifiable cases
-\newline • \textbf{Logical Validity}: Requiring explicit warrants and coherent reasoning
-\newline • \textbf{Response Obligations}: Penalizing dropped or late-addressed arguments
-\newline • \textbf{Impact Analysis \& Weighing}: Comparing competing impacts and principles
-\\
-\hline
-\end{tabular}
-\end{table}
+To ensure consistency and rigor across debates, we implemented structured prompts that enforced specific argumentation formats for each speech type. Each debater received prompts requiring:
+
+\begin{itemize}
+    \item \textbf{Opening speeches}: Three structured arguments with explicit claims, evidence/principles, and logical connections
+    \item \textbf{Rebuttal speeches}: Direct engagement with opponent's claims through quoted responses and counter-evidence
+    \item \textbf{Closing speeches}: Synthesis of key clashes and explicit weighing of competing arguments
+\end{itemize}
+
+All speeches were evaluated against five strict judging criteria: (1) direct clash analysis requiring explicit quotation, (2) evidence quality prioritizing specificity and verifiability, (3) logical validity with explicit warrants, (4) response obligations tracking dropped arguments, and (5) comparative impact analysis. This structure ensured debates focused on substantive argumentation rather than rhetorical style. Full prompt specifications are provided in Appendix~\ref{appendix:debater_prompts}.
 
 \subsection{Dynamic Confidence Elicitation}
 \label{subsec:confidence_elicitation}
@@ -436,7 +381,7 @@ This irrational upward drift, even when explicitly anchored to 50\%, shows persi
     \item \textbf{Public Bets}: Significant logical inconsistency (33.3\% with both sides >75\%)
 \end{itemize}
 
-\textbf{Statistical analysis}: As shown in Figure~\ref{fig:simultaneous_overconfidence} (see Table~\ref{tab:logical_impossibility} in Appendix~\ref{appendix:simultaneous_overconfidence_table} for full numbers), the pattern of simultaneous high confidence was persistent except when models were explicitly informed of the 50\% baseline probability. Across all 240 debates, 32.5\% ended with both sides claiming >75\% confidence, and 61.7\% ended with both sides claiming >50\% confidence.
+\textbf{Statistical analysis}: As in Figure~\ref{fig:simultaneous_overconfidence} (see Table~\ref{tab:simultaneous_overconfidence_table} for full numbers), simultaneous high confidence persisted unless models were reminded of the 50\% theoretical probability. Across all 240 debates, 32.5\% ended with both sides claiming >75\% confidence, and 61.7\% had both sides at >50\% confidence.
 
 \textbf{Implications}: Models independently escalate confidence without considering strength of opposing arguments. This failure to converge towards a state reflecting the actual debate outcome, or debate's zero-sum nature, highlights systemic miscalibration, only partially mitigated by explicit anchoring. \citet{Rivera_2024} observed that in high-stakes domains like military and diplomatic decision-making, overconfident models may persistently pursue aggression while ignoring catastrophic outcomes, believing their chances of victory far outweigh existing losses.
 
@@ -515,7 +460,7 @@ Our analysis of private reasoning versus public betting behavior (Finding 5) rai
 
 \paragraph{Judging Limitations and Win-Rate Imbalance.} Two related challenges affected our debate evaluation: (1) Opposition positions consistently won approximately 70\% of the time despite balanced topic design, and (2) establishing reliable ground truth for debate outcomes proved difficult. Our AI jury setup faced issues with inter-judge reliability (different LLMs reaching different conclusions) and intra-judge consistency (identical debates receiving different verdicts). Currently, without extensive human expert judging, we cannot definitively determine which model "won" a given debate.
 
-However, our core findings about systematic overconfidence remain valid because (a) the zero-sum nature of debates makes simultaneous high confidence logically impossible, and (b) we observed persistently high overconfidence patterns in self-debates where models faced exact copies of themselves—scenarios where win probability must mathematically be exactly 50\%. Details about our AI jury implementation can be found in Appendix \ref{appendix:ai_jury}.
+However, our core findings about systematic overconfidence remain valid because (a) the zero-sum nature of debates makes simultaneous high confidence logically impossible, and (b) we observed persistently high overconfidence in self-debates where models faced identical versions, and should not expect any advantages. Details of our AI jury implementation are in Appendix \ref{appendix:ai_jury}.
 
 \section{Conclusion}
 
@@ -594,7 +539,6 @@ All experiments were performed between February and May 2025
 \label{appendix:pairings}
 The debate pairings for this study were designed to ensure balanced experimental conditions while maximizing informative comparisons. We employed a two-phase pairing strategy that combined structured assignments with performance-based matching.
 
-
 \subsection{Pairing Objectives and Constraints}
 Our pairing methodology addressed several key requirements:
 \begin{itemize}
@@ -650,18 +594,11 @@ As shown in the table, the pairing schedule achieved nearly perfect balance, wit
 
 This balanced design ensured that observed confidence patterns were not artifacts of pairing methodology but rather reflected genuine metacognitive properties of the models being studied.
 
-
-
-
-
-
 \section{Debater Prompt Structures}
 \label{appendix:debater_prompts}
 
 \subsection{Opening Speech}
 \begin{verbatim}
-
-
 
     OPENING SPEECH STRUCTURE
 
@@ -847,7 +784,6 @@ This balanced design ensured that observed confidence patterns were not artifact
 
   \end{verbatim}
 
-
   \subsection{Closing Speech}
   \begin{verbatim}
 
@@ -937,9 +873,6 @@ This balanced design ensured that observed confidence patterns were not artifact
     The judge will ignore speaking style, rhetoric, and presentation. Focus entirely on argument substance, evidence quality, and logical reasoning. Your case will be evaluated based on what you explicitly prove, not what you assume or imply.
 
   \end{verbatim}
-
-
-
 
 \section{AI Jury Details}
 \label{appendix:ai_jury}
