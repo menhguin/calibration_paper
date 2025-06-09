@@ -254,12 +254,14 @@ We do not allow models to see both responses for the current round, as this woul
 \subsection{Core Prompt Structures \& Constraints}
 \label{subsec:prompts}
 
-To ensure consistency and rigor across debates, we implemented structured prompts that enforced specific argumentation formats for each speech type. Each debater received prompts requiring:
+To enforce substantive argumentation, we used structured prompts across all debates, enforcing a rigorous 3-speech format (Opening, Rebuttal, and Final) that prioritized logical clarity over rhetorical style. Key requirements for debaters included:
 
 \begin{itemize}
-    \item \textbf{Opening speeches}: Three structured arguments with explicit claims, evidence/principles, and logical connections
-    \item \textbf{Rebuttal speeches}: Direct engagement with opponent's claims through quoted responses and counter-evidence
-    \item \textbf{Closing speeches}: Synthesis of key clashes and explicit weighing of competing arguments
+    \item \textbf{Structured Argumentation:} Opening speeches required models to build arguments with distinct claims, specify support as either \textbf{Evidence} or \textbf{Principle}, and provide explicit logical connections. This structure deconstructs argumentation into verifiable components.
+
+    \item \textbf{Direct Clash:} Rebuttal speeches forced direct engagement by requiring models to \textbf{quote their opponent's exact claim} before presenting a counter-argument. This prevents debaters from ignoring or misrepresenting opposing points.
+
+    \item \textbf{Explicit Weighing:} Final speeches required models to identify core points of contention and provide a \textbf{comparative analysis} of competing arguments and impacts, demonstrating higher-order reasoning about the debate as a whole.
 \end{itemize}
 
 All speeches were evaluated against five strict judging criteria: (1) direct clash analysis requiring explicit quotation, (2) evidence quality prioritizing specificity and verifiability, (3) logical validity with explicit warrants, (4) response obligations tracking dropped arguments, and (5) comparative impact analysis. This structure ensured debates focused on substantive argumentation rather than rhetorical style. Full prompt specifications are provided in Appendix~\ref{appendix:debater_prompts}.
